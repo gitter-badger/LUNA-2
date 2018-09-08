@@ -13,9 +13,9 @@ sudo apt-get install macchanger macchanger-gtk
 sudo apt-get install xbacklight
 sudo apt install speedtest-cli speedtest-cli
 sudo apt-get install htop
-# wget --max-redirect=20 -O db.zip https://www.dropbox.com/s/aqqcevbmz7kxy4x/std_db.zip?dl=0
-# unzip db.zip
-# rm db.zip
+wget --max-redirect=20 -O db.zip https://www.dropbox.com/s/aqqcevbmz7kxy4x/std_db.zip?dl=0
+unzip db.zip
+rm db.zip
 
 if hash dict; then 
     echo "Secondary database is already installed"
