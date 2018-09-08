@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to the Luna Research Tool’s documentation! &#8212; the Luna Research Tool 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-the-luna-research-tool-s-documentation">
+<h1>Welcome to the Luna Research Tool&#8217;s documentation!<a class="headerlink" href="#welcome-to-the-luna-research-tool-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>This document is meant to give a tutorial-like overview of all common tasks
+while using Luna.</p>
+<p>The green arrows designate &#8220;more info&#8221; links leading to advanced sections about
+the described task.</p>
+<div class="section" id="install-luna">
+<h2>Install Luna<a class="headerlink" href="#install-luna" title="Permalink to this headline">¶</a></h2>
+<p>Install Luna, either from a distribution package or from
+<a class="reference external" href="https://pypi.python.org/pypi/Luna">PyPI</a> with</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install luna
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-the-documentation-sources">
+<h2>Setting up the documentation sources<a class="headerlink" href="#setting-up-the-documentation-sources" title="Permalink to this headline">¶</a></h2>
+<p>The root directory of a Luna collection of reStructuredText document sources
+is called the <span class="xref std std-term">source directory</span>.  This directory also contains the Luna
+configuration file <code class="file docutils literal"><span class="pre">conf.py</span></code>, where you can configure all aspects of how
+Luna reads your sources and builds your documentation.  <a class="footnote-reference" href="#id12" id="id1">[1]</a></p>
+<p>Luna comes with a script called <strong class="program">Luna-quickstart</strong> that sets up a
+source directory and creates a default <code class="file docutils literal"><span class="pre">conf.py</span></code> with the most useful
+configuration values from a few questions it asks you.  Just run</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ Luna-quickstart
+</pre></div>
+</div>
+<p>and answer its questions.  (Be sure to say yes to the &#8220;autodoc&#8221; extension.)</p>
+<p>There is also an automatic &#8220;API documentation&#8221; generator called
+<strong class="program">Luna-apidoc</strong>; see <span class="xref doc">/man/Luna-apidoc</span> for details.</p>
+</div>
+<div class="section" id="defining-document-structure">
+<h2>Defining document structure<a class="headerlink" href="#defining-document-structure" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s assume you&#8217;ve run <strong class="program">Luna-quickstart</strong>.  It created a source
+directory with <code class="file docutils literal"><span class="pre">conf.py</span></code> and a master document, <code class="file docutils literal"><span class="pre">index.rst</span></code> (if you
+accepted the defaults).  The main function of the <span class="xref std std-term">master document</span> is to
+serve as a welcome page, and to contain the root of the &#8220;table of contents tree&#8221;
+(or <em>toctree</em>).  This is one of the main things that Luna adds to
+reStructuredText, a way to connect multiple files to a single hierarchy of
+documents.</p>
+<div class="sidebar">
+<p class="first sidebar-title">reStructuredText directives</p>
+<p><code class="docutils literal"><span class="pre">toctree</span></code> is a reStructuredText <em class="dfn">directive</em>, a very versatile piece of
+markup.  Directives can have arguments, options and content.</p>
+<p><em>Arguments</em> are given directly after the double colon following the
+directive&#8217;s name.  Each directive decides whether it can have arguments, and
+how many.</p>
+<p><em>Options</em> are given after the arguments, in form of a &#8220;field list&#8221;.  The
+<code class="docutils literal"><span class="pre">maxdepth</span></code> is such an option for the <code class="docutils literal"><span class="pre">toctree</span></code> directive.</p>
+<p><em>Content</em> follows the options or arguments after a blank line.  Each
+directive decides whether to allow content, and what to do with it.</p>
+<p class="last">A common gotcha with directives is that <strong>the first line of the content must
+be indented to the same level as the options are</strong>.</p>
+</div>
+<p>The toctree directive initially is empty, and looks like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>You add documents listing them in the <em>content</em> of the directive:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+
+   <span class="n">intro</span>
+   <span class="n">tutorial</span>
+   <span class="o">...</span>
+</pre></div>
+</div>
+<p>This is exactly how the toctree for this documentation looks.  The documents to
+include are given as <span class="xref std std-term">document name</span>s, which in short means that you
+leave off the file name extension and use slashes as directory separators.</p>
+<p><img alt="more info" class="align-middle" src="more.png" /> Read more about <span class="xref std std-ref">the toctree directive</span>.</p>
+<p>You can now create the files you listed in the toctree and add content, and
+their section titles will be inserted (up to the &#8220;maxdepth&#8221; level) at the place
+where the toctree directive is placed.  Also, Luna now knows about the order
+and hierarchy of your documents.  (They may contain <code class="docutils literal"><span class="pre">toctree</span></code> directives
+themselves, which means you can create deeply nested hierarchies if necessary.)</p>
+</div>
+<div class="section" id="adding-content">
+<h2>Adding content<a class="headerlink" href="#adding-content" title="Permalink to this headline">¶</a></h2>
+<p>In Luna source files, you can use most features of standard reStructuredText.
+There are also several features added by Luna.  For example, you can add
+cross-file references in a portable way (which works for all output types) using
+the <code class="xref rst rst-role docutils literal"><span class="pre">ref</span></code> role.</p>
+<p>For an example, if you are viewing the HTML version you can look at the source
+for this document &#8211; use the &#8220;Show Source&#8221; link in the sidebar.</p>
+<p><img alt="more info" class="align-middle" src="more.png" /> See <span class="xref std std-ref">rst-primer</span> for a more in-depth introduction to
+reStructuredText and <span class="xref std std-ref">Lunamarkup</span> for a full list of markup added by
+Luna.</p>
+</div>
+<div class="section" id="running-the-build">
+<h2>Running the build<a class="headerlink" href="#running-the-build" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have added some files and content, let&#8217;s make a first build of the
+docs.  A build is started with the <strong class="program">Luna-build</strong> program, called like
+this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ Luna-build -b html sourcedir builddir
+</pre></div>
+</div>
+<p>where <em>sourcedir</em> is the <span class="xref std std-term">source directory</span>, and <em>builddir</em> is the
+directory in which you want to place the built documentation.
+The <code class="xref std std-option docutils literal"><span class="pre">-b</span></code> option selects a builder; in this example
+Luna will build HTML files.</p>
+<p><img alt="more info" class="align-middle" src="more.png" /> Refer to the <strong class="program">Luna-build man page &lt;Luna-build&gt;</strong> for all
+options that <strong class="program">Luna-build</strong> supports.</p>
+<p>However, <strong class="program">Luna-quickstart</strong> script creates a <code class="file docutils literal"><span class="pre">Makefile</span></code> and a
+<code class="file docutils literal"><span class="pre">make.bat</span></code> which make life even easier for you:  with them you only need
+to run</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ make html
+</pre></div>
+</div>
+<p>to build HTML docs in the build directory you chose.  Execute <code class="docutils literal"><span class="pre">make</span></code> without
+an argument to see which targets are available.</p>
+<div class="admonition-how-do-i-generate-pdf-documents admonition">
+<p class="first admonition-title">How do I generate PDF documents?</p>
+<p class="last"><code class="docutils literal"><span class="pre">make</span> <span class="pre">latexpdf</span></code> runs the <code class="xref py py-mod docutils literal"><span class="pre">LaTeX</span> <span class="pre">builder</span></code> and readily invokes the pdfTeX
+toolchain for you.</p>
+</div>
+</div>
+<div class="section" id="documenting-objects">
+<h2>Documenting objects<a class="headerlink" href="#documenting-objects" title="Permalink to this headline">¶</a></h2>
+<p>One of Luna&#8217;s main objectives is easy documentation of <em class="dfn">objects</em> (in a
+very general sense) in any <em class="dfn">domain</em>.  A domain is a collection of object
+types that belong together, complete with markup to create and reference
+descriptions of these objects.</p>
+<p>The most prominent domain is the Python domain. For example, to document
+Python&#8217;s built-in function <code class="docutils literal"><span class="pre">enumerate()</span></code>, you would add this to one of your
+source files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">py</span><span class="p">:</span><span class="n">function</span><span class="p">::</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sequence</span><span class="p">[,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">])</span>
+
+   <span class="n">Return</span> <span class="n">an</span> <span class="n">iterator</span> <span class="n">that</span> <span class="n">yields</span> <span class="n">tuples</span> <span class="n">of</span> <span class="n">an</span> <span class="n">index</span> <span class="ow">and</span> <span class="n">an</span> <span class="n">item</span> <span class="n">of</span> <span class="n">the</span>
+   <span class="o">*</span><span class="n">sequence</span><span class="o">*.</span> <span class="p">(</span><span class="n">And</span> <span class="n">so</span> <span class="n">on</span><span class="o">.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is rendered like this:</p>
+<dl class="function">
+<dt id="enumerate">
+<code class="descname">enumerate</code><span class="sig-paren">(</span><em>sequence</em><span class="optional">[</span>, <em>start=0</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#enumerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an iterator that yields tuples of an index and an item of the
+<em>sequence</em>. (And so on.)</p>
+</dd></dl>
+
+<p>The argument of the directive is the <em class="dfn">signature</em> of the object you
+describe, the content is the documentation for it.  Multiple signatures can be
+given, each in its own line.</p>
+<p>The Python domain also happens to be the default domain, so you don&#8217;t need to
+prefix the markup with the domain name:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">function</span><span class="p">::</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sequence</span><span class="p">[,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">])</span>
+
+   <span class="o">...</span>
+</pre></div>
+</div>
+<p>does the same job if you keep the default setting for the default domain.</p>
+<p>There are several more directives for documenting other types of Python objects,
+for example <code class="xref rst rst-dir docutils literal"><span class="pre">py:class</span></code> or <code class="xref rst rst-dir docutils literal"><span class="pre">py:method</span></code>.  There is also a
+cross-referencing <em class="dfn">role</em> for each of these object types.  This markup will
+create a link to the documentation of <code class="docutils literal"><span class="pre">enumerate()</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>The :py:func:`enumerate` function can be used for ...
+</pre></div>
+</div>
+<p>And here is the proof: A link to <a class="reference internal" href="#enumerate" title="enumerate"><code class="xref py py-func docutils literal"><span class="pre">enumerate()</span></code></a>.</p>
+<p>Again, the <code class="docutils literal"><span class="pre">py:</span></code> can be left out if the Python domain is the default one.  It
+doesn&#8217;t matter which file contains the actual documentation for <code class="docutils literal"><span class="pre">enumerate()</span></code>;
+Luna will find it and create a link to it.</p>
+<p>Each domain will have special rules for how the signatures can look like, and
+make the formatted output look pretty, or add specific features like links to
+parameter types, e.g. in the C/C++ domains.</p>
+<p><img alt="more info" class="align-middle" src="more.png" /> See <span class="xref std std-ref">domains</span> for all the available domains and their
+directives/roles.</p>
+</div>
+<div class="section" id="basic-configuration">
+<h2>Basic configuration<a class="headerlink" href="#basic-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Earlier we mentioned that the <code class="file docutils literal"><span class="pre">conf.py</span></code> file controls how Luna processes
+your documents.  In that file, which is executed as a Python source file, you
+assign configuration values.  For advanced users: since it is executed by
+Luna, you can do non-trivial tasks in it, like extending <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.path" title="(in Python v3.7)"><code class="xref py py-data docutils literal"><span class="pre">sys.path</span></code></a> or
+importing a module to find out the version you are documenting.</p>
+<p>The config values that you probably want to change are already put into the
+<code class="file docutils literal"><span class="pre">conf.py</span></code> by <strong class="program">Luna-quickstart</strong> and initially commented out
+(with standard Python syntax: a <code class="docutils literal"><span class="pre">#</span></code> comments the rest of the line).  To change
+the default value, remove the hash sign and modify the value.  To customize a
+config value that is not automatically added by <strong class="program">Luna-quickstart</strong>,
+just add an additional assignment.</p>
+<p>Keep in mind that the file uses Python syntax for strings, numbers, lists and so
+on.  The file is saved in UTF-8 by default, as indicated by the encoding
+declaration in the first line.  If you use non-ASCII characters in any string
+value, you need to use Python Unicode strings (like <code class="docutils literal"><span class="pre">project</span> <span class="pre">=</span> <span class="pre">u'ExposÃ©'</span></code>).</p>
+<p><img alt="more info" class="align-middle" src="more.png" /> See <span class="xref std std-ref">build-config</span> for documentation of all available config values.</p>
+</div>
+<div class="section" id="autodoc">
+<h2>Autodoc<a class="headerlink" href="#autodoc" title="Permalink to this headline">¶</a></h2>
+<p>When documenting Python code, it is common to put a lot of documentation in the
+source files, in documentation strings.  Luna supports the inclusion of
+docstrings from your modules with an <em class="dfn">extension</em> (an extension is a Python
+module that provides additional features for Luna projects) called &#8220;autodoc&#8221;.</p>
+<p>In order to use autodoc, you need to activate it in <code class="file docutils literal"><span class="pre">conf.py</span></code> by putting
+the string <code class="docutils literal"><span class="pre">'Luna.ext.autodoc'</span></code> into the list assigned to the
+<a href="#id2"><span class="problematic" id="id3">:confval:`extensions`</span></a> config value.  Then, you have a few additional directives
+at your disposal.</p>
+<p>For example, to document the function <code class="docutils literal"><span class="pre">io.open()</span></code>, reading its
+signature and docstring from the source file, you&#8217;d write this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">autofunction</span><span class="p">::</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span>
+</pre></div>
+</div>
+<p>You can also document whole classes or even modules automatically, using member
+options for the auto directives, like</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">automodule</span><span class="p">::</span> <span class="n">io</span>
+   <span class="p">:</span><span class="n">members</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>autodoc needs to import your modules in order to extract the docstrings.
+Therefore, you must add the appropriate path to <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.path" title="(in Python v3.7)"><code class="xref py py-data docutils literal"><span class="pre">sys.path</span></code></a> in your
+<code class="file docutils literal"><span class="pre">conf.py</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><code class="xref py py-mod docutils literal"><span class="pre">autodoc</span></code> <strong>imports</strong> the modules to be documented.  If any
+modules have side effects on import, these will be executed by <code class="docutils literal"><span class="pre">autodoc</span></code>
+when <code class="docutils literal"><span class="pre">Luna-build</span></code> is run.</p>
+<p class="last">If you document scripts (as opposed to library modules), make sure their main
+routine is protected by a <code class="docutils literal"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__'</span></code> condition.</p>
+</div>
+<p><img alt="more info" class="align-middle" src="more.png" /> See <code class="xref py py-mod docutils literal"><span class="pre">Luna.ext.autodoc</span></code> for the complete description of the
+features of autodoc.</p>
+</div>
+<div class="section" id="interluna">
+<h2>InterLuna<a class="headerlink" href="#interluna" title="Permalink to this headline">¶</a></h2>
+<p>Many Luna documents including the <a class="reference external" href="https://docs.python.org/3">Python documentation</a> are published on the
+internet.  When you want to make links to such documents from your
+documentation, you can do it with <code class="xref py py-mod docutils literal"><span class="pre">Luna.ext.interLuna</span></code>.</p>
+<p>In order to use interLuna, you need to activate it in <code class="file docutils literal"><span class="pre">conf.py</span></code> by
+putting the string <code class="docutils literal"><span class="pre">'Luna.ext.interLuna'</span></code> into the <a href="#id4"><span class="problematic" id="id5">:confval:`extensions`</span></a>
+list and set up the <a href="#id6"><span class="problematic" id="id7">:confval:`interLuna_mapping`</span></a> config value.</p>
+<p>For example, to link to <code class="docutils literal"><span class="pre">io.open()</span></code> in the Python library manual, you need to
+setup your <a href="#id8"><span class="problematic" id="id9">:confval:`interLuna_mapping`</span></a> like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">interLuna_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;python&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;https://docs.python.org/3&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)}</span>
+</pre></div>
+</div>
+<p>And now, you can write a cross-reference like <code class="docutils literal"><span class="pre">:py:func:`io.open`</span></code>.  Any
+cross-reference that has no matching target in the current documentation set,
+will be looked up in the documentation sets configured in
+<a href="#id10"><span class="problematic" id="id11">:confval:`interLuna_mapping`</span></a> (this needs access to the URL in order to
+download the list of valid targets).  InterLuna also works for some other
+<span class="xref std std-ref">domains&#8217;</span> roles including <code class="docutils literal"><span class="pre">:ref:</span></code>, however it doesn&#8217;t work for
+<code class="docutils literal"><span class="pre">:doc:</span></code> as that is non-domain role.</p>
+<p><img alt="more info" class="align-middle" src="more.png" /> See <code class="xref py py-mod docutils literal"><span class="pre">Luna.ext.interLuna</span></code> for the complete description of the
+features of interLuna.</p>
+</div>
+<div class="section" id="more-topics-to-be-covered">
+<h2>More topics to be covered<a class="headerlink" href="#more-topics-to-be-covered" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><span class="xref doc">Other extensions</span>:<ul>
+<li><span class="xref doc">ext/math</span>,</li>
+<li><span class="xref doc">ext/viewcode</span>,</li>
+<li><span class="xref doc">ext/doctest</span>,</li>
+<li>...</li>
+</ul>
+</li>
+<li>Static files</li>
+<li><span class="xref doc">Selecting a theme</span></li>
+<li><span class="xref doc">setuptools</span></li>
+<li><span class="xref std std-ref">Templating</span></li>
+<li>Using extensions</li>
+<li><span class="xref std std-ref">Writing extensions</span></li>
+</ul>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>This is the usual layout.  However, <code class="file docutils literal"><span class="pre">conf.py</span></code> can also live in
+another directory, the <span class="xref std std-term">configuration directory</span>.  Refer to the
+<strong class="program">Luna-build man page &lt;Luna-build&gt;</strong> for more information.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+<dl class="function">
+<dt>
+<code class="descname">enumerate</code><span class="sig-paren">(</span><em>sequence</em><span class="optional">[</span>, <em>start=0</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dd><p>Return an iterator that yields tuples of an index and an item of the
+<em>sequence</em>. (And so on.)</p>
+</dd></dl>
+
+<span class="target" id="module-luna"></span><p>Greetings.</p>
+<blockquote>
+<div>Copyright (c) FRTNX [Busani P. Ndlovu]</div></blockquote>
+<p>All rights reserved under the 3-clause BSD License:</p>
+<blockquote>
+<div><p>Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Redistributions of source code must retain the above copyright notice, this list of conditions
+and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice, this list of
+conditions and the following disclaimer in the documentation and/or other materials provided
+with the distribution.</li>
+<li>Neither the name FRTNX nor Busani P. Ndlovu nor any other moniker nor the names of any present
+or future contributors may be used to endorse or promote products derived from this software
+without specific prior written permission.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &#8220;AS IS&#8221; AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL CONTINUUM ANALYTICS, INC. BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<dl class="function">
+<dt id="luna.controlCentre">
+<code class="descclassname">luna.</code><code class="descname">controlCentre</code><span class="sig-paren">(</span><em>*s</em><span class="sig-paren">)</span><a class="headerlink" href="#luna.controlCentre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Welcome to the control centre.</p>
+<dl class="docutils">
+<dt>Valid function triggers are:</dt>
+<dd>&#8216;weather&#8217; for your current locations weather info
+&#8216;papers&#8217; for current headlines from selected sources
+&#8216;markets&#8217; for current stock market readings
+&#8216;help&#8217; should you wish to see this dialogue again
+&#8216;exit&#8217; to exit the program</dd>
+</dl>
+<p>Do not be surprised if more than the above can be done.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="luna.covertControl">
+<code class="descclassname">luna.</code><code class="descname">covertControl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#luna.covertControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Welcome to the other side.</p>
+<dl class="docutils">
+<dt>Valid function triggers are:</dt>
+<dd>&#8216;butler&#8217; to obtain a targets ip address, or an ip addresses owner
+&#8216;tracker&#8217; to track an ip address&#8217;s geographic location
+&#8216;recon&#8217; to get target server information
+&#8216;port&#8217; to run a port scan on a given target
+&#8216;strack&#8217; to geolocate a server given a url
+&#8216;study&#8217; if you wish to be educated on some program related issue
+&#8216;help&#8217; should you wish to see this dialogue again
+&#8216;exit&#8217; to exit covert ops</dd>
+</dl>
+<p>These are merely trigger words and may be used in a sentence.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="luna.lessons">
+<code class="descclassname">luna.</code><code class="descname">lessons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#luna.lessons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Greetings grasshopper.</p>
+<p>Well done on embarking on this journey of discovery.
+Hopefully you master the patience and wisdom necessary.</p>
+<dl class="docutils">
+<dt>In case you&#8217;ve been struggling with recon target ports,</dt>
+<dd><dl class="first last docutils">
+<dt>common ports are 21,22,25,80,110, and 443</dt>
+<dd>with a special emphasis on port 80...</dd>
+</dl>
+</dd>
+</dl>
+<p>Besides that, all roads lead back to the control centre.</p>
+<p>This is a reconanaisance program. Do not abuse it. nor expect heaven
+and earth from it.</p>
+<p>Happy scouting.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to the Luna Research Tool&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#install-luna">Install Luna</a></li>
+<li><a class="reference internal" href="#setting-up-the-documentation-sources">Setting up the documentation sources</a></li>
+<li><a class="reference internal" href="#defining-document-structure">Defining document structure</a></li>
+<li><a class="reference internal" href="#adding-content">Adding content</a></li>
+<li><a class="reference internal" href="#running-the-build">Running the build</a></li>
+<li><a class="reference internal" href="#documenting-objects">Documenting objects</a></li>
+<li><a class="reference internal" href="#basic-configuration">Basic configuration</a></li>
+<li><a class="reference internal" href="#autodoc">Autodoc</a></li>
+<li><a class="reference internal" href="#interluna">InterLuna</a></li>
+<li><a class="reference internal" href="#more-topics-to-be-covered">More topics to be covered</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, FRTNX [Busani P. Ndlovu].
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
