@@ -17,6 +17,7 @@ $```git clone https:github.com/FRTNX/LUNA```
 Then
 
 ```cd LUNA```
+
 ```python3 setup.py```
 
 This will will create a launcher and install dependecies. After the process completes it will automatically launch an instance of Luna. To run Luna in future simply run 
@@ -38,10 +39,10 @@ The program is feature rich and all though free text is accepted and processed a
 
 Luna is first and foremost a research tool. She may have conversational ability but that takes a second place. The philosphy here is a research tool that is
 
- light weight
- capable of delivering information offline or online
- anonymous with its web interactions
- data efficient, no cache, css, or unnecessary data. Only what you need. 
+ - light weight
+ - capable of delivering information offline or online
+ - anonymous with its web interactions
+ - data efficient, no cache, css, or unnecessary data. Only what you need. 
 
 Most of these objectives have already been met to some degree save for anonymity. I have chosen to use proxychains to handle all internet interactions. Due to the unavailability of time, I have not made good on this idea. What I currently see as the biggest challenge, perhaps naively, is how to manage the proxy servers list, ensuring that all requests go through an elite node first, and mitigating the latency this may cause.
 
