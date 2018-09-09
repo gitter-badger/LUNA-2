@@ -2,7 +2,7 @@
 
 A research tool.
 
-[![Alt text](screenshot.png?raw=true "Screenshot of online IDE")]
+[![Alt text](screenshot.png?raw=true "Screenshot of online IDE")](https://github.com/FRTNX/LUNA)
 
 # Installation
 
@@ -21,7 +21,7 @@ Then
 
 This will will create a launcher and install dependecies. After the process completes it will automatically launch an instance of Luna. To run Luna in future simply run 
 
-```$ luna```
+$```luna```
 
 ## User guide
 
