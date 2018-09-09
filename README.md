@@ -46,7 +46,7 @@ Luna is first and foremost a research tool. She may have conversational ability 
 
 Most of these objectives have already been met to some degree save for anonymity. I have chosen to use proxychains to handle all internet interactions. Due to the unavailability of time, I have not made good on this idea. What I currently see as the biggest challenge, perhaps naively, is how to manage the proxy servers list, ensuring that all requests go through an elite node first, and mitigating the latency this may cause.
 
-This program uses a terminal client in front of a mongodb database. The current database loaded upon install is rather heavy. To mitigate this, a batch of smaller initial databases will be released, along with some logic that will install a database best suited to the host machines resources. Improvements will continually be made to make it lighter still. My hope is that Luna will soon be able to run on any device running linux.
+This program uses a terminal client in front of a mongodb database. The current database loaded upon install is rather heavy. To mitigate this, a batch of smaller initial databases will be released, along with some logic that will install a database best suited to the host machines resources. Improvements will continually be made to make it lighter still.
 
 Personally, I use this tool everyday to chase down unfamiliar references made during conversation or stumbled upon in a book. I can honestly say that it has had a positive effect on me. It is a pretty fair attempt at ignorance management. In any case, I hope this tool nourishes your hungry mind as it has mine.  
 Contributions are welcome.
