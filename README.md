@@ -2,7 +2,7 @@
 
 A research tool.
 
-[![Alt text](screenshot.png?raw=true "Screenshot of online IDE")](https://github.com/FRTNX/LUNA)
+[![Alt text](screenshot.png?raw=true "Screenshot of online IDE")]
 
 # Installation
 
