@@ -2,6 +2,8 @@
 
 A research tool.
 
+[![Alt text](screenshot.png?raw=true "Screenshot of online IDE")]
+
 # Installation
 
 Choose the directory you would like to keep the code in. 
@@ -10,11 +12,12 @@ so store the code in a place you wont disturb.
 
 Inside your chosen directory run:
 
-```git clone https:github.com/FRTNX/LUNA```
+$```git clone https:github.com/FRTNX/LUNA```
 
 Then
-```cd LUNA
-python3 setup.py```
+
+```cd LUNA```
+```python3 setup.py```
 
 This will will create a launcher and install dependecies. After the process completes it will automatically launch an instance of Luna. To run Luna in future simply run 
 
