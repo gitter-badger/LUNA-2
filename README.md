@@ -4,7 +4,9 @@ A research tool.
 
 [![Alt text](screenshot.png?raw=true "Screenshot of Luna")](https://github.com/FRTNX/LUNA/blob/master/screenshot.png)
 
-# Installation
+# Installation (Linux)
+
+Please note that these instructions are for ubuntu 16.04 but should work for most other distributions. If you encounter any issues during installation please send a stack trace to the email provided at the bottom of this readme.
 
 Choose the directory you would like to keep the code in. 
 Please note that after setup is complete, moving this directory will break the launcher,
