@@ -1,5 +1,6 @@
 #!/bin/sh
 
+sudo apt-get -y install python3-setuptools
 sudo apt-get -y install python3-pip3
 pip3 install conda
 conda create -y --name luna python=3.6
@@ -13,9 +14,9 @@ sudo apt-get -y install macchanger macchanger-gtk
 sudo apt-get -y install xbacklight
 sudo apt -y install speedtest-cli speedtest-cli
 sudo apt-get -y install htop
-wget --max-redirect=20 -O db.zip https://www.dropbox.com/s/aqqcevbmz7kxy4x/std_db.zip?dl=0
-unzip db.zip
-rm db.zip
+# wget --max-redirect=20 -O db.zip https://www.dropbox.com/s/aqqcevbmz7kxy4x/std_db.zip?dl=0
+# unzip db.zip
+# rm db.zip
 
 if hash dict; then
     echo "Secondary database is already installed"
@@ -43,25 +44,25 @@ else
     sudo systemctl enable mongod
 fi
 
-pip3 install --upgrade pip3
-pip3 install pillow
-pip3 install lxml
-pip3 install google
-pip3 install googletrans
-pip3 install aiml
-pip3 install pymongo
-pip3 install geocoder
-pip3 install twython
-pip3 install bs4
-pip3 install ipgetter
-pip3 install colorama
-pip3 install wikipedia
-pip3 install ipgetter
-pip3 install colorama
-pip3 install nltk
-pip3 install geopy==1.11.0
-pip3 install google_images_download
-pip3 install inflect
+pip3 install --upgrade pip3==10.0.0
+pip3 install pillow --user
+pip3 install lxml --user
+pip3 install google --user
+pip3 install googletrans --user
+pip3 install aiml --user
+pip3 install pymongo --user
+pip3 install geocoder --user
+pip3 install twython --user
+pip3 install bs4 --user
+pip3 install ipgetter --user
+pip3 install colorama --user
+pip3 install wikipedia --user
+pip3 install ipgetter --user
+pip3 install colorama --user
+pip3 install nltk --user
+pip3 install geopy==1.11.0 --user
+pip3 install google_images_download --user
+pip3 install inflect --user
 
 
 # finally copy the nltk folder into host machines home dir
