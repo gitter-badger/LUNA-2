@@ -1,4 +1,3 @@
 #!/bin/sh
-#>>logs/luna.log 2>&1
-git pull origin master &>>logs/luna.log
-python3 luna.py
+
+gnome-terminal --geometry=130x128+800+0 -e "python3 luna.py"

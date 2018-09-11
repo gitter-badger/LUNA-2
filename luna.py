@@ -126,7 +126,6 @@ from multiprocessing.pool import ThreadPool
 from resources.algorithms import Stack
 from pymongo import MongoClient
 from subprocess import Popen
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from pymongo import MongoClient
 from difflib import SequenceMatcher
 from datetime import date
@@ -141,7 +140,6 @@ Initialisation:
 rootLogger.debug('Initialising...')
 layout = Nominatim()
 num_word_transform = inflect.engine()
-sid = SentimentIntensityAnalyzer()
 pool = ThreadPool(processes=1)
 # TODO:
 war_mode = False  # set to True to speed up output rate. Best for time critical operations.
@@ -184,7 +182,7 @@ listed_db = sci  # supports hot-switching. see controlCentre
 user = []
 eLog = []
 hh = []
-virgil = []  # the mark of man.
+virgil = []
 mc, h, header, agent, dr, uzer, cell, bullet, gbullet = promptLoader()
 LOCAL_TIMEZONE = str(datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo)
 catcher = []
@@ -338,6 +336,7 @@ def get_quotes():
         rootLogger.error(str(e))
         return
 
+
 def clean_db(void=False):
     rootLogger.info('Cleaning database.')
     dirty_files = False
@@ -421,17 +420,6 @@ def TimeOut():
     stutter("\n\n***Trust is such a fickle thing.***")
 
 
-def sentiment(text):
-    scores = sid.polarity_scores(text)
-    keys = list(scores)
-    score = 0
-    winner = ''
-    for key in keys:
-        if scores[key] > score:
-            score = scores[key]
-            winner = key
-    return winner
-
 def findExternalResource():
     H(); sprint("What do you need?")
     res = input(uzer)
@@ -474,7 +462,7 @@ def imageShow(entity, num_instances):
             hsize = int((float(img.size[1]) * float(wpercent)))
             img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
             img.show()
-        time.sleep(20)
+        # time.sleep(20)
         os.system('rm -r ./downloads/%s --force' % entity)
         return
     except Exception as e:
@@ -676,7 +664,7 @@ def code_search():
     controlCentre()
 
 
-# if you're on a space station and have forgotten your basic mathematical training
+# if you're on a space craft and have forgotten your basic mathematical training
 # this might come in handy... well not really. you're fucked. have a nice day.
 # TODO: to be implemented
 def lightSpeed():
@@ -709,8 +697,9 @@ def gridWeight(entity):
         H(); sprint("%s has an importance weight of %s" % (entity.title(), loc.raw['importance']))
         controlCentre()
     except Exception as e:
-        # H(); print(e)
+        rootLogger.error(e)
         gridWeight(entity)
+
 
 def find_root(t):
     index = float(t[t.find('the')+4:t.find('root')-1])
@@ -718,6 +707,7 @@ def find_root(t):
     root = radicand**(1/index)
     H(); sprint('The %s root of %s is %s' % (index, radicand, root))
     controlCentre()
+
 
 def converter(string):
     request = string
