@@ -81,7 +81,7 @@ bye = ["Till we meet again.","Good bye user.","Adieu.","Goodluck out there.","Fa
 
 am = ["Good morning ","Morning ", "A fair morning to you ","Good morning ","Hello " ,"Greetings "]
 
-pm = ["Good afternoon ","Afternoon ", "Hello "]
+pm = ["Good afternoon ","Afternoon ", "Hello ", "Greetings "]
 
 eve = ["Good evening ","Evenin' ", "A fair evening to you ", "Hello ", "Greetings "]
 
