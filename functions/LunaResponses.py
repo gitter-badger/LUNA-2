@@ -83,7 +83,7 @@ am = ["Good morning ","Morning ", "A fair morning to you ","Good morning ","Hell
 
 pm = ["Good afternoon ","Afternoon ", "Hello "]
 
-eve = ["Good evening ","Evenin' ", "A fair evening to you ", "Hello ", "Greetings"]
+eve = ["Good evening ","Evenin' ", "A fair evening to you ", "Hello ", "Greetings "]
 
 def stutter(*s):
     for i in s:
