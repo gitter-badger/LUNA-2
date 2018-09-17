@@ -285,7 +285,7 @@ def Hello():
     print(str(now))
     banners = ['banner1.py'] # banner1 bias
     banner = random.choice(banners)
-    os.system('python ./resources/banners/%s' % banner)
+    os.system('python3 ./resources/banners/%s' % banner)
     time.sleep(1)
     categories = ["ethos", "AI", "Maths"] # TODO: remove all but ethos before publishing
     all_files = []
@@ -824,7 +824,7 @@ def confessional(*e):
             async_res = pool.apply_async(prepare_listing)
             H(); sprint("I've done my homework on the following:")
             db_banners = ['db_banner2.py'] # for posterity: add other database banners here
-            os.system('python ./resources/banners/%s' % random.choice(db_banners))
+            os.system('python3 ./resources/banners/%s' % random.choice(db_banners))
             rootLogger.info('Compiling database. This might take a while...')
             compiled = False
             while not compiled:
@@ -2139,7 +2139,7 @@ def controlCentre(*s):
 
         elif prompt == 'banner':
             banners = ['db_banner2.py'] # for future: add other banners here
-            os.system('python ./resources/banners/%s' % random.choice(banners))
+            os.system('python3 ./resources/banners/%s' % random.choice(banners))
             controlCentre()
 
         elif prompt.startswith('find the') and 'root' in prompt:
@@ -2378,7 +2378,7 @@ def controlCentre(*s):
 
         elif prompt == 'history':
             print('')
-            os.system('sudo python herodotus.py')
+            os.system('sudo python3 herodotus.py')
             controlCentre()
 
         elif 'exit' in prompt:
