@@ -14,7 +14,7 @@ so store the code in a place you wont disturb.
 
 Inside your chosen directory run:
 
-$```git clone https:github.com/FRTNX/LUNA```
+```git clone https:github.com/FRTNX/LUNA```
 
 Then
 
@@ -24,7 +24,7 @@ Then
 
 This will will create a launcher and install dependecies. After the process completes it will automatically launch an instance of Luna. To run Luna in future simply run 
 
-$```luna```
+```luna```
 
 ## User guide
 
