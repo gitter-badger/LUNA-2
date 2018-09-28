@@ -50,7 +50,7 @@ Most of these objectives have already been met to some degree save for anonymity
 
 This program uses a terminal client in front of a mongodb database. The current database loaded upon install is rather heavy. To mitigate this, a batch of smaller initial databases will be released, along with some logic that will install a database best suited to the host machines resources. Improvements will continually be made to make it lighter still.
 
-Personally, I use this tool everyday to chase down unfamiliar references made during conversation or stumbled upon in a book. I can honestly say that it has had a positive effect on me. It is a pretty fair attempt at ignorance management. In any case, I hope this tool nourishes your hungry mind as it has mine.  
+  
 Contributions are welcome.
 
 Please report all bugs to frtnx@protonmail.com
