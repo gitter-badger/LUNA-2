@@ -3,7 +3,7 @@
 sudo apt-get update
 sudo apt-get -y install build-essential
 sudo apt-get -y install python3-setuptools
-sudo apt-get -y install python3-pip3
+sudo apt-get -y install python3-pip
 pip3 install conda
 conda create -y --name luna python=3.6
 source activate luna
@@ -16,9 +16,9 @@ sudo apt-get -y install macchanger macchanger-gtk
 sudo apt-get -y install xbacklight
 sudo apt -y install speedtest-cli speedtest-cli
 sudo apt-get -y install htop
-# wget --max-redirect=20 -O db.zip https://www.dropbox.com/s/aqqcevbmz7kxy4x/std_db.zip?dl=0
-# unzip db.zip
-# rm db.zip
+wget --max-redirect=20 -O db.zip https://www.dropbox.com/s/aqqcevbmz7kxy4x/std_db.zip?dl=0
+unzip db.zip
+rm db.zip
 
 if hash dict; then
     echo "Secondary database is already installed"
@@ -46,7 +46,6 @@ else
     sudo systemctl enable mongod
 fi
 
-pip3 install --upgrade pip3==10.0.0
 pip3 install pillow --user
 pip3 install lxml --user
 pip3 install google --user
