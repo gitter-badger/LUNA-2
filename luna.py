@@ -2086,7 +2086,6 @@ def controlCentre(*s):
             return
 
         elif 'weather' in prompt:
-            H(); sprint('Hmmm. Lets see...')
             weather()
             return
 
@@ -2206,7 +2205,7 @@ def controlCentre(*s):
             rootLogger.debug('Turning wifi on.')
             os.system('sudo service network-manager restart')
             rootLogger.debug('Restarting network manager.')
-            H(); sprint('Diagnosis complete. Counter-measures deplyed.')
+            H(); sprint('Diagnosis complete. Counter-measures deployed.')
             controlCentre()
 
         elif 'all systems shutdown' in prompt:
