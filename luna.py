@@ -369,7 +369,7 @@ def identify():
         user_name = input("\n                                              Code Name:")
         #users = get_known_users()
 
-        if user_name == os.g("PRIUSER"):
+        if user_name == os.getenv("PRIUSER"):
             user.append(user_name)
             uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
             uzer = uheader
@@ -641,21 +641,8 @@ def code_search():
     root_dir = input(uzer)
     ftypes = ['*']
     try:
-        for ftype in ftypes:
-            try:
-                for filename in glob.iglob(root_dir+'**/*.%s' % ftype, recursive=True):
-
-                    f = open(filename, 'r')
-                    ff = f.read()
-                    f.close()
-                    ff.encode('utf-8')
-                    res = ff.find(term)
-
-                    if res != -1:
-                        print("'"+term+"' found in ",filename+" char ",res)
-            except Exception as e:
-                print(e)
-                pass
+        H(); sprint("Looking it up..")
+        os.system("gnome-terminal -e \"grep -rnw '%s' -e '%s'\"" % (root_dir, term))
     except KeyboardInterrupt as e:
         controlCentre()
     except Exception as e:
