@@ -369,7 +369,7 @@ def identify():
         user_name = input("\n                                              Code Name:")
         #users = get_known_users()
 
-        if user_name == os.environ["PRIUSER"]:
+        if user_name == os.g("PRIUSER"):
             user.append(user_name)
             uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
             uzer = uheader
@@ -486,8 +486,8 @@ def alert(name):
     Name = name.title()
 
     try:
-        fa = os.environ['LUNADDR']
-        ta = os.environ['MYEMAIL']
+        fa = os.getenv('LUNADDR')
+        ta = os.getenv('MYEMAIL')
         msg = MIMEMultipart()
         msg['From'] = fa
         msg['To'] = ta
@@ -496,7 +496,7 @@ def alert(name):
         msg.attach(MIMEText(body,'plain'))
         server = smtplib.SMTP('smtp.gmail.com',587)
         server.starttls()
-        server.login(fa, os.environ['EMAILPWD'])
+        server.login(fa, os.getenv('LUNADDR'))
         text = msg.as_string()
         server.sendmail(fa,ta,text)
         server.quit()
@@ -507,8 +507,8 @@ def alert(name):
 
 def log(detail):
     try:
-        fa = os.environ['LUNADDR']
-        ta = os.environ['MYEMAIL']
+        fa = os.getenv('LUNADDR')
+        ta = os.getenv('MYEMAIL')
         msg = MIMEMultipart()
         msg['From'] = fa
         msg['To'] = ta
@@ -553,7 +553,7 @@ def log(detail):
         msg.attach(MIMEText(body,'plain'))
         server = smtplib.SMTP('smtp.gmail.com',587)
         server.starttls()
-        server.login(fa, os.environ['EMAILPWD'])
+        server.login(fa, os.getenv('LUNADDR'))
         text = msg.as_string()
         server.sendmail(fa,ta,text)
         server.quit()
@@ -566,8 +566,8 @@ def delete_latest():
     numMessages = 2
     try:
         mailserver = poplib.POP3_SSL('pop.gmail.com')
-        mailserver.user('recent:%s' % os.environ['LUNADDR'])
-        mailserver.pass_(os.environ['EMAILPWD'])
+        mailserver.user('recent:%s' % os.getenv('LUNADDR'))
+        mailserver.pass_(os.getenv('EMAILPWD'))
         numMessages = len(mailserver.list()[1])
         mailserver.dele(numMessages)
         mailserver.quit()
@@ -631,7 +631,7 @@ def human_lang_translator(text):
 # unfinished and hopefully unused.
 def restart():
     return # sequence.
-    controlCentre() # Bad 
+    controlCentre() # Bad
 
 
 def code_search():
@@ -768,7 +768,7 @@ def converter(string):
         except Exception as e:
             print(str(e))
             controlCentre()
-            
+
 
 def help_center():
     f = open('commands.txt', 'r')
@@ -797,7 +797,7 @@ def directions(req):
 
 def prepare_listing():
     temp = []
-    temp2 = []   
+    temp2 = []
     for file in listed_db.find():
         if '\n' not in file['title']:
             if len(file['title']) < 40:
@@ -839,9 +839,9 @@ def confessional(*e):
             temp.sort(); temp2.sort()
             raw = str(listed_db)[len(str(listed_db))-20:]  # this is a really
             db_name = raw[raw.find(',')+1:].replace(')', '').replace("'", '').strip() # bad
-            rootLogger.info('Finished loading %s database. latency is at %s seconds.' % (db_name, str(end-start))) # algorithm            
+            rootLogger.info('Finished loading %s database. latency is at %s seconds.' % (db_name, str(end-start))) # algorithm
             rootLogger.debug('len(temp) = %s' % len(temp))
-            rootLogger.debug('len(temp2) = %s' % len(temp2))            
+            rootLogger.debug('len(temp2) = %s' % len(temp2))
 
             file_count = len(temp)+len(temp2)
 
@@ -992,7 +992,7 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
                 if 'displaystyle' not in x[:stop] and 'textstyle' not in x[:stop]:
                     sprintV(x[:stop])
                 else:
-                    output_controller(x[:stop])                
+                    output_controller(x[:stop])
                 directive(x, y, stop, *['enable-saving'])
             except KeyboardInterrupt as e:
                 print('\n')
@@ -1026,7 +1026,7 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
                 rootLogger.info('"%s" found. latency is at %s seconds.' % (mark, str(end-start+latency)))
                 H(); sprint(bullet+"\n")
                 if flesh:
-                    rootLogger.info('Fleshing out requested document.')                    
+                    rootLogger.info('Fleshing out requested document.')
                     directive(content, mark, stop+3, *['flesh'])
                     controlCentre()
                     return
@@ -1061,7 +1061,7 @@ def directive(content, title, interm, *mode):
         if 'displaystyle' not in content[interm:] and 'textstyle' not in content[interm:]:
             H(); print(content[interm:])
         else:
-            H(); output_controller(content[interm:], *['plain'])        
+            H(); output_controller(content[interm:], *['plain'])
         if not mode:
             directive(content, title, interm, *['breakrecursion'])
         else:
@@ -1118,7 +1118,7 @@ def flesh_fryer(flesh):
     if 'displaystyle' not in flesh and 'textstyle' not in flesh:
         print(flesh)
     else:
-        output_controller(flesh, *['plain'])   
+        output_controller(flesh, *['plain'])
     return
 
 
@@ -1316,7 +1316,7 @@ def zen():
     for file in files.find({'code_name': 'koan'}):
         koans.append(file['payload'][0])
     H(); print('\n'+random.choice(koans))
-    controlCentre() 
+    controlCentre()
 
 def nearby(req):
     try:
@@ -1348,9 +1348,9 @@ def porter():
     H(); sprint("Who's the mark?")
     target = input(uzer)
     try:
-        fa = os.environ['LUNADDR']
+        fa = os.getenv('LUNADDR')
         if not target:
-            ta = os.environ['MYEMAIL']
+            ta = os.getenv('MYEMAIL')
         else:
             ta = target
         msg = MIMEMultipart()
@@ -1361,7 +1361,7 @@ def porter():
         msg.attach(MIMEText(body,'plain'))
         server = smtplib.SMTP('smtp.gmail.com',587)
         server.starttls()
-        server.login(fa, os.environ['EMAILPWD'])
+        server.login(fa, os.getenv('EMAILPWD'))
         text = msg.as_string()
         server.sendmail(fa,ta,text)
         server.quit()
@@ -2365,7 +2365,7 @@ def controlCentre(*s):
             else:
                 auth = getpass.getpass()
 
-                if auth == os.environ['SHADOW']:
+                if auth == os.getenv['SHADOW']:
                     Engage()
 
                 else:
