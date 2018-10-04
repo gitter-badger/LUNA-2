@@ -2352,7 +2352,7 @@ def controlCentre(*s):
             else:
                 auth = getpass.getpass()
 
-                if auth == os.getenv['SHADOW']:
+                if auth == os.getenv('SHADOW'):
                     Engage()
 
                 else:
