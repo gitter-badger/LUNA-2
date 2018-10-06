@@ -627,13 +627,6 @@ def human_lang_translator(text):
     init_translator(*['session'])
 
 
-# restart Luna
-# unfinished and hopefully unused.
-def restart():
-    return # sequence.
-    controlCentre() # Bad
-
-
 def code_search():
     H(); sprint('Enter phrase or code snippet')
     term = input(uzer)
