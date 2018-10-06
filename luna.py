@@ -66,7 +66,7 @@ curFiles = os.listdir('./')
 
 if 'ok.txt' not in curFiles:
     rootLogger.info('Running luna setup...')
-    os.system('bash install_dependencies.sh')
+    # os.system('bash install_dependencies.sh')
     for file in curFiles:
         if file.startswith('dump'):
             try:
