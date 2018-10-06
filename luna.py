@@ -1123,7 +1123,6 @@ def output_controller(content, *plain):
 shit_times = 1
 
 
-# used a exclusively by weather() to convert city name to lat-long values
 def find_lc(city):
     # rootLogger.debug('find_lc recived %s' % city)
     global shit_times
