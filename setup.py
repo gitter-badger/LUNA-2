@@ -14,7 +14,7 @@ def launcher():
             'export LUNADDR="Aqua"\n',
             'export SHADOW="CALIPSO"\n',
             'export PRIUSER="Aura"\n',
-            'git pull origin master &>> ./logs/luna.log\n',
+            'git pull >> ./logs/luna.log\n',
             './luna.sh "$@"\n',]
     conf[1] = 'cd %s\n' % cwd
     if not os.path.isdir("/usr/local/bin/"):
