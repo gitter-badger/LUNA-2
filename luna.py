@@ -155,7 +155,7 @@ except Exception as e:
     rootLogger.error(e)
     rootLogger.error("I'm brainless.")
 
-threading.Thread(target=character_loader, args=(k,))
+threading.Thread(target=character_loader, args=(k,)).start()
 threading.Thread(target=get_coords).start()
 
 client = MongoClient()
