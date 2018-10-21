@@ -98,9 +98,10 @@ def character_loader(brain):
 
 def guava():
     try:
-        fruit_juice = geocoder.ip('me')
-        rootLogger.info(fruit_juice)
-        return fruit_juice
+        fruit_juice = str(geocoder.ip('me'))
+        squeeze = fruit_juice[24:len(fruit_juice)-2]
+        rootLogger.info(squeeze)
+        return squeeze
     except Exception as e:
         print("offline mode")
         rootLogger.debug("Location unobtainable.")
