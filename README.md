@@ -22,7 +22,7 @@ Then
 
 ```python3 setup.py```
 
-This will will create a launcher and install dependecies. After the process completes it will automatically launch an instance of Luna. To run Luna in future simply open a terminal and run 
+This will will create a launcher and install dependecies. After the process completes it will automatically launch an instance of Luna. To run Luna in future simply open a terminal and enter 
 
 ```luna```
 
