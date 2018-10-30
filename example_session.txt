@@ -1,0 +1,828 @@
+Loading brain from ./brain/brain_20181016_122910.aar...done (212362 categories in 6.60 seconds)
+offline mode
+offline mode
+offline mode
+-------------------------------------------------------------------------------
+Suggested Reading:
+-------------------------------------------------------------------------------
+Topological dimension
+PrimeGrid, biggest search for primes.
+Point-finite collection
+List of U.S. states and territories by population
+Interdisciplinarity
+-------------------------------------------------------------------------------
+2018-10-30 11:31:26.020535
+
+
+
+                                           006000           
+                                         000300F000         
+                          44            0000R0000010        
+                         4444           000000T07000        
+                        444444           0N0000110         
+                       44444444            00X000           
+     888              4444444444                            
+     888             444444444444                           
+     888      5555  444 5555 121 4    121 999999             
+     888      5555 4444 5555 1212 4   121 99   99           __________________________________            
+     888      5555 4444 5555 1 121 4  121 99999999             | Luna Version 0.0.1           
+     888888888 55554444 5555 14 121 4 121 9     999            | Creator: FRTNX        
+     888888888 5555555555 55 144 12121212 9      999           | Contact: frtnx@protonmail.com         
+               444444444444444444444444                     
+              44444444444444444444444444                    
+             4444444444444444444444444444                
+
+
+
+
+[LUNA] You are free; you are free to go to your temples, you are free to go to your mosques or to any other place or worship in this State of Pakistan. You may belong to any religion or caste or creed - that has nothing to do with the business of the State.
+
+                                              Code Name:FRTNX
+
+[LUNA] Hello commander.
+
+[FRTNX] terminal
+
+[LUNA] Terminal open.
+
+frtnx@blueterm$ speedtest
+Retrieving speedtest.net configuration...
+Testing from Internet Solutions (196.37.106.229)...
+Retrieving speedtest.net server list...
+Selecting best server based on ping...
+Hosted by MTN SA (Johannesburg) [3.21 km]: 1800000.0 ms
+Testing download speed................................................................................
+Download: 0.11 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 4.86 Mbit/s
+
+frtnx@blueterm$ exit
+
+[LUNA] Terminal terminated.
+
+[FRTNX] weather
+
+[LUNA] Couldn't. Check the logs.
+
+[FRTNX] weathwr
+
+[LUNA] We have never talked about it before.
+
+[FRTNX] weather
+
+[LUNA] Couldn't. Check the logs.
+
+[FRTNX] network diagnostics
+
+[sudo] password for frtnx: 
+
+[LUNA] Diagnosis complete. Counter-measures deplyed.
+
+[FRTNX] weathwr
+
+[LUNA] I'm here to help you in any way I can.
+
+[FRTNX] weather 
+
+[LUNA] Couldn't. Check the logs.
+
+[FRTNX] weather
+
+Todays temperatures range between 15˚c and 29˚c. Currently we are at a hot 28˚c.
+Humidity is at 23%. Wind speed is at 6m/s.
+Skies are clear. Mostly cloudy starting in the afternoon.
+By the way, there's  light rain on thursday through next tuesday, with high temperatures falling to 20°c on thursday.  
+
+[FRTNX] gnome-terminal
+
+[LUNA] Terminal open.
+
+frtnx@blueterm$ gnome-terminal
+
+frtnx@blueterm$ gnome-terminal -e htop
+
+frtnx@blueterm$ msfconsole
+Found a database at /home/frtnx/.msf4/db, checking to see if it is started
+Starting database at /home/frtnx/.msf4/db...success
+This copy of metasploit-framework is more than two weeks old.
+ Consider running 'msfupdate' to update to the latest version.
+                                                  
+
+                                   .,,.                  .
+                                .\$$$$$L..,,==aaccaacc%#s$b.       d8,    d8P
+                     d8P        #$$$$$$$$$$$$$$$$$$$$$$$$$$$b.    `BP  d888888p
+                  d888888P      '7$$$$\""""''^^`` .7$$$|D*"'```         ?88'
+  d8bd8b.d8p d8888b ?88' d888b8b            _.os#$|8*"`   d8P       ?8b  88P
+  88P`?P'?P d8b_,dP 88P d8P' ?88       .oaS###S*"`       d8P d8888b $whi?88b 88b
+ d88  d8 ?8 88b     88b 88b  ,88b .osS$$$$*" ?88,.d88b, d88 d8P' ?88 88P `?8b
+d88' d88b 8b`?8888P'`?8b`?88P'.aS$$$$Q*"`    `?88'  ?88 ?88 88b  d88 d88
+                          .a#$$$$$$"`          88b  d8P  88b`?8888P'
+                       ,s$$$$$$$"`             888888P'   88n      _.,,,ass;:
+                    .a$$$$$$$P`               d88P'    .,.ass%#S$$$$$$$$$$$$$$'
+                 .a$###$$$P`           _.,,-aqsc#SS$$$$$$$$$$$$$$$$$$$$$$$$$$'
+              ,a$$###$$P`  _.,-ass#S$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$####SSSS'
+           .a$$$$$$$$$$SSS$$$$$$$$$$$$$$$$$$$$$$$$$$$$SS##==--""''^^/$$$$$$'
+_______________________________________________________________   ,&$$$$$$'_____
+                                                                 ll&&$$$$'
+                                                              .;;lll&&&&'
+                                                            ...;;lllll&'
+                                                          ......;;;llll;;;....
+                                                           ` ......;;;;... .  .
+
+
+       =[ metasploit v4.17.6-dev-                         ]
++ -- --=[ 1801 exploits - 1023 auxiliary - 311 post       ]
++ -- --=[ 538 payloads - 41 encoders - 10 nops            ]
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]
+
+msf > update
+[-] Unknown command: update.
+msf > help
+
+Core Commands
+=============
+
+    Command       Description
+    -------       -----------
+    ?             Help menu
+    banner        Display an awesome metasploit banner
+    cd            Change the current working directory
+    color         Toggle color
+    connect       Communicate with a host
+    exit          Exit the console
+    get           Gets the value of a context-specific variable
+    getg          Gets the value of a global variable
+    grep          Grep the output of another command
+    help          Help menu
+    history       Show command history
+    irb           Drop into irb scripting mode
+    load          Load a framework plugin
+    quit          Exit the console
+    route         Route traffic through a session
+    save          Saves the active datastores
+    sessions      Dump session listings and display information about sessions
+    set           Sets a context-specific variable to a value
+    setg          Sets a global variable to a value
+    sleep         Do nothing for the specified number of seconds
+    spool         Write console output into a file as well the screen
+    threads       View and manipulate background threads
+    unload        Unload a framework plugin
+    unset         Unsets one or more context-specific variables
+    unsetg        Unsets one or more global variables
+    version       Show the framework and console library version numbers
+
+
+Module Commands
+===============
+
+    Command       Description
+    -------       -----------
+    advanced      Displays advanced options for one or more modules
+    back          Move back from the current context
+    info          Displays information about one or more modules
+    loadpath      Searches for and loads modules from a path
+    options       Displays global options or for one or more modules
+    popm          Pops the latest module off the stack and makes it active
+    previous      Sets the previously loaded module as the current module
+    pushm         Pushes the active or list of modules onto the module stack
+    reload_all    Reloads all modules from all defined module paths
+    search        Searches module names and descriptions
+    show          Displays modules of a given type, or all modules
+    use           Selects a module by name
+
+
+Job Commands
+============
+
+    Command       Description
+    -------       -----------
+    handler       Start a payload handler as job
+    jobs          Displays and manages jobs
+    kill          Kill a job
+    rename_job    Rename a job
+
+
+Resource Script Commands
+========================
+
+    Command       Description
+    -------       -----------
+    makerc        Save commands entered since start to a file
+    resource      Run the commands stored in a file
+
+
+Developer Commands
+==================
+
+    Command       Description
+    -------       -----------
+    edit          Edit the current module or a file with the preferred editor
+    log           Displays framework.log starting at the bottom if possible
+    reload_lib    Reload one or more library files from specified paths
+
+
+Database Backend Commands
+=========================
+
+    Command           Description
+    -------           -----------
+    db_connect        Connect to an existing database
+    db_disconnect     Disconnect from the current database instance
+    db_export         Export a file containing the contents of the database
+    db_import         Import a scan result file (filetype will be auto-detected)
+    db_nmap           Executes nmap and records the output automatically
+    db_rebuild_cache  Rebuilds the database-stored module cache
+    db_status         Show the current database status
+    hosts             List all hosts in the database
+    loot              List all loot in the database
+    notes             List all notes in the database
+    services          List all services in the database
+    vulns             List all vulnerabilities in the database
+    workspace         Switch between database workspaces
+
+
+Credentials Backend Commands
+============================
+
+    Command       Description
+    -------       -----------
+    creds         List all credentials in the database
+
+msf > search
+[-] Argument required
+
+Usage: search [ options ] <keywords>
+
+OPTIONS:
+  -h                Show this help information
+  -o <file>         Send output to a file in csv format
+  -S <string>       Search string for row filter
+
+Keywords:
+  app       :  Modules that are client or server attacks
+  author    :  Modules written by this author
+  bid       :  Modules with a matching Bugtraq ID
+  cve       :  Modules with a matching CVE ID
+  edb       :  Modules with a matching Exploit-DB ID
+  name      :  Modules with a matching descriptive name
+  platform  :  Modules affecting this platform
+  port      :  Modules with a matching port
+  ref       :  Modules with a matching ref
+  type      :  Modules of a specific type (exploit, auxiliary, or post)
+
+Examples:
+  search cve:2009 type:exploit app:client
+
+msf > search name:microsoft type:exploit
+[!] Module database cache not built yet, using slow search
+
+Matching Modules
+================
+
+   Name                                                         Disclosure Date  Rank       Description
+   ----                                                         ---------------  ----       -----------
+   exploit/multi/fileformat/office_word_macro                   2012-01-10       excellent  Microsoft Office Word Malicious Macro Execution
+   exploit/windows/brightstor/sql_agent                         2005-08-02       average    CA BrightStor Agent for Microsoft SQL Overflow
+   exploit/windows/browser/ie_cbutton_uaf                       2012-12-27       normal     MS13-008 Microsoft Internet Explorer CButton Object Use-After-Free Vulnerability
+   exploit/windows/browser/ie_cgenericelement_uaf               2013-05-03       good       MS13-038 Microsoft Internet Explorer CGenericElement Object Use-After-Free Vulnerability
+   exploit/windows/browser/ie_createobject                      2006-04-11       excellent  MS06-014 Microsoft Internet Explorer COM CreateObject Code Execution
+   exploit/windows/browser/ie_execcommand_uaf                   2012-09-14       good       MS12-063 Microsoft Internet Explorer execCommand Use-After-Free Vulnerability 
+   exploit/windows/browser/ie_iscomponentinstalled              2006-02-24       normal     Microsoft Internet Explorer isComponentInstalled Overflow
+   exploit/windows/browser/ie_setmousecapture_uaf               2013-09-17       normal     MS13-080 Microsoft Internet Explorer SetMouseCapture Use-After-Free
+   exploit/windows/browser/ie_unsafe_scripting                  2010-09-20       manual     Microsoft Internet Explorer Unsafe Scripting Misconfiguration
+   exploit/windows/browser/ms03_020_ie_objecttype               2003-06-04       normal     MS03-020 Microsoft Internet Explorer Object Type
+   exploit/windows/browser/ms05_054_onload                      2005-11-21       normal     MS05-054 Microsoft Internet Explorer JavaScript OnLoad Handler Remote Code Execution
+   exploit/windows/browser/ms06_013_createtextrange             2006-03-19       normal     MS06-013 Microsoft Internet Explorer createTextRange() Code Execution
+   exploit/windows/browser/ms06_055_vml_method                  2006-09-19       normal     MS06-055 Microsoft Internet Explorer VML Fill Method Code Execution
+   exploit/windows/browser/ms06_057_webview_setslice            2006-07-17       normal     MS06-057 Microsoft Internet Explorer WebViewFolderIcon setSlice() Overflow
+   exploit/windows/browser/ms06_067_keyframe                    2006-11-14       normal     MS06-067 Microsoft Internet Explorer Daxctle.OCX KeyFrame Method Heap Buffer Overflow Vulnerability
+   exploit/windows/browser/ms06_071_xml_core                    2006-10-10       normal     MS06-071 Microsoft Internet Explorer XML Core Services HTTP Request Handling
+   exploit/windows/browser/ms08_041_snapshotviewer              2008-07-07       excellent  Snapshot Viewer for Microsoft Access ActiveX Control Arbitrary File Download
+   exploit/windows/browser/ms08_070_visual_studio_msmask        2008-08-13       normal     Microsoft Visual Studio Mdmask32.ocx ActiveX Buffer Overflow
+   exploit/windows/browser/ms08_078_xml_corruption              2008-12-07       normal     MS08-078 Microsoft Internet Explorer Data Binding Memory Corruption
+   exploit/windows/browser/ms09_002_memory_corruption           2009-02-10       normal     MS09-002 Microsoft Internet Explorer 7 CFunctionPointer Uninitialized Memory Corruption
+   exploit/windows/browser/ms09_043_owc_htmlurl                 2009-08-11       normal     Microsoft OWC Spreadsheet HTMLURL Buffer Overflow
+   exploit/windows/browser/ms09_043_owc_msdso                   2009-07-13       normal     Microsoft OWC Spreadsheet msDataSourceObject Memory Corruption
+   exploit/windows/browser/ms09_072_style_object                2009-11-20       normal     MS09-072 Microsoft Internet Explorer Style getElementsByTagName Memory Corruption
+   exploit/windows/browser/ms10_002_aurora                      2010-01-14       normal     MS10-002 Microsoft Internet Explorer "Aurora" Memory Corruption
+   exploit/windows/browser/ms10_002_ie_object                   2010-01-21       normal     MS10-002 Microsoft Internet Explorer Object Memory Use-After-Free
+   exploit/windows/browser/ms10_018_ie_behaviors                2010-03-09       good       MS10-018 Microsoft Internet Explorer DHTML Behaviors Use After Free
+   exploit/windows/browser/ms10_018_ie_tabular_activex          2010-03-09       good       MS10-018 Microsoft Internet Explorer Tabular Data Control ActiveX Memory Corruption
+   exploit/windows/browser/ms10_022_ie_vbscript_winhlp32        2010-02-26       great      MS10-022 Microsoft Internet Explorer Winhlp32.exe MsgBox Code Execution
+   exploit/windows/browser/ms10_026_avi_nsamplespersec          2010-04-13       normal     MS10-026 Microsoft MPEG Layer-3 Audio Stack Based Overflow
+   exploit/windows/browser/ms10_042_helpctr_xss_cmd_exec        2010-06-09       excellent  Microsoft Help Center XSS and Command Execution
+   exploit/windows/browser/ms10_046_shortcut_icon_dllloader     2010-07-16       excellent  Microsoft Windows Shell LNK Code Execution
+   exploit/windows/browser/ms10_090_ie_css_clip                 2010-11-03       good       MS10-090 Microsoft Internet Explorer CSS SetUserClip Memory Corruption
+   exploit/windows/browser/ms11_003_ie_css_import               2010-11-29       good       MS11-003 Microsoft Internet Explorer CSS Recursive Import Use After Free
+   exploit/windows/browser/ms11_081_option                      2012-10-11       normal     MS11-081 Microsoft Internet Explorer Option Element Use-After-Free
+   exploit/windows/browser/ms11_093_ole32                       2011-12-13       normal     MS11-093 Microsoft Windows OLE Object File Handling Remote Code Execution
+   exploit/windows/browser/ms12_037_ie_colspan                  2012-06-12       normal     MS12-037 Microsoft Internet Explorer Fixed Table Col Span Heap Overflow
+   exploit/windows/browser/ms12_037_same_id                     2012-06-12       normal     MS12-037 Microsoft Internet Explorer Same ID Property Deleted Object Handling Memory Corruption
+   exploit/windows/browser/ms13_009_ie_slayoutrun_uaf           2013-02-13       average    MS13-009 Microsoft Internet Explorer SLayoutRun Use-After-Free
+   exploit/windows/browser/ms13_022_silverlight_script_object   2013-03-12       normal     MS13-022 Microsoft Silverlight ScriptObject Unsafe Memory Access
+   exploit/windows/browser/ms13_037_svg_dashstyle               2013-03-06       normal     MS13-037 Microsoft Internet Explorer COALineDashStyleArray Integer Overflow
+   exploit/windows/browser/ms13_055_canchor                     2013-07-09       normal     MS13-055 Microsoft Internet Explorer CAnchorElement Use-After-Free
+   exploit/windows/browser/ms13_059_cflatmarkuppointer          2013-06-27       normal     MS13-059 Microsoft Internet Explorer CFlatMarkupPointer Use-After-Free
+   exploit/windows/browser/ms13_069_caret                       2013-09-10       normal     MS13-069 Microsoft Internet Explorer CCaret Use-After-Free
+   exploit/windows/browser/ms13_080_cdisplaypointer             2013-10-08       normal     MS13-080 Microsoft Internet Explorer CDisplayPointer Use-After-Free
+   exploit/windows/browser/ms14_012_cmarkup_uaf                 2014-02-13       normal     MS14-012 Microsoft Internet Explorer CMarkup Use-After-Free
+   exploit/windows/browser/ms14_012_textrange                   2014-03-11       normal     MS14-012 Microsoft Internet Explorer TextRange Use-After-Free
+   exploit/windows/browser/ms14_064_ole_code_execution          2014-11-13       good       MS14-064 Microsoft Internet Explorer Windows OLE Automation Array Remote Code Execution
+   exploit/windows/browser/msvidctl_mpeg2                       2009-07-05       normal     Microsoft DirectShow (msvidctl.dll) MPEG-2 Memory Corruption
+   exploit/windows/browser/mswhale_checkforupdates              2009-04-15       normal     Microsoft Whale Intelligent Application Gateway ActiveX Control Buffer Overflow
+   exploit/windows/browser/msxml_get_definition_code_exec       2012-06-12       good       MS12-043 Microsoft XML Core Services MSXML Uninitialized Memory Corruption
+   exploit/windows/browser/wmi_admintools                       2010-12-21       great      Microsoft WMI Administration Tools ActiveX Buffer Overflow
+   exploit/windows/dcerpc/ms03_026_dcom                         2003-07-16       great      MS03-026 Microsoft RPC DCOM Interface Overflow
+   exploit/windows/dcerpc/ms05_017_msmq                         2005-04-12       good       MS05-017 Microsoft Message Queueing Service Path Overflow
+   exploit/windows/dcerpc/ms07_029_msdns_zonename               2007-04-12       great      MS07-029 Microsoft DNS RPC Service extractQuotedChar() Overflow (TCP)
+   exploit/windows/dcerpc/ms07_065_msmq                         2007-12-11       good       MS07-065 Microsoft Message Queueing Service DNS Name Path Overflow
+   exploit/windows/fileformat/ms09_067_excel_featheader         2009-11-10       good       MS09-067 Microsoft Excel Malformed FEATHEADER Record Vulnerability
+   exploit/windows/fileformat/ms10_004_textbytesatom            2010-02-09       good       MS10-004 Microsoft PowerPoint Viewer TextBytesAtom Stack Buffer Overflow
+   exploit/windows/fileformat/ms10_038_excel_obj_bof            2010-06-08       normal     MS11-038 Microsoft Office Excel Malformed OBJ Record Handling Overflow
+   exploit/windows/fileformat/ms10_087_rtf_pfragments_bof       2010-11-09       great      MS10-087 Microsoft Word RTF pFragments Stack Buffer Overflow (File Format)
+   exploit/windows/fileformat/ms11_006_createsizeddibsection    2010-12-15       great      MS11-006 Microsoft Windows CreateSizedDIBSECTION Stack Buffer Overflow
+   exploit/windows/fileformat/ms11_021_xlb_bof                  2011-08-09       normal     MS11-021 Microsoft Office 2007 Excel .xlb Buffer Overflow
+   exploit/windows/fileformat/ms12_005                          2012-01-10       excellent  MS12-005 Microsoft Office ClickOnce Unsafe Object Package Handling Vulnerability
+   exploit/windows/fileformat/ms13_071_theme                    2013-09-10       excellent  MS13-071 Microsoft Windows Theme File Handling Arbitrary Code Execution
+   exploit/windows/fileformat/ms14_017_rtf                      2014-04-01       normal     MS14-017 Microsoft Word RTF Object Confusion
+   exploit/windows/fileformat/ms14_060_sandworm                 2014-10-14       excellent  MS14-060 Microsoft Windows OLE Package Manager Code Execution
+   exploit/windows/fileformat/ms14_064_packager_python          2014-11-12       excellent  MS14-064 Microsoft Windows OLE Package Manager Code Execution Through Python
+   exploit/windows/fileformat/ms14_064_packager_run_as_admin    2014-10-21       excellent  MS14-064 Microsoft Windows OLE Package Manager Code Execution
+   exploit/windows/fileformat/ms15_020_shortcut_icon_dllloader  2015-03-10       excellent  Microsoft Windows Shell LNK Code Execution
+   exploit/windows/fileformat/ms15_100_mcl_exe                  2015-09-08       excellent  MS15-100 Microsoft Windows Media Center MCL Vulnerability
+   exploit/windows/fileformat/ms_visual_basic_vbp               2007-09-04       good       Microsoft Visual Basic VBP Buffer Overflow
+   exploit/windows/fileformat/mswin_tiff_overflow               2013-11-05       average    MS13-096 Microsoft Tagged Image File Format (TIFF) Integer Overflow
+   exploit/windows/fileformat/msworks_wkspictureinterface       2008-11-28       low        Microsoft Works 7 WkImgSrv.dll WKsPictureInterface() ActiveX Code Execution
+   exploit/windows/fileformat/office_dde_delivery               2017-10-09       manual     Microsoft Office DDE Payload Delivery
+   exploit/windows/fileformat/office_ms17_11882                 2017-11-15       manual     Microsoft Office CVE-2017-11882
+   exploit/windows/fileformat/office_word_hta                   2017-04-14       excellent  Microsoft Office Word Malicious Hta Execution
+   exploit/windows/fileformat/visio_dxf_bof                     2010-05-04       good       Microsoft Office Visio VISIODWG.DLL DXF File Handling Vulnerability
+   exploit/windows/ftp/ms09_053_ftpd_nlst                       2009-08-31       great      MS09-053 Microsoft IIS FTP Server NLST Response Overflow
+   exploit/windows/iis/iis_webdav_scstoragepathfromurl          2017-03-26       manual      Microsoft IIS WebDav ScStoragePathFromUrl Overflow
+   exploit/windows/iis/iis_webdav_upload_asp                    1994-01-01       excellent  Microsoft IIS WebDAV Write Access Code Execution
+   exploit/windows/iis/ms01_023_printer                         2001-05-01       good       MS01-023 Microsoft IIS 5.0 Printer Host Header Overflow
+   exploit/windows/iis/ms01_026_dbldecode                       2001-05-15       excellent  MS01-026 Microsoft IIS/PWS CGI Filename Double Decode Command Execution
+   exploit/windows/iis/ms01_033_idq                             2001-06-18       good       MS01-033 Microsoft IIS 5.0 IDQ Path Overflow
+   exploit/windows/iis/ms02_018_htr                             2002-04-10       good       MS02-018 Microsoft IIS 4.0 .HTR Path Overflow
+   exploit/windows/iis/ms02_065_msadc                           2002-11-20       normal     MS02-065 Microsoft IIS MDAC msadcs.dll RDS DataStub Content-Type Overflow
+   exploit/windows/iis/ms03_007_ntdll_webdav                    2003-05-30       great      MS03-007 Microsoft IIS 5.0 WebDAV ntdll.dll Path Overflow
+   exploit/windows/iis/msadc                                    1998-07-17       excellent  MS99-025 Microsoft IIS MDAC msadcs.dll RDS Arbitrary Remote Command Execution
+   exploit/windows/isapi/ms00_094_pbserver                      2000-12-04       good       MS00-094 Microsoft IIS Phone Book Service Overflow
+   exploit/windows/isapi/ms03_022_nsiislog_post                 2003-06-25       good       MS03-022 Microsoft IIS ISAPI nsiislog.dll ISAPI POST Overflow
+   exploit/windows/isapi/ms03_051_fp30reg_chunked               2003-11-11       good       MS03-051 Microsoft IIS ISAPI FrontPage fp30reg.dll Chunked Overflow
+   exploit/windows/isapi/rsa_webagent_redirect                  2005-10-21       good       Microsoft IIS ISAPI RSA WebAgent Redirect Overflow
+   exploit/windows/isapi/w3who_query                            2004-12-06       good       Microsoft IIS ISAPI w3who.dll Query String Overflow
+   exploit/windows/local/bthpan                                 2014-07-18       average    MS14-062 Microsoft Bluetooth Personal Area Networking (BthPan.sys) Privilege Escalation
+   exploit/windows/local/mov_ss                                 2018-05-08       excellent  Microsoft Windows POP/MOV SS Local Privilege Elevation Vulnerability
+   exploit/windows/local/ms15_004_tswbproxy                     2015-01-13       good       MS15-004 Microsoft Remote Desktop Services Web Proxy IE Sandbox Escape
+   exploit/windows/local/ms15_078_atmfd_bof                     2015-07-11       manual     MS15-078 Microsoft Windows Font Driver Buffer Overflow
+   exploit/windows/local/ms_ndproxy                             2013-11-27       average    MS14-002 Microsoft Windows ndproxy.sys Local Privilege Escalation
+   exploit/windows/local/ntapphelpcachecontrol                  2014-09-30       normal     MS15-001 Microsoft Windows NtApphelpCacheControl Improper Authorization Check
+   exploit/windows/misc/ms07_064_sami                           2007-12-11       normal     MS07-064 Microsoft DirectX DirectShow SAMI Buffer Overflow
+   exploit/windows/misc/ms10_104_sharepoint                     2010-12-14       excellent  MS10-104 Microsoft Office SharePoint Server 2007 Remote Code Execution
+   exploit/windows/mssql/ms02_039_slammer                       2002-07-24       good       MS02-039 Microsoft SQL Server Resolution Overflow
+   exploit/windows/mssql/ms02_056_hello                         2002-08-05       good       MS02-056 Microsoft SQL Server Hello Overflow
+   exploit/windows/mssql/ms09_004_sp_replwritetovarbin          2008-12-09       good       MS09-004 Microsoft SQL Server sp_replwritetovarbin Memory Corruption
+   exploit/windows/mssql/ms09_004_sp_replwritetovarbin_sqli     2008-12-09       excellent  MS09-004 Microsoft SQL Server sp_replwritetovarbin Memory Corruption via SQL Injection
+   exploit/windows/mssql/mssql_clr_payload                      1999-01-01       excellent  Microsoft SQL Server Clr Stored Procedure Payload Execution
+   exploit/windows/mssql/mssql_linkcrawler                      2000-01-01       great      Microsoft SQL Server Database Link Crawling Command Execution
+   exploit/windows/mssql/mssql_payload                          2000-05-30       excellent  Microsoft SQL Server Payload Execution
+   exploit/windows/mssql/mssql_payload_sqli                     2000-05-30       excellent  Microsoft SQL Server Payload Execution via SQL Injection
+   exploit/windows/mysql/mysql_mof                              2012-12-01       excellent  Oracle MySQL for Microsoft Windows MOF Execution
+   exploit/windows/mysql/mysql_start_up                         2012-12-01       excellent  Oracle MySQL for Microsoft Windows FILE Privilege Abuse
+   exploit/windows/nntp/ms05_030_nntp                           2005-06-14       normal     MS05-030 Microsoft Outlook Express NNTP Response Parsing Buffer Overflow
+   exploit/windows/postgres/postgres_payload                    2009-04-10       excellent  PostgreSQL for Microsoft Windows Payload Execution
+   exploit/windows/smb/ms03_049_netapi                          2003-11-11       good       MS03-049 Microsoft Workstation Service NetAddAlternateComputerName Overflow
+   exploit/windows/smb/ms04_007_killbill                        2004-02-10       low        MS04-007 Microsoft ASN.1 Library Bitstring Heap Overflow
+   exploit/windows/smb/ms04_011_lsass                           2004-04-13       good       MS04-011 Microsoft LSASS Service DsRolerUpgradeDownlevelServer Overflow
+   exploit/windows/smb/ms04_031_netdde                          2004-10-12       good       MS04-031 Microsoft NetDDE Service Overflow
+   exploit/windows/smb/ms05_039_pnp                             2005-08-09       good       MS05-039 Microsoft Plug and Play Service Overflow
+   exploit/windows/smb/ms06_025_rasmans_reg                     2006-06-13       good       MS06-025 Microsoft RRAS Service RASMAN Registry Overflow
+   exploit/windows/smb/ms06_025_rras                            2006-06-13       average    MS06-025 Microsoft RRAS Service Overflow
+   exploit/windows/smb/ms06_040_netapi                          2006-08-08       good       MS06-040 Microsoft Server Service NetpwPathCanonicalize Overflow
+   exploit/windows/smb/ms06_066_nwapi                           2006-11-14       good       MS06-066 Microsoft Services nwapi32.dll Module Exploit
+   exploit/windows/smb/ms06_066_nwwks                           2006-11-14       good       MS06-066 Microsoft Services nwwks.dll Module Exploit
+   exploit/windows/smb/ms06_070_wkssvc                          2006-11-14       manual     MS06-070 Microsoft Workstation Service NetpManageIPCConnect Overflow
+   exploit/windows/smb/ms07_029_msdns_zonename                  2007-04-12       manual     MS07-029 Microsoft DNS RPC Service extractQuotedChar() Overflow (SMB)
+   exploit/windows/smb/ms08_067_netapi                          2008-10-28       great      MS08-067 Microsoft Server Service Relative Path Stack Corruption
+   exploit/windows/smb/ms09_050_smb2_negotiate_func_index       2009-09-07       good       MS09-050 Microsoft SRV2.SYS SMB Negotiate ProcessID Function Table Dereference
+   exploit/windows/smb/ms10_046_shortcut_icon_dllloader         2010-07-16       excellent  Microsoft Windows Shell LNK Code Execution
+   exploit/windows/smb/ms10_061_spoolss                         2010-09-14       excellent  MS10-061 Microsoft Print Spooler Service Impersonation Vulnerability
+   exploit/windows/smb/ms15_020_shortcut_icon_dllloader         2015-03-10       excellent  Microsoft Windows Shell LNK Code Execution
+   exploit/windows/smb/psexec                                   1999-01-01       manual     Microsoft Windows Authenticated User Code Execution
+   exploit/windows/smb/psexec_psh                               1999-01-01       manual     Microsoft Windows Authenticated Powershell Command Execution
+   exploit/windows/smb/smb_relay                                2001-03-31       excellent  MS08-068 Microsoft Windows SMB Relay Code Execution
+   exploit/windows/ssl/ms04_011_pct                             2004-04-13       average    MS04-011 Microsoft Private Communications Transport Overflow
+   exploit/windows/wins/ms04_045_wins                           2004-12-14       great      MS04-045 Microsoft WINS Service Memory Overwrite
+
+
+msf > info exploit/windows/local/mov_ss
+
+       Name: Microsoft Windows POP/MOV SS Local Privilege Elevation Vulnerability
+     Module: exploit/windows/local/mov_ss
+   Platform: Windows
+       Arch: 
+ Privileged: No
+    License: Metasploit Framework License (BSD)
+       Rank: Excellent
+  Disclosed: 2018-05-08
+
+Provided by:
+  Nick Peterson
+  Nemanja Mulasmajic
+  Can Bölük <can1357>
+  bwatters-r7
+
+Available targets:
+  Id  Name
+  --  ----
+  0   Windows x64
+
+Basic options:
+  Name           Current Setting  Required  Description
+  ----           ---------------  --------  -----------
+  EXECUTE_DELAY  3                no        The number of seconds to delay before executing the exploit if USE_INJECTION=false
+  EXPLOIT_NAME                    no        The filename to use for the exploit binary if USE_INJECTION=false (%RAND% by default).
+  PATH                            no        Path to write binaries if if USE_INJECTION=false(%TEMP% by default).
+  PAYLOAD_NAME                    no        The filename for the payload to be used on the target host if USE_INJECTION=false (%RAND%.exe by default).
+  SESSION                         yes       The session to run this module on.
+  USE_INJECTION  true             yes       Use in-memory dll injection rather than exe file uploads.
+
+Payload information:
+
+Description:
+  This module exploits a vulnerability in a statement in the system 
+  programming guide of the Intel 64 and IA-32 architectures software 
+  developer's manual being mishandled in various operating system 
+  kerneles, resulting in unexpected behavior for #DB excpetions that 
+  are deferred by MOV SS or POP SS. This module will upload the 
+  pre-compiled exploit and use it to execute the final payload in 
+  order to gain remote code execution.
+
+References:
+  https://cvedetails.com/cve/CVE-2018-8897/
+  https://www.exploit-db.com/exploits/44697
+  http://www.securityfocus.com/bid/104071
+  https://github.com/can1357/CVE-2018-8897/
+  https://blog.can.ac/2018/05/11/arbitrary-code-execution-at-ring-0-using-cve-2018-8897/
+
+msf > search name:linux type:exploit
+[!] Module database cache not built yet, using slow search
+
+Matching Modules
+================
+
+   Name                                              Disclosure Date  Rank       Description
+   ----                                              ---------------  ----       -----------
+   exploit/linux/ftp/proftp_sreplace                 2006-11-26       great      ProFTPD 1.2 - 1.3.0 sreplace Buffer Overflow (Linux)
+   exploit/linux/ftp/proftp_telnet_iac               2010-11-01       great      ProFTPD 1.3.2rc3 - 1.3.3b Telnet IAC Buffer Overflow (Linux)
+   exploit/linux/games/ut2004_secure                 2004-06-18       good       Unreal Tournament 2004 "secure" Overflow (Linux)
+   exploit/linux/http/cfme_manageiq_evm_upload_exec  2013-09-04       excellent  Red Hat CloudForms Management Engine 5.1 agent/linuxpkgs Path Traversal
+   exploit/linux/local/bpf_priv_esc                  2016-05-04       good       Linux BPF Local Privilege Escalation
+   exploit/linux/local/bpf_sign_extension_priv_esc   2017-11-12       great      Linux BPF Sign Extension Local Privilege Escalation
+   exploit/linux/local/desktop_privilege_escalation  2014-08-07       excellent  Desktop Linux Password Stealer and Privilege Escalation
+   exploit/linux/local/netfilter_priv_esc_ipv4       2016-06-03       good       Linux Kernel 4.6.3 Netfilter Privilege Escalation
+   exploit/linux/local/pkexec                        2011-04-01       great      Linux PolicyKit Race Condition Privilege Escalation
+   exploit/linux/local/recvmmsg_priv_esc             2014-02-02       good       Linux Kernel recvmmsg Privilege Escalation
+   exploit/linux/local/sock_sendpage                 2009-08-13       great      Linux Kernel Sendpage Local Privilege Escalation
+   exploit/linux/local/udev_netlink                  2009-04-16       great      Linux udev Netlink Local Privilege Escalation
+   exploit/linux/local/ufo_privilege_escalation      2017-08-10       good       Linux Kernel UDP Fragmentation Offset (UFO) Privilege Escalation
+   exploit/linux/postgres/postgres_payload           2007-06-05       excellent  PostgreSQL for Linux Payload Execution
+   exploit/linux/samba/chain_reply                   2010-06-16       good       Samba chain_reply Memory Corruption (Linux x86)
+   exploit/linux/samba/trans2open                    2003-04-07       great      Samba trans2open Overflow (Linux x86)
+   exploit/linux/telnet/telnet_encrypt_keyid         2011-12-23       great      Linux BSD-derived Telnet Service Encryption Key ID Buffer Overflow
+   exploit/multi/misc/xdh_x_exec                     2015-12-04       excellent  Xdh / LinuxNet Perlbot / fBot IRC Bot Remote Code Execution
+
+
+msf > info exploit/linux/ftp/proftp_sreplace
+
+       Name: ProFTPD 1.2 - 1.3.0 sreplace Buffer Overflow (Linux)
+     Module: exploit/linux/ftp/proftp_sreplace
+   Platform: Linux
+       Arch: 
+ Privileged: Yes
+    License: Metasploit Framework License (BSD)
+       Rank: Great
+  Disclosed: 2006-11-26
+
+Provided by:
+  Evgeny Legerov <admin@gleg.net>
+  jduck <jduck@metasploit.com>
+
+Available targets:
+  Id  Name
+  --  ----
+  0   Automatic Targeting
+  1   Debug
+  2   ProFTPD 1.3.0 (source install) / Debian 3.1
+
+Basic options:
+  Name      Current Setting      Required  Description
+  ----      ---------------      --------  -----------
+  FTPPASS   mozilla@example.com  no        The password for the specified username
+  FTPUSER   anonymous            no        The username to authenticate as
+  RHOST                          yes       The target address
+  RPORT     21                   yes       The target port (TCP)
+  WRITABLE  /incoming            yes       A writable directory on the target host
+
+Payload information:
+  Space: 900
+  Avoid: 4 characters
+
+Description:
+  This module exploits a stack-based buffer overflow in versions 1.2 
+  through 1.3.0 of ProFTPD server. The vulnerability is within the 
+  "sreplace" function within the "src/support.c" file. The off-by-one 
+  heap overflow bug in the ProFTPD sreplace function has been 
+  discovered about 2 (two) years ago by Evgeny Legerov. We tried to 
+  exploit this off-by-one bug via MKD command, but failed. We did not 
+  work on this bug since then. Actually, there are exists at least two 
+  bugs in sreplace function, one is the mentioned off-by-one heap 
+  overflow bug the other is a stack-based buffer overflow via 
+  'sstrncpy(dst,src,negative argument)'. We were unable to reach the 
+  "sreplace" stack bug on ProFTPD 1.2.10 stable version, but the 
+  version 1.3.0rc3 introduced some interesting changes, among them: 1. 
+  another (integer) overflow in sreplace! 2. now it is possible to 
+  reach sreplace stack-based buffer overflow bug via the 
+  "pr_display_file" function! 3. stupid '.message' file display bug So 
+  we decided to choose ProFTPD 1.3.0 as a target for our exploit. To 
+  reach the bug, you need to upload a specially created .message file 
+  to a writeable directory, then do "CWD <writeable directory>" to 
+  trigger the invocation of sreplace function. Note that ProFTPD 
+  1.3.0rc3 has introduced a stupid bug: to display '.message' file you 
+  also have to upload a file named '250'. ProFTPD 1.3.0 fixes this 
+  bug. The exploit is a part of VulnDisco Pack since Dec 2005.
+
+References:
+  https://cvedetails.com/cve/CVE-2006-5815/
+  OSVDB (68985)
+  http://www.securityfocus.com/bid/20992
+  http://seclists.org/bugtraq/2006/Nov/94
+  http://seclists.org/bugtraq/2006/Nov/538
+  http://bugs.proftpd.org/show_bug.cgi?id=2858
+  http://proftp.cvs.sourceforge.net/proftp/proftpd/src/main.c?view=diff&r1=text&tr1=1.292&r2=text&tr2=1.294&diff_format=h
+
+msf > search name:ubuntu type:exploit
+
+Matching Modules
+================
+
+   Name                                 Disclosure Date  Rank  Description
+   ----                                 ---------------  ----  -----------
+   exploit/linux/local/ntfs3g_priv_esc  2017-01-05       good  Debian/Ubuntu ntfs-3g Local Privilege Escalation
+
+
+msf > history
+1   banner
+2   banner
+3   banner
+4   banner
+5   banner
+6   banner
+7   banner
+8   banner
+9   banner
+10  help
+11  exit
+12  exit
+13  banner
+14  exit
+15  banner
+16  banner
+17  banner
+18  banner
+19  show modules
+20  exit
+21  help
+22  exit
+23  banner
+24  exit
+25  exit
+26  banner
+27  exit
+28  update
+29  help
+30  search
+31  search name:microsoft type:exploit
+32  info exploit/windows/local/mov_ss
+33  search name:linux type:exploit
+34  info exploit/linux/ftp/proftp_sreplace
+35  search name:ubuntu type:exploit
+36  history
+msf > search name:microsoft type:exploit
+
+Matching Modules
+================
+
+   Name                                                         Disclosure Date  Rank       Description
+   ----                                                         ---------------  ----       -----------
+   exploit/multi/fileformat/office_word_macro                   2012-01-10       excellent  Microsoft Office Word Malicious Macro Execution
+   exploit/windows/brightstor/sql_agent                         2005-08-02       average    CA BrightStor Agent for Microsoft SQL Overflow
+   exploit/windows/browser/ie_cbutton_uaf                       2012-12-27       normal     MS13-008 Microsoft Internet Explorer CButton Object Use-After-Free Vulnerability
+   exploit/windows/browser/ie_cgenericelement_uaf               2013-05-03       good       MS13-038 Microsoft Internet Explorer CGenericElement Object Use-After-Free Vulnerability
+   exploit/windows/browser/ie_createobject                      2006-04-11       excellent  MS06-014 Microsoft Internet Explorer COM CreateObject Code Execution
+   exploit/windows/browser/ie_execcommand_uaf                   2012-09-14       good       MS12-063 Microsoft Internet Explorer execCommand Use-After-Free Vulnerability 
+   exploit/windows/browser/ie_iscomponentinstalled              2006-02-24       normal     Microsoft Internet Explorer isComponentInstalled Overflow
+   exploit/windows/browser/ie_setmousecapture_uaf               2013-09-17       normal     MS13-080 Microsoft Internet Explorer SetMouseCapture Use-After-Free
+   exploit/windows/browser/ie_unsafe_scripting                  2010-09-20       manual     Microsoft Internet Explorer Unsafe Scripting Misconfiguration
+   exploit/windows/browser/ms03_020_ie_objecttype               2003-06-04       normal     MS03-020 Microsoft Internet Explorer Object Type
+   exploit/windows/browser/ms05_054_onload                      2005-11-21       normal     MS05-054 Microsoft Internet Explorer JavaScript OnLoad Handler Remote Code Execution
+   exploit/windows/browser/ms06_013_createtextrange             2006-03-19       normal     MS06-013 Microsoft Internet Explorer createTextRange() Code Execution
+   exploit/windows/browser/ms06_055_vml_method                  2006-09-19       normal     MS06-055 Microsoft Internet Explorer VML Fill Method Code Execution
+   exploit/windows/browser/ms06_057_webview_setslice            2006-07-17       normal     MS06-057 Microsoft Internet Explorer WebViewFolderIcon setSlice() Overflow
+   exploit/windows/browser/ms06_067_keyframe                    2006-11-14       normal     MS06-067 Microsoft Internet Explorer Daxctle.OCX KeyFrame Method Heap Buffer Overflow Vulnerability
+   exploit/windows/browser/ms06_071_xml_core                    2006-10-10       normal     MS06-071 Microsoft Internet Explorer XML Core Services HTTP Request Handling
+   exploit/windows/browser/ms08_041_snapshotviewer              2008-07-07       excellent  Snapshot Viewer for Microsoft Access ActiveX Control Arbitrary File Download
+   exploit/windows/browser/ms08_070_visual_studio_msmask        2008-08-13       normal     Microsoft Visual Studio Mdmask32.ocx ActiveX Buffer Overflow
+   exploit/windows/browser/ms08_078_xml_corruption              2008-12-07       normal     MS08-078 Microsoft Internet Explorer Data Binding Memory Corruption
+   exploit/windows/browser/ms09_002_memory_corruption           2009-02-10       normal     MS09-002 Microsoft Internet Explorer 7 CFunctionPointer Uninitialized Memory Corruption
+   exploit/windows/browser/ms09_043_owc_htmlurl                 2009-08-11       normal     Microsoft OWC Spreadsheet HTMLURL Buffer Overflow
+   exploit/windows/browser/ms09_043_owc_msdso                   2009-07-13       normal     Microsoft OWC Spreadsheet msDataSourceObject Memory Corruption
+   exploit/windows/browser/ms09_072_style_object                2009-11-20       normal     MS09-072 Microsoft Internet Explorer Style getElementsByTagName Memory Corruption
+   exploit/windows/browser/ms10_002_aurora                      2010-01-14       normal     MS10-002 Microsoft Internet Explorer "Aurora" Memory Corruption
+   exploit/windows/browser/ms10_002_ie_object                   2010-01-21       normal     MS10-002 Microsoft Internet Explorer Object Memory Use-After-Free
+   exploit/windows/browser/ms10_018_ie_behaviors                2010-03-09       good       MS10-018 Microsoft Internet Explorer DHTML Behaviors Use After Free
+   exploit/windows/browser/ms10_018_ie_tabular_activex          2010-03-09       good       MS10-018 Microsoft Internet Explorer Tabular Data Control ActiveX Memory Corruption
+   exploit/windows/browser/ms10_022_ie_vbscript_winhlp32        2010-02-26       great      MS10-022 Microsoft Internet Explorer Winhlp32.exe MsgBox Code Execution
+   exploit/windows/browser/ms10_026_avi_nsamplespersec          2010-04-13       normal     MS10-026 Microsoft MPEG Layer-3 Audio Stack Based Overflow
+   exploit/windows/browser/ms10_042_helpctr_xss_cmd_exec        2010-06-09       excellent  Microsoft Help Center XSS and Command Execution
+   exploit/windows/browser/ms10_046_shortcut_icon_dllloader     2010-07-16       excellent  Microsoft Windows Shell LNK Code Execution
+   exploit/windows/browser/ms10_090_ie_css_clip                 2010-11-03       good       MS10-090 Microsoft Internet Explorer CSS SetUserClip Memory Corruption
+   exploit/windows/browser/ms11_003_ie_css_import               2010-11-29       good       MS11-003 Microsoft Internet Explorer CSS Recursive Import Use After Free
+   exploit/windows/browser/ms11_081_option                      2012-10-11       normal     MS11-081 Microsoft Internet Explorer Option Element Use-After-Free
+   exploit/windows/browser/ms11_093_ole32                       2011-12-13       normal     MS11-093 Microsoft Windows OLE Object File Handling Remote Code Execution
+   exploit/windows/browser/ms12_037_ie_colspan                  2012-06-12       normal     MS12-037 Microsoft Internet Explorer Fixed Table Col Span Heap Overflow
+   exploit/windows/browser/ms12_037_same_id                     2012-06-12       normal     MS12-037 Microsoft Internet Explorer Same ID Property Deleted Object Handling Memory Corruption
+   exploit/windows/browser/ms13_009_ie_slayoutrun_uaf           2013-02-13       average    MS13-009 Microsoft Internet Explorer SLayoutRun Use-After-Free
+   exploit/windows/browser/ms13_022_silverlight_script_object   2013-03-12       normal     MS13-022 Microsoft Silverlight ScriptObject Unsafe Memory Access
+   exploit/windows/browser/ms13_037_svg_dashstyle               2013-03-06       normal     MS13-037 Microsoft Internet Explorer COALineDashStyleArray Integer Overflow
+   exploit/windows/browser/ms13_055_canchor                     2013-07-09       normal     MS13-055 Microsoft Internet Explorer CAnchorElement Use-After-Free
+   exploit/windows/browser/ms13_059_cflatmarkuppointer          2013-06-27       normal     MS13-059 Microsoft Internet Explorer CFlatMarkupPointer Use-After-Free
+   exploit/windows/browser/ms13_069_caret                       2013-09-10       normal     MS13-069 Microsoft Internet Explorer CCaret Use-After-Free
+   exploit/windows/browser/ms13_080_cdisplaypointer             2013-10-08       normal     MS13-080 Microsoft Internet Explorer CDisplayPointer Use-After-Free
+   exploit/windows/browser/ms14_012_cmarkup_uaf                 2014-02-13       normal     MS14-012 Microsoft Internet Explorer CMarkup Use-After-Free
+   exploit/windows/browser/ms14_012_textrange                   2014-03-11       normal     MS14-012 Microsoft Internet Explorer TextRange Use-After-Free
+   exploit/windows/browser/ms14_064_ole_code_execution          2014-11-13       good       MS14-064 Microsoft Internet Explorer Windows OLE Automation Array Remote Code Execution
+   exploit/windows/browser/msvidctl_mpeg2                       2009-07-05       normal     Microsoft DirectShow (msvidctl.dll) MPEG-2 Memory Corruption
+   exploit/windows/browser/mswhale_checkforupdates              2009-04-15       normal     Microsoft Whale Intelligent Application Gateway ActiveX Control Buffer Overflow
+   exploit/windows/browser/msxml_get_definition_code_exec       2012-06-12       good       MS12-043 Microsoft XML Core Services MSXML Uninitialized Memory Corruption
+   exploit/windows/browser/wmi_admintools                       2010-12-21       great      Microsoft WMI Administration Tools ActiveX Buffer Overflow
+   exploit/windows/dcerpc/ms03_026_dcom                         2003-07-16       great      MS03-026 Microsoft RPC DCOM Interface Overflow
+   exploit/windows/dcerpc/ms05_017_msmq                         2005-04-12       good       MS05-017 Microsoft Message Queueing Service Path Overflow
+   exploit/windows/dcerpc/ms07_029_msdns_zonename               2007-04-12       great      MS07-029 Microsoft DNS RPC Service extractQuotedChar() Overflow (TCP)
+   exploit/windows/dcerpc/ms07_065_msmq                         2007-12-11       good       MS07-065 Microsoft Message Queueing Service DNS Name Path Overflow
+   exploit/windows/fileformat/ms09_067_excel_featheader         2009-11-10       good       MS09-067 Microsoft Excel Malformed FEATHEADER Record Vulnerability
+   exploit/windows/fileformat/ms10_004_textbytesatom            2010-02-09       good       MS10-004 Microsoft PowerPoint Viewer TextBytesAtom Stack Buffer Overflow
+   exploit/windows/fileformat/ms10_038_excel_obj_bof            2010-06-08       normal     MS11-038 Microsoft Office Excel Malformed OBJ Record Handling Overflow
+   exploit/windows/fileformat/ms10_087_rtf_pfragments_bof       2010-11-09       great      MS10-087 Microsoft Word RTF pFragments Stack Buffer Overflow (File Format)
+   exploit/windows/fileformat/ms11_006_createsizeddibsection    2010-12-15       great      MS11-006 Microsoft Windows CreateSizedDIBSECTION Stack Buffer Overflow
+   exploit/windows/fileformat/ms11_021_xlb_bof                  2011-08-09       normal     MS11-021 Microsoft Office 2007 Excel .xlb Buffer Overflow
+   exploit/windows/fileformat/ms12_005                          2012-01-10       excellent  MS12-005 Microsoft Office ClickOnce Unsafe Object Package Handling Vulnerability
+   exploit/windows/fileformat/ms13_071_theme                    2013-09-10       excellent  MS13-071 Microsoft Windows Theme File Handling Arbitrary Code Execution
+   exploit/windows/fileformat/ms14_017_rtf                      2014-04-01       normal     MS14-017 Microsoft Word RTF Object Confusion
+   exploit/windows/fileformat/ms14_060_sandworm                 2014-10-14       excellent  MS14-060 Microsoft Windows OLE Package Manager Code Execution
+   exploit/windows/fileformat/ms14_064_packager_python          2014-11-12       excellent  MS14-064 Microsoft Windows OLE Package Manager Code Execution Through Python
+   exploit/windows/fileformat/ms14_064_packager_run_as_admin    2014-10-21       excellent  MS14-064 Microsoft Windows OLE Package Manager Code Execution
+   exploit/windows/fileformat/ms15_020_shortcut_icon_dllloader  2015-03-10       excellent  Microsoft Windows Shell LNK Code Execution
+   exploit/windows/fileformat/ms15_100_mcl_exe                  2015-09-08       excellent  MS15-100 Microsoft Windows Media Center MCL Vulnerability
+   exploit/windows/fileformat/ms_visual_basic_vbp               2007-09-04       good       Microsoft Visual Basic VBP Buffer Overflow
+   exploit/windows/fileformat/mswin_tiff_overflow               2013-11-05       average    MS13-096 Microsoft Tagged Image File Format (TIFF) Integer Overflow
+   exploit/windows/fileformat/msworks_wkspictureinterface       2008-11-28       low        Microsoft Works 7 WkImgSrv.dll WKsPictureInterface() ActiveX Code Execution
+   exploit/windows/fileformat/office_dde_delivery               2017-10-09       manual     Microsoft Office DDE Payload Delivery
+   exploit/windows/fileformat/office_ms17_11882                 2017-11-15       manual     Microsoft Office CVE-2017-11882
+   exploit/windows/fileformat/office_word_hta                   2017-04-14       excellent  Microsoft Office Word Malicious Hta Execution
+   exploit/windows/fileformat/visio_dxf_bof                     2010-05-04       good       Microsoft Office Visio VISIODWG.DLL DXF File Handling Vulnerability
+   exploit/windows/ftp/ms09_053_ftpd_nlst                       2009-08-31       great      MS09-053 Microsoft IIS FTP Server NLST Response Overflow
+   exploit/windows/iis/iis_webdav_scstoragepathfromurl          2017-03-26       manual      Microsoft IIS WebDav ScStoragePathFromUrl Overflow
+   exploit/windows/iis/iis_webdav_upload_asp                    1994-01-01       excellent  Microsoft IIS WebDAV Write Access Code Execution
+   exploit/windows/iis/ms01_023_printer                         2001-05-01       good       MS01-023 Microsoft IIS 5.0 Printer Host Header Overflow
+   exploit/windows/iis/ms01_026_dbldecode                       2001-05-15       excellent  MS01-026 Microsoft IIS/PWS CGI Filename Double Decode Command Execution
+   exploit/windows/iis/ms01_033_idq                             2001-06-18       good       MS01-033 Microsoft IIS 5.0 IDQ Path Overflow
+   exploit/windows/iis/ms02_018_htr                             2002-04-10       good       MS02-018 Microsoft IIS 4.0 .HTR Path Overflow
+   exploit/windows/iis/ms02_065_msadc                           2002-11-20       normal     MS02-065 Microsoft IIS MDAC msadcs.dll RDS DataStub Content-Type Overflow
+   exploit/windows/iis/ms03_007_ntdll_webdav                    2003-05-30       great      MS03-007 Microsoft IIS 5.0 WebDAV ntdll.dll Path Overflow
+   exploit/windows/iis/msadc                                    1998-07-17       excellent  MS99-025 Microsoft IIS MDAC msadcs.dll RDS Arbitrary Remote Command Execution
+   exploit/windows/isapi/ms00_094_pbserver                      2000-12-04       good       MS00-094 Microsoft IIS Phone Book Service Overflow
+   exploit/windows/isapi/ms03_022_nsiislog_post                 2003-06-25       good       MS03-022 Microsoft IIS ISAPI nsiislog.dll ISAPI POST Overflow
+   exploit/windows/isapi/ms03_051_fp30reg_chunked               2003-11-11       good       MS03-051 Microsoft IIS ISAPI FrontPage fp30reg.dll Chunked Overflow
+   exploit/windows/isapi/rsa_webagent_redirect                  2005-10-21       good       Microsoft IIS ISAPI RSA WebAgent Redirect Overflow
+   exploit/windows/isapi/w3who_query                            2004-12-06       good       Microsoft IIS ISAPI w3who.dll Query String Overflow
+   exploit/windows/local/bthpan                                 2014-07-18       average    MS14-062 Microsoft Bluetooth Personal Area Networking (BthPan.sys) Privilege Escalation
+   exploit/windows/local/mov_ss                                 2018-05-08       excellent  Microsoft Windows POP/MOV SS Local Privilege Elevation Vulnerability
+   exploit/windows/local/ms15_004_tswbproxy                     2015-01-13       good       MS15-004 Microsoft Remote Desktop Services Web Proxy IE Sandbox Escape
+   exploit/windows/local/ms15_078_atmfd_bof                     2015-07-11       manual     MS15-078 Microsoft Windows Font Driver Buffer Overflow
+   exploit/windows/local/ms_ndproxy                             2013-11-27       average    MS14-002 Microsoft Windows ndproxy.sys Local Privilege Escalation
+   exploit/windows/local/ntapphelpcachecontrol                  2014-09-30       normal     MS15-001 Microsoft Windows NtApphelpCacheControl Improper Authorization Check
+   exploit/windows/misc/ms07_064_sami                           2007-12-11       normal     MS07-064 Microsoft DirectX DirectShow SAMI Buffer Overflow
+   exploit/windows/misc/ms10_104_sharepoint                     2010-12-14       excellent  MS10-104 Microsoft Office SharePoint Server 2007 Remote Code Execution
+   exploit/windows/mssql/ms02_039_slammer                       2002-07-24       good       MS02-039 Microsoft SQL Server Resolution Overflow
+   exploit/windows/mssql/ms02_056_hello                         2002-08-05       good       MS02-056 Microsoft SQL Server Hello Overflow
+   exploit/windows/mssql/ms09_004_sp_replwritetovarbin          2008-12-09       good       MS09-004 Microsoft SQL Server sp_replwritetovarbin Memory Corruption
+   exploit/windows/mssql/ms09_004_sp_replwritetovarbin_sqli     2008-12-09       excellent  MS09-004 Microsoft SQL Server sp_replwritetovarbin Memory Corruption via SQL Injection
+   exploit/windows/mssql/mssql_clr_payload                      1999-01-01       excellent  Microsoft SQL Server Clr Stored Procedure Payload Execution
+   exploit/windows/mssql/mssql_linkcrawler                      2000-01-01       great      Microsoft SQL Server Database Link Crawling Command Execution
+   exploit/windows/mssql/mssql_payload                          2000-05-30       excellent  Microsoft SQL Server Payload Execution
+   exploit/windows/mssql/mssql_payload_sqli                     2000-05-30       excellent  Microsoft SQL Server Payload Execution via SQL Injection
+   exploit/windows/mysql/mysql_mof                              2012-12-01       excellent  Oracle MySQL for Microsoft Windows MOF Execution
+   exploit/windows/mysql/mysql_start_up                         2012-12-01       excellent  Oracle MySQL for Microsoft Windows FILE Privilege Abuse
+   exploit/windows/nntp/ms05_030_nntp                           2005-06-14       normal     MS05-030 Microsoft Outlook Express NNTP Response Parsing Buffer Overflow
+   exploit/windows/postgres/postgres_payload                    2009-04-10       excellent  PostgreSQL for Microsoft Windows Payload Execution
+   exploit/windows/smb/ms03_049_netapi                          2003-11-11       good       MS03-049 Microsoft Workstation Service NetAddAlternateComputerName Overflow
+   exploit/windows/smb/ms04_007_killbill                        2004-02-10       low        MS04-007 Microsoft ASN.1 Library Bitstring Heap Overflow
+   exploit/windows/smb/ms04_011_lsass                           2004-04-13       good       MS04-011 Microsoft LSASS Service DsRolerUpgradeDownlevelServer Overflow
+   exploit/windows/smb/ms04_031_netdde                          2004-10-12       good       MS04-031 Microsoft NetDDE Service Overflow
+   exploit/windows/smb/ms05_039_pnp                             2005-08-09       good       MS05-039 Microsoft Plug and Play Service Overflow
+   exploit/windows/smb/ms06_025_rasmans_reg                     2006-06-13       good       MS06-025 Microsoft RRAS Service RASMAN Registry Overflow
+   exploit/windows/smb/ms06_025_rras                            2006-06-13       average    MS06-025 Microsoft RRAS Service Overflow
+   exploit/windows/smb/ms06_040_netapi                          2006-08-08       good       MS06-040 Microsoft Server Service NetpwPathCanonicalize Overflow
+   exploit/windows/smb/ms06_066_nwapi                           2006-11-14       good       MS06-066 Microsoft Services nwapi32.dll Module Exploit
+   exploit/windows/smb/ms06_066_nwwks                           2006-11-14       good       MS06-066 Microsoft Services nwwks.dll Module Exploit
+   exploit/windows/smb/ms06_070_wkssvc                          2006-11-14       manual     MS06-070 Microsoft Workstation Service NetpManageIPCConnect Overflow
+   exploit/windows/smb/ms07_029_msdns_zonename                  2007-04-12       manual     MS07-029 Microsoft DNS RPC Service extractQuotedChar() Overflow (SMB)
+   exploit/windows/smb/ms08_067_netapi                          2008-10-28       great      MS08-067 Microsoft Server Service Relative Path Stack Corruption
+   exploit/windows/smb/ms09_050_smb2_negotiate_func_index       2009-09-07       good       MS09-050 Microsoft SRV2.SYS SMB Negotiate ProcessID Function Table Dereference
+   exploit/windows/smb/ms10_046_shortcut_icon_dllloader         2010-07-16       excellent  Microsoft Windows Shell LNK Code Execution
+   exploit/windows/smb/ms10_061_spoolss                         2010-09-14       excellent  MS10-061 Microsoft Print Spooler Service Impersonation Vulnerability
+   exploit/windows/smb/ms15_020_shortcut_icon_dllloader         2015-03-10       excellent  Microsoft Windows Shell LNK Code Execution
+   exploit/windows/smb/psexec                                   1999-01-01       manual     Microsoft Windows Authenticated User Code Execution
+   exploit/windows/smb/psexec_psh                               1999-01-01       manual     Microsoft Windows Authenticated Powershell Command Execution
+   exploit/windows/smb/smb_relay                                2001-03-31       excellent  MS08-068 Microsoft Windows SMB Relay Code Execution
+   exploit/windows/ssl/ms04_011_pct                             2004-04-13       average    MS04-011 Microsoft Private Communications Transport Overflow
+   exploit/windows/wins/ms04_045_wins                           2004-12-14       great      MS04-045 Microsoft WINS Service Memory Overwrite
+
+
+msf > info exploit/windows/browser/ms08_041_snapshotviewer
+
+       Name: Snapshot Viewer for Microsoft Access ActiveX Control Arbitrary File Download
+     Module: exploit/windows/browser/ms08_041_snapshotviewer
+   Platform: Windows
+       Arch: 
+ Privileged: No
+    License: Metasploit Framework License (BSD)
+       Rank: Excellent
+  Disclosed: 2008-07-07
+
+Provided by:
+  MC <mc@metasploit.com>
+
+Available targets:
+  Id  Name
+  --  ----
+  0   Automatic
+
+Basic options:
+  Name     Current Setting                                                         Required  Description
+  ----     ---------------                                                         --------  -----------
+  PATH     C:\\Documents and Settings\\All Users\\Start Menu\\Programs\\Startup\\  yes       The path to place the executable.
+  SRVHOST  0.0.0.0                                                                 yes       The local host to listen on. This must be an address on the local machine or 0.0.0.0
+  SRVPORT  8080                                                                    yes       The local port to listen on.
+  SSL      false                                                                   no        Negotiate SSL for incoming connections
+  SSLCert                                                                          no        Path to a custom SSL certificate (default is randomly generated)
+  URIPATH                                                                          no        The URI to use for this exploit (default is random)
+
+Payload information:
+  Space: 2048
+
+Description:
+  This module allows remote attackers to place arbitrary files on a 
+  users file system via the Microsoft Office Snapshot Viewer ActiveX 
+  Control.
+
+References:
+  https://cvedetails.com/cve/CVE-2008-2463/
+  OSVDB (46749)
+  https://technet.microsoft.com/en-us/library/security/MS08-041
+  http://www.securityfocus.com/bid/30114
+
+msf > exit
+
+frtnx@blueterm$ exit
+
+[LUNA] Terminal terminated.
+
+[FRTNX] reading list
+-------------------------------------------------------------------------------
+Suggested Reading:
+-------------------------------------------------------------------------------
+Timeline of Cox Report controversy
+Verified Carbon Standard
+RigidChips - Japanese rigid-body simulator
+Canadian Centre for Energy Information
+Places in the United States with notable demographic characteristics
+-------------------------------------------------------------------------------
+
+[FRTNX] tell me about metasploit
+
+[LUNA] ⚛
+
+The Metasploit Project is a computer security project that provides information about security vulnerabilities and aids in penetration testing and IDS signature development.
+
+Its best-known sub-project is the open source Metasploit Framework, a tool for developing and executing exploit code against a remote target machine. Other important sub-projects include the Opcode Database, shellcode archive and related research.
+
+The Metasploit Project is well known for its anti-forensic and evasion tools, some of which are built into the Metasploit Framework.
+
+[FRTNX] thank you
+
+[LUNA] you are quite welcome.
+
+[FRTNX] 
