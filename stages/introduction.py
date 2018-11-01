@@ -1,42 +1,35 @@
 
 
-class Introduction(Object):
-
-    def __init__(self):
-        return
-
+class Introduction(object):
 
     def run(self):
-        try:
-            time.sleep(1.5)
-            user_name = input("\n                                              Code Name:")
-            #users = get_known_users()
-    
-            if user_name == os.getenv("PRIUSER"):
-                user.append(user_name)
-                uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
-                uzer = uheader
-                hh.append(uheader)
-                time.sleep(1)
-                H();sprint("%scommander." % timemaster())
-                """elif user_name.lower() in users:
-                try:
-                    H();sprint(random.choice(recall)+" "+user_name+".")
-                except:
-                    pass"""
-            else:
-                user.append(user_name)
-                uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
-                uzer = uheader
-                #users.append(gate.lower())
-                #save_new_user(users)
-                time.sleep(1)
-                H(); sprint("%s%s. My name is Luna. Luna Moonchild." % (timemaster(),user_name.title()))
-    
-            k.setPredicate("name", user_name)
-            rootLogger.info('User identified as %s' % user_name)
-            controlCentre()
-    
-        except KeyboardInterrupt as e:
-            rootLogger.debug('shutting down...')
-            return
+        intro = """Here's how it is. You and I going to be partners on an adventure. It seems only only
+                   fair to inform you that there are things I dont have the time for. I dont want to put
+                    ideas in your head so I'll let you discover them as you go. The things I will always make
+                    time for are
+
+                        * A normal everyday discussion.
+                        * Informing you of the weather at your current or another location.
+                        * Sharing whatever I can find on most subjects, from politics to physics and a little beyond..
+                        * Giving you access to a ghost terminal where everything you type is between you and me..
+                        * Showing you images of something (fyi, I hate porn. I'll show you the images though, grudgingly.)
+                        * Showing you how to get to one location to another.
+                        * Telling you where you are.
+                        * Informing you on the meaning of a word.
+                        * Translating any word to the language of your choice,
+ 
+                   and a few more things that you will soon discover.
+
+                   For a full menu and how to write special commands simply enter 'help' at any point 
+                   on this journey.
+
+                   Happy scouting."""
+
+        x = intro.split('\n')
+        y = []
+        for i in x:
+            y.append(i.strip().replace('*', '    *'))
+        z = '\n'.join(y)
+        return z            
+
+        
