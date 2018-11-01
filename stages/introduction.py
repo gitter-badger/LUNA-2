@@ -10,9 +10,9 @@ class Introduction(object):
 
                         * A normal everyday discussion.
                         * Informing you of the weather at your current or another location.
-                        * Sharing whatever I can find on most subjects, from politics to physics and a little beyond..
-                        * Giving you access to a ghost terminal where everything you type is between you and me..
-                        * Showing you images of something (fyi, I hate porn. I'll show you the images though, grudgingly.)
+                        * Sharing whatever I can find on most subjects, from politics to physics and a little beyond.
+                        * Giving you access to a ghost terminal where everything you type is between you and me.
+                        * Showing you images of something.
                         * Showing you how to get to one location to another.
                         * Telling you where you are.
                         * Informing you on the meaning of a word.
@@ -20,7 +20,7 @@ class Introduction(object):
  
                    and a few more things that you will soon discover.
 
-                   For a full menu and how to write special commands simply enter 'help' at any point 
+                   For a full menu and how to make special commands simply enter 'help' at any point 
                    on this journey.
 
                    Happy scouting."""

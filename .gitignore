@@ -1,0 +1,10 @@
+# IDE files
+__pycache__/
+aiml/__pycache__/
+functions/__pycache__/
+resources/__pycache__/
+stages/__pycache__/
+
+# Run time generated
+logs/luna.log
+ok.txt
