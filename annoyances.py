@@ -16,4 +16,13 @@ server_banner = open('resources/banners/logs_banner1.txt', 'r').read()
 rootLogger.debug(server_banner)
 rootLogger.info('Begining orientation.')
 
-climate_monitor = ['Hamgyong', 'Kangwon']
+climate_monitor = [
+                   'Hamgyong',
+                   'Kangwon', 
+                   'Gedo, Somalia',
+                   'Middle Juba',
+                   'Lower Juba',
+                   'Lower Shebelle',
+                   'Middle Shebelle',
+                   'Hiran, Somalia',
+                   ]
