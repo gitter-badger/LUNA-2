@@ -376,7 +376,7 @@ def identify():
 
         if user_name == os.getenv("PRIUSER"):
             user.append(user_name)
-            uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
+            uheader = create_prompt(user[0])
             uzer = uheader
             hh.append(uheader)
             time.sleep(1)
@@ -384,7 +384,7 @@ def identify():
 
         elif user_name.lower() in known_users:
             user.append(user_name)
-            uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
+            uheader = create_prompt(user[0])
             uzer = uheader
             hh.append(uheader)
             H(); sprint('%s%s. %s' % (timemaster(), user_name, random.choice(kUsers)))
@@ -397,7 +397,7 @@ def identify():
                 'created': str(datetime.datetime),
                 'data': []
             })
-            uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
+            uheader = create_prompt(user[0])
             uzer = uheader
             time.sleep(1)
             H(); sprint("%s%s. My name is Luna. Luna Moonchild." % (timemaster(),user_name.title()))
@@ -418,6 +418,10 @@ def get_known_users():
     for user in users.find():
         known_users.append(user['name'].lower())
     return known_users
+
+
+def create_prompt(name):
+    return '\n[' + Fore.LIGHTBLACK_EX + name.upper() + Fore.WHITE + '] '
 
 
 def timemaster():
@@ -624,7 +628,7 @@ def base_converter(dec_number, base):
 
 
 def terminal_session():
-    cmd = input(Fore.BLUE+'\n%s@blueterm$ ' % user[0].lower()+Fore.WHITE)
+    cmd = input(Fore.BLUE+'\n%s@blueterm$ ' % user[0].lower() + Fore.WHITE)
     if cmd != 'exit':
         os.system(cmd)
         terminal_session()
