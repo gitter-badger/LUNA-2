@@ -3,7 +3,7 @@
 class Introduction(object):
 
     def run(self):
-        intro = """Here's how it is. You and I going to be partners on an adventure. It seems only only
+        intro = """\nHere's how it is. You and I going to be partners on an adventure. It seems only
                    fair to inform you that there are things I dont have the time for. I dont want to put
                     ideas in your head so I'll let you discover them as you go. The things I will always make
                     time for are
