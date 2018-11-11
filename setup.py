@@ -73,6 +73,7 @@ def launcher():
             'export LUNADDR="Aqua"\n',
             'export SHADOW="CALIPSO"\n',
             'export PRIUSER="Aura"\n',
+            'git stash\n',
             'git pull >> ./logs/luna.log\n',
             './luna.sh "$@"\n',]
     conf[1] = 'cd %s\n' % cwd
