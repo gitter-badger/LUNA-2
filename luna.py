@@ -134,6 +134,7 @@ from geopy.geocoders import Nominatim
 from geopy.distance import vincenty
 from PIL import Image
 from email.header import Header, decode_header, make_header
+from glob import glob
 
 """
 Initialisation:
@@ -187,10 +188,11 @@ virgil = []
 mc, h, header, agent, dr, uzer, cell, bullet, gbullet = promptLoader()
 LOCAL_TIMEZONE = str(datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo)
 catcher = []
-
-
+ 
+ 
 def O():
     print(header,end='');time.sleep(0.2)
+
 
 def id_gen(datetime_string):
 
@@ -255,13 +257,13 @@ And so it begins
 
 def H(*n):
     if not n:
-        print(h,end='');
+        print(h, end='');
     else:
         print(n[0], end='')
     time.sleep(0.2)
 
 def Hplus():
-    print('\n'+h,end='');
+    print('\n'+h, end='');
     time.sleep(0.2)
 
 def suggested_reading():
@@ -283,7 +285,8 @@ def suggested_reading():
 
 def Hello():
     now = datetime.datetime.now()
-    print(str(now))
+    online_bullet = Fore.GREEN + u"\u25CF " + Fore.WHITE
+    print(online_bullet + str(now))
     banners = ['banner1.py'] # banner1 bias
     banner = random.choice(banners)
     os.system('python3 ./resources/banners/%s' % banner)
@@ -294,7 +297,6 @@ def Hello():
 
     try:
         threading.Thread(target=get_quotes).start()
-        categories = ["ethos", "AI", "Maths"]
 
         for entry in files.find():
             if entry['code_name'] in categories:
@@ -326,7 +328,7 @@ def get_quotes():
                           '_id': str(uuid.uuid4()),
                           'code_name': 'ethos',
                           'date': str(datetime.datetime.now()),
-                             'payload': [quote]
+                          'payload': [quote]
                         }
                 files.insert_one(entry)
 
@@ -349,7 +351,9 @@ def clean_db(void=False):
             if sw in file['payload'][0].lower() and sw != '':
                 if file['code_name'] == 'ethos':
                     rootLogger.warn('Deleting %s' % file['_id'])
-                    files.delete_one({'_id': file['_id']})
+                    files.delete_one({
+                                      '_id': file['_id']
+                                     })
                     dirty_files = True
     if not dirty_files:
         rootLogger.info('No dirty files found.')
@@ -377,11 +381,11 @@ def identify():
             hh.append(uheader)
             time.sleep(1)
             H();sprint("%scommander." % timemaster())
-            """elif user_name.lower() in users:
-            try:
-                H();sprint(random.choice(recall)+" "+user_name+".")
-            except:
-                pass"""
+#        elif user_name.lower() in users:
+#            try:
+#                H();sprint(random.choice(recall)+" "+user_name+".")
+#            except:
+#                pass
         else:
             user.append(user_name)
             uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
@@ -392,7 +396,6 @@ def identify():
             H(); sprint("%s%s. My name is Luna. Luna Moonchild." % (timemaster(),user_name.title()))
             introduction = Introduction()
             sprint(introduction.run())
-
         k.setPredicate("name", user_name)
         rootLogger.info('User identified as %s' % user_name)
         controlCentre()
@@ -465,18 +468,12 @@ def imageShow(entity, num_instances):
             hsize = int((float(img.size[1]) * float(wpercent)))
             img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
             img.show()
-        # time.sleep(20)
+        time.sleep(20)
         os.system('rm -r ./downloads/%s --force' % entity)
         return
     except Exception as e:
         rootLogger.error(e)
         return
-    # prompt = input(uzer)
-    # if 'save' not in prompt:
-    #     os.system('rm -r ./downloads/%s --force' % entity)
-    #     controlCentre(*[prompt])
-    # else:
-    #     H(); sprint('Images saved')
 
 
 def reception():
@@ -499,7 +496,7 @@ def alert(name):
         msg.attach(MIMEText(body,'plain'))
         server = smtplib.SMTP('smtp.gmail.com',587)
         server.starttls()
-        server.login(fa, os.getenv('LUNADDR'))
+        server.login(fa, os.getenv('EMAILPWD'))
         text = msg.as_string()
         server.sendmail(fa,ta,text)
         server.quit()
@@ -556,9 +553,9 @@ def log(detail):
         msg.attach(MIMEText(body,'plain'))
         server = smtplib.SMTP('smtp.gmail.com',587)
         server.starttls()
-        server.login(fa, os.getenv('LUNADDR'))
+        server.login(fa, os.getenv('EMAILPWD'))
         text = msg.as_string()
-        server.sendmail(fa,ta,text)
+        server.sendmail(fa, ta, text)
         server.quit()
 
     except Exception as e:
@@ -574,7 +571,9 @@ def delete_latest():
         numMessages = len(mailserver.list()[1])
         mailserver.dele(numMessages)
         mailserver.quit()
+        rootLogger.info("Mail clean up successful.")
     except:
+        rootLogger.warn("Could not clean up mail. Manual removal required. Sorry Bud.")
         return
 
 
@@ -585,6 +584,15 @@ def store_session_data(text):
                   '_id': str(uuid.uuid4())
                 }
     sessions.insert_one(new_entry)
+
+
+def pop_dense():
+    H(); sprint("Please enter the number of people who live in this area.")
+    population = input(uzer).replace(',','')
+    H(); sprint("Enter the size of the area in square kilometers.")
+    area = input(uzer).replace(',','')
+    H(); sprint("The population density of this area is %s people per square kilometer." % str(int(population)/int(area)))
+    controlCentre()
 
 
 def base_converter(dec_number, base):
@@ -647,8 +655,19 @@ def code_search():
     controlCentre()
 
 
-# if you're on a space craft and have forgotten your basic mathematical training
-# this might come in handy... well not really. you're fucked. have a nice day.
+def quote_search():
+    H(); sprint('Enter search term')
+    term = input(uzer)
+    found = False
+    for file in files.find():
+        if term.lower() in file['payload'][0].lower():
+            print(file['payload'][0])
+            found = True
+    if not found:
+        sprint("Could'nt find anything related to that")
+    controlCentre()
+
+
 # TODO: to be implemented
 def lightSpeed():
     lightspeed = 186000
@@ -670,7 +689,7 @@ def groundDistance(point_x, point_y):
         H(); sprint("The distance between %s and %s is %s kilometers" % (point_x.title(), point_y.title(), xydistance))
         controlCentre()
     except Exception as e:
-        # H(); print(e)
+        rootLogger.error(e)
         groundDistance(point_x, point_y)
 
 
@@ -728,7 +747,7 @@ def converter(string):
             for f in mapper:
                 if list(f)[0] == base:
                     extracted = f[base]
-            operand = seg[seg.find(base)+len(base)+1: seg.find('to')]
+            operand = seg[seg.find(base) + len(base) + 1: seg.find('to')]
             H(); sprint(int(operand, extracted))
             controlCentre()
     else:
@@ -742,7 +761,8 @@ def converter(string):
                 if list(f)[0] == base:
                     extracted = f[base]
         else:
-            H(); sprint('no converter found')
+            H(); sprint("Sorry. I couldn't convert that.")
+            rootLogger.error('No converter found')
         stop1 = string.find(' to ')
         operand = string[8:stop1]
         try:
@@ -762,7 +782,6 @@ def help_center():
 
 def directions(req):
     try:
-        # until nlu implementation, required syntax is 'destination from location'
         s = req.find('from')
         destination = req[:s-1]
         if 'from' in req:
@@ -775,7 +794,6 @@ def directions(req):
     except Exception as e:
         print(e)
         controlCentre()
-
 
 
 def prepare_listing():
@@ -873,14 +891,11 @@ def confessional(*e):
                 for title in temp2:
                     print(title)
                     time.sleep(0.01)
-            # temp.clear(); temp2.clear()
             print(beam+'%s distinct files' % str(file_count))
         except KeyboardInterrupt as e:
-            # temp.clear(); temp2.clear()
             H(); sprint('Aborted.')
             controlCentre()
         except Exception as e:
-            # temp.clear(); temp2.clear()
             rootLogger.error(str(e))
             H(); sprint('Mine is a troubled mind. Check the logs and console me.')
             controlCentre()
@@ -1034,7 +1049,7 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
         controlCentre()
 
 
-# Bug watch. Built this in a hurry.
+# Bug watch. Wrote this in a hurry.
 def directive(content, title, interm, *mode):
     if mode and mode[0] == 'flesh':
         flesh_fryer(content[interm:])
@@ -1141,7 +1156,9 @@ def find_lc(city):
             shit_times = 0
             return 'booper'
 
+
 cycles = 1
+
 
 def weather(void=False, api_request=False, *city):
     # if city:
@@ -1186,7 +1203,12 @@ def weather(void=False, api_request=False, *city):
 
         temp_descOpts = ['freezing ', 'chilly ', 'warm ', 'hot ', 'blazing ']
 
-        tempState = int(skystatus[:2])
+        integers = ['0', '1','2','3','4','5','6','7','8','9']
+        temp_num = []
+        for i in skystatus:
+            if i in integers:
+                temp_num.append(i)
+        tempState = int(''.join(temp_num))
 
         # TODO: add 15 - 20 = cool. Rearrange other values as necessary.
         if tempState < 10:
@@ -1300,6 +1322,7 @@ def zen():
     H(); print('\n'+random.choice(koans))
     controlCentre()
 
+
 def nearby(req):
     try:
         mid = req.find('near')
@@ -1331,7 +1354,7 @@ def porter():
     target = input(uzer)
     try:
         fa = os.getenv('LUNADDR')
-        if not target:
+        if not target:  # Env vars
             ta = os.getenv('MYEMAIL')
         else:
             ta = target
@@ -1348,6 +1371,7 @@ def porter():
         server.sendmail(fa,ta,text)
         server.quit()
         H(); sprint("Package sent.")
+        delete_latest()
         controlCentre()
     except:
         H(); sprint('Package sending failed.')
@@ -1355,6 +1379,8 @@ def porter():
 
 
 # beta code start.
+
+
 def gen_gate():
     try:
         plyr1 = input(h+'Identify inquisitor\n\n:')
@@ -1395,20 +1421,30 @@ def dialog_gen(inq, don ):
     except Exception as e:
         H(); sprint(e)
         controlCentre()
+
 # beta code end.
+
+
+def media_player(artist):
+    result = [y for x in os.walk('/home/frtnx/Downloads') for y in glob(os.path.join(x[0], '*.mp3'))]
+    for file in result:
+        if artist.lower() in file.lower():
+            os.system('xdg-open "%s"' % file)
+            controlCentre()
+    print('Could not find any %s' % artist)
+    controlCentre()
 
 
 def add_to_db(text):
     try:
         ukey = db.archives.create_index([('text',pymongo.ASCENDING)],
-		                                  unique=True)
+                                          unique=True)
         instance = {'text': text,
-		            'date': str(datetime.datetime.utcnow()),
+                    'date': str(datetime.datetime.utcnow()),
                     '_id': uuid.uuid4()
                    }
-        archives.insert_one(instance)
+        arch.insert_one(instance)
     except Exception as e:
-        rootLogger.debug('error: add_to_db(): %s' % e)
         pass
 
 
@@ -1504,7 +1540,6 @@ def usersTurn(n1=1, n2=1, depth=0):
         H(); sprint("Sequence terminated.")
         controlCentre()
 
-
 def start_over():
     H(); sprint('Would you like to start over?')
     directive = input(uzer)
@@ -1523,101 +1558,12 @@ def lunasTurn(n1,n2,depth):
     usersTurn(n1, n2, depth)
 
 
-def get_known_users():
-    file = open('known_users.json', 'r')
-    data = file.read()
-    file.close()
-    return json.loads(data)['users']
-
-
 def save_new_user(user_list):
     new_file = {'users': user_list}
     new_file = json.dumps(new_file)
     file = open('known_users.json', 'w')
     file.write(new_file)
     file.close()
-
-
-def port_1():
-    try:
-        hh.append(uzer)
-        H(); sprint('Enter code name')
-        cn = input(uzer)
-        H(); sprint('Enter text')
-        txt = input(uzer)
-        save_in_db(cn, txt)
-    except KeyboardInterrupt as e:
-        print('Aborted.')
-        controlCentre()
-
-
-def save_in_db(code_name, obj):
-    entry = {
-             '_id': str(uuid.uuid4()),
-             'code_name': code_name,
-             'date': str(datetime.datetime.now()),
-             'payload': [obj]
-    }
-    files.insert_one(entry)
-    H();sprint("New file stored successfully.")
-    controlCentre()
-
-
-def personalise(*intgr):
-    if not intgr:
-        q1 = input('What would you like to change?\n:')
-        if 'brightness' in q1.lower():
-            q1a = input('How would you like it?\n:')
-            screen_brightness(q1a)
-        if 'unauthorised hosts' in q1.lower():
-            host_handler()
-    else:
-        screen_brightness(intgr)
-
-
-def screen_brightness(new_value):
-    try:
-        intgr = int(new_value)
-        os.system('xbacklight -set %d' % intgr)
-        eton(*[1])
-    except:
-        q1b = input('sorry, I can only handle interger values. Please pick a number between 0 and 100.\n:')
-        personalise(*q1b)
-
-
-def dictionary():
-    try:
-        H(); print("Choose a dictionary database (enter the associated number)\n\n",
-             "1. The Collaborative International Dictionary of English\n",
-             "2. Wordnet (2006)\n",
-             "3. The Devil's Dictionary (1881-1906)\n",
-             "4. The Moby Thesaurus II by Grady Ward")
-        dic = input(uzer)
-        mapper = {'1': 'gcide', '2': 'wn', '3': 'devil', '4': 'moby-thesaurus'}
-        mapper2 = {'1': 'The Collaborative International Dictionary of English',
-                   '2': 'Wordnet (2006)',
-                   '3': "The Devil's Dictionary (1881-1906)",
-                   '4': 'The Moby Thesaurus II by Grady Ward'}
-        H(); sprint("You are now in %s" % mapper2[dic])
-        dictionaryHelper(mapper[dic])
-    except KeyboardInterrupt:
-        H(); sprint('Aborted')
-        controlCentre()
-
-
-def dictionaryHelper(dictionary):
-    word = input(uzer)
-    if word != 'exit':
-        try:
-            H(); os.system('dict -d %s %s' % (dictionary, word))
-            dictionaryHelper(dictionary)
-        except Exception as e:
-            H(); sprint(e)
-            controlCentre()
-    else:
-        H(); sprint('You have left dictionary cyberspace.')
-        controlCentre()
-
 
 
 def Engage():
@@ -1627,12 +1573,7 @@ def Engage():
     time.sleep(2)
     covertControl()
 
-###########################################################################
-# A weak darkside. To be developed as needed.
-# Though I now prefer to launch most pentest tools in luna's terminal.
-# I havent used most of the commands below in quite a while.
-# Nevertheless, these shallow functions have their part to play
-# in future development.
+
 def covertControl():
     """Welcome to the other side.
 
@@ -1655,9 +1596,6 @@ These are merely trigger words and may be used in a sentence.
 
         elif 'recon' in prompt:
             recon()
-
-        elif 'port' in prompt:
-            portScanController()
 
         elif 'strack' in prompt:
             fasttrack()
@@ -1696,10 +1634,9 @@ These are merely trigger words and may be used in a sentence.
         covertControl()
 
 
-
-def check_web_sever(host,port,path):
+def check_web_sever(host, port, path):
     try:
-        h = http.client.HTTPConnection(host,port)
+        h = http.client.HTTPConnection(host, port)
         h.request('GET',path)
         resp = h.getresponse()
         sprint('HTTP Response:')
@@ -1737,7 +1674,7 @@ def recon():
     O();sprint("Enter target path")
     prompt3 = input(agent)
     host_info.append(prompt3)
-    check_web_sever(*host_info)
+    check_web_sever(prompt, prompt2, prompt3)
 
 
 def ranger():
@@ -1790,7 +1727,7 @@ def locate():
         covertControl()
 
 # TODO:create curl file downloader.
-# assisted by google library. find and download files of specified format
+# assisted by google library. find and download files with a specific format
 
 def exploit_port():
     """A portal to adding and viewing exploits.
@@ -1827,7 +1764,7 @@ collector = []
 def traceroutePlus(cmd):
     start1 = cmd.find(' ')+1
     H(); sprint('running trace...')
-    os.system('proxychains traceroute %s | tee result.txt' % cmd[start1:])
+    os.system('traceroute %s | tee result.txt' % cmd[start1:])
     H(); sprint("processing... I'll get you what I can.")
     f = open('result.txt', 'r')
     ff = f.read()
@@ -1865,6 +1802,7 @@ def locate2():
             pass
 
 
+
 def fasttrack():
     O();sprint("Enter target url")
     prmpt = input(agent)
@@ -1879,51 +1817,6 @@ def fasttrack():
     except Exception as e:
         O();sprint('\n'+e)
         covertControl()
-
-
-def portScan(host,port,r_code=1):
-    try:
-        s = socket(AF_INET, SOCK_STREAM)
-        code = s.connect_ex((host, port))
-        if code == 0:
-            r_code = code
-        s.close()
-    except Exception as e:
-        pass
-    return r_code
-
-
-def portScanController():
-    re = []
-    status = False
-    time.sleep(1)
-    O();sprint("Enter target host")
-    host = input(agent)
-    tgtPorts = [x+1 for x in range(500)]
-    #pbar = ProgressBar(maxval=500)
-    for port in tgtPorts:
-        #pbar.start()
-        #pbar.update(port)
-        try:
-            response = portScan(host, port)
-            if response == 0:
-                x = "Port %d is Open." % port
-                re.append(x)
-                status = True
-        except KeyboardInterrupt:
-            #pbar.finish()
-            O();sprint("I hope you're satisfied, oh impatient one")
-            covertControl()
-            return
-        except Exception as e:
-            pass
-    #pbar.finish()
-    if status == True:
-        results = '\n'.join(re)
-        sprint(results)
-    else:
-        sprint("No ports found.")
-    covertControl()
 
 
 def lessons():
@@ -1947,15 +1840,29 @@ def lessons():
     covertControl()
 
 
-## works with log()
-# try:
-#     requests.get('https://google.com')
-#     import ipgetter
-#     initialising_process = ipgetter.myip()
-#     log(initialising_process)
-# except:
-#     pass
+def port_1():
+    try:
+        hh.append(uzer)
+        H(); sprint('Enter code name')
+        cn = input(uzer)
+        H(); sprint('Enter text')
+        txt = input(uzer)
+        save_in_db(cn, txt)
+    except KeyboardInterrupt as e:
+        print('Aborted.')
+        controlCentre()
 
+
+def save_in_db(code_name, obj):
+    entry = {
+             '_id': str(uuid.uuid4()),
+             'code_name': code_name,
+             'date': str(datetime.datetime.now()),
+             'payload': [obj]
+    }
+    files.insert_one(entry)
+    H();sprint("New file stored successfully.")
+    controlCentre()
 
 def find_all():
     membrane = []
@@ -1968,85 +1875,47 @@ def find_all():
 translator = {'-A': ['-A', 'enable os detection'],
               '-v':['-v', 'verbosity level 1', 'verbosity 1']}
 
-def sam_sepiol(*tkn):
+
+"""
+host_handler():
+    q1 = input('Would like to add or remove a host to the black list?')
+    if 'add' in q1:
+        #under construction
+"""
+
+
+def dictionary():
     try:
-        if not tkn:
-            txt = input("Who's the mark and what are your optional specifications?\n:")
-            value_extractor(txt)
+        H(); print("Choose a dictionary database (enter the associated number)\n\n",
+             "1. The Collaborative International Dictionary of English\n",
+             "2. Wordnet (2006)\n",
+             "3. The Devil's Dictionary (1881-1906)\n",
+             "4. The Moby Thesaurus II by Grady Ward")
+        dic = input(uzer)
+        mapper = {'1': 'gcide', '2': 'wn', '3': 'devil', '4': 'moby-thesaurus'}
+        mapper2 = {'1': 'The Collaborative International Dictionary of English',
+                   '2': 'Wordnet (2006)',
+                   '3': "The Devil's Dictionary (1881-1906)",
+                   '4': 'The Moby Thesaurus II by Grady Ward'}
+        H(); sprint("You are now in %s" % mapper2[dic])
+        dictionaryHelper(mapper[dic])
     except KeyboardInterrupt:
+        H(); sprint('Aborted')
         controlCentre()
 
 
-def value_extractor(txt):
-    col = []
-    ip = txt[:txt.find(' ')]
-    all_else = txt[txt.find(' ')+1:]
-    for listt in translator:
-        for item in translator[listt]:
-            if item in all_else:
-                col.append(translator[listt][0])
-    if col != []:
-        nmap_scanner(ip, **{'request':col})
+def dictionaryHelper(dictionary):
+    word = input(uzer)
+    if word != 'exit':
+        try:
+            H(); os.system('dict -d %s %s' % (dictionary, word))
+            dictionaryHelper(dictionary)
+        except Exception as e:
+            H(); sprint(e)
+            controlCentre()
     else:
-        nmap_scanner(ip)
-
-
-def nmap_scanner(tgt, **specifications):
-    """Register all open ports with Luna. This function
-    notifies you if it detects any unauthorized ports open"""
-    try:
-        file = open('uh.json', 'r')
-        data = file.read()
-        unauthorized_hosts = json.loads(data)['unauthorized_hosts']
-        uid = str(uuid.uuid4())
-        if specifications:
-            s = ' '.join(specifications['request'])
-            os.system('nmap %s %s >> %s.txt' % (s,tgt,uid))
-        else:
-            os.system('nmap %s -oN %s.txt' % (tgt, uid))
-        f = open(uid+'.txt', 'r')
-        scan_result = f.read()
-        os.remove(uid+'.txt')
-        if tgt == '127.0.0.1':
-            all_good = True
-            for host in unauthorized_hosts:
-                if host in scan_result:
-                    all_good = False
-                    rootLogger.error('Unauthorized service detected!')
-                    start = scan_result.find(host)
-                    item_start = scan_result[start:]
-                    end = item_start.find('\n')
-                    print(scan_result[start:start+end])
-            if all_good:
-                rootLogger.info('No bullshit detected.')
-        eton(*[1])
-    except KeyboardInterrupt:
-        print('Aborted')
+        H(); sprint('You have left dictionary cyberspace.')
         controlCentre()
-
-
-def background():
-    while True:
-        # mail_slave()
-        machanic()
-        time.sleep(15)
-
-
-# def foreground():
-#     backup_manager()
-#     Hello()
-
-
-# b = threading.Thread(name='background', target=background)
-# f = threading.Thread(name='foreground', target=foreground)
-
-# def ignition():
-#    f.start()
-    #time.sleep(90)
-    #b.start()
-
-
-# ignition()
 
 
 def controlCentre(*s):
@@ -2081,12 +1950,29 @@ def controlCentre(*s):
         elif 'resource' in prompt:
             findExternalResource()
 
+        elif prompt == 'archives':
+            # TODO: replace implementation to: set listed_db to 'arch' then call confessional()
+            if arch.count() > 0:
+                print('')
+                for file in arch.find():
+                    print(file['title'])
+                    time.sleep(0.1)
+            else:
+                H(); sprint('No files have been archived.')
+            controlCentre()
+
         elif prompt == 'translator':
             init_translator()
+
+        elif prompt == 'search quotes':
+            quote_search()
 
         elif prompt == 'clear':
             os.system('clear')
             controlCentre()
+
+        elif prompt.startswith('play me some '):
+            media_player(prompt[13:])
 
         elif prompt == 'load full database':
             listed_db = intel
@@ -2113,7 +1999,6 @@ def controlCentre(*s):
             except Exception as e:
                 H(); sprint(str(e))
                 controlCentre()
-
         elif 'reading list' in prompt:
             suggested_reading()
             controlCentre()
@@ -2158,18 +2043,19 @@ def controlCentre(*s):
         elif prompt == 'open pandora':
             confessional(*['thefuturebelongstothosewhotakeit'])
 
+        # save exploit
         elif prompt == 'auriga':
             exploit_port()
 
         elif prompt == 'growth point':
             gen_gate()
 
+        elif 'population density' in prompt:
+            pop_dense()
+
         elif 'terminal' in prompt:
             H(); sprint('Terminal open.')
             terminal_session()
-
-        elif prompt == 'restart':
-            restart()
 
         elif prompt == 'clean swap':
             print(''); os.system('sudo swapoff -a && sudo swapon -a')
@@ -2179,7 +2065,7 @@ def controlCentre(*s):
         elif prompt == 'clean db':
             clean_db(False)
 
-        elif 'network diagnostic' in prompt:
+        elif 'network diagnostic' in prompt or prompt == 'netdog':
             print('')
             os.system('sudo nmcli radio wifi off')
             rootLogger.debug('Turning wifi off.')
@@ -2231,9 +2117,6 @@ def controlCentre(*s):
                 H();sprint(random.choice(DoA))
                 controlCentre()
 
-        elif 'nmap' in prompt:
-            sam_sepiol()
-
         elif prompt == 'port':
             porter()
 
@@ -2246,9 +2129,6 @@ def controlCentre(*s):
         elif prompt == 'save state':
             backup_manager(*[999])
 
-        elif 'director override' in prompt:
-            personalise()
-
         elif prompt.startswith('dict'):
             dictionary()
 
@@ -2257,34 +2137,18 @@ def controlCentre(*s):
             controlCentre()
             return
 
-        elif prompt == "whats in the papers":     # The idea here  is to use single phrase keys to activate its functional processes.
+        elif prompt == "whats in the papers":
             lightIntel()
             return
 
-        elif 'mail' in prompt:
-            email()
-
         elif "reading list" in prompt:
-            booklist()
-
-        elif prompt == 'markets':    # This also comes with an added layer of directorship. Atllowing
-            StockMarkets()           # only those well versed in it's protocols to make real use of it.
-            return
-
-        elif prompt == 'need a reminder, if you please':
-            gravity()
+            suggested_reading()
 
         elif 'todo list' in prompt:
             file = open('TODO.txt', 'r')
             ff = file.read()
             print(ff)
             controlCentre()
-
-        # elif 'search' in prompt:
-        #    google()
-
-        # elif 'deep' in prompt:
-        #    DSearch()
 
         elif prompt.startswith('traceroute'):
             traceroutePlus(prompt)
@@ -2385,7 +2249,6 @@ def controlCentre(*s):
     except Exception as e:
         H();print(e)
         controlCentre()
-
 
 for city in climate_monitor:
     threading.Thread(target=weather, args=(True, False, city,)).start()
