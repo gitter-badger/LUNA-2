@@ -162,7 +162,7 @@ threading.Thread(target=get_coords).start()
 
 client = MongoClient()
 db = client.in_vivo_veritas
-collection = db.collection
+users = db.users
 files = db.files
 intel = db.intelligence
 sci = db.science
@@ -285,13 +285,13 @@ def suggested_reading():
 
 def Hello():
     now = datetime.datetime.now()
-    online_bullet = Fore.GREEN + u"\u25CF " + Fore.WHITE
+    online_bullet = Fore.GREEN + u"\u25CF  " + Fore.WHITE
     print(online_bullet + str(now))
     banners = ['banner1.py'] # banner1 bias
     banner = random.choice(banners)
     os.system('python3 ./resources/banners/%s' % banner)
     time.sleep(1)
-    categories = ["ethos", "AI", "Maths"] # TODO: remove all but ethos before publishing
+    categories = ["ethos", "AI", "Maths"]
     all_files = []
     quotes = []
 
@@ -372,7 +372,7 @@ def identify():
     try:
         time.sleep(1.5)
         user_name = input("\n                                              Code Name:")
-        #users = get_known_users()
+        known_users = get_known_users()
 
         if user_name == os.getenv("PRIUSER"):
             user.append(user_name)
@@ -381,21 +381,29 @@ def identify():
             hh.append(uheader)
             time.sleep(1)
             H();sprint("%scommander." % timemaster())
-#        elif user_name.lower() in users:
-#            try:
-#                H();sprint(random.choice(recall)+" "+user_name+".")
-#            except:
-#                pass
-        else:
+
+        elif user_name.lower() in known_users:
             user.append(user_name)
             uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
             uzer = uheader
-            #users.append(gate.lower())
-            #save_new_user(users)
+            hh.append(uheader)
+            H(); sprint('%s%s. %s' % (timemaster(), user_name, random.choice(kUsers)))
+
+        else:
+            user.append(user_name)
+            users.insert_one({
+                '_id': str(uuid.uuid4()),
+                'name': user_name,
+                'created': str(datetime.datetime),
+                'data': []
+            })
+            uheader = '\n['+Fore.LIGHTBLACK_EX+user[0].upper()+Fore.WHITE+'] '
+            uzer = uheader
             time.sleep(1)
             H(); sprint("%s%s. My name is Luna. Luna Moonchild." % (timemaster(),user_name.title()))
             introduction = Introduction()
             sprint(introduction.run())
+
         k.setPredicate("name", user_name)
         rootLogger.info('User identified as %s' % user_name)
         controlCentre()
@@ -403,6 +411,13 @@ def identify():
     except KeyboardInterrupt as e:
         rootLogger.debug('shutting down...')
         return
+
+
+def get_known_users():
+    known_users = []
+    for user in users.find():
+        known_users.append(user['name'].lower())
+    return known_users
 
 
 def timemaster():

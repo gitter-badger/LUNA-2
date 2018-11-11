@@ -108,13 +108,6 @@ def guava():
         return "somewhere on planet Earth"
 
 
-def get_known_users():
-    file = open('known_users.json', 'r')
-    data = file.read()
-    file.close()
-    return json.loads(data)['users']
-
-
 def promptLoader():
     global h
     global header
