@@ -1431,7 +1431,7 @@ def media_player(artist):
         if artist.lower() in file.lower():
             os.system('xdg-open "%s"' % file)
             controlCentre()
-    print('Could not find any %s' % artist)
+    H(); sprint('Could not find any %s' % artist)
     controlCentre()
 
 
