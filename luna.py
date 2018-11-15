@@ -1445,7 +1445,7 @@ def dialog_gen(inq, don ):
 
 
 def media_player(artist):
-    result = [y for x in os.walk('/home/frtnx/Downloads') for y in glob(os.path.join(x[0], '*.mp3'))]
+    result = [y for x in os.walk('%s/Downloads' % os.path.expanduser('~')) for y in glob(os.path.join(x[0], '*.mp3'))]
     for file in result:
         if artist.lower() in file.lower():
             os.system('xdg-open "%s"' % file)
