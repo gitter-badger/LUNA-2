@@ -285,7 +285,7 @@ def suggested_reading():
 
 def Hello():
     now = datetime.datetime.now()
-    online_bullet = Fore.GREEN + u"\u25CF  " + Fore.WHITE
+    online_bullet = Fore.GREEN + u"\u25CF " + Fore.WHITE
     print(online_bullet + str(now))
     banners = ['banner1.py'] # banner1 bias
     banner = random.choice(banners)
