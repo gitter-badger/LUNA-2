@@ -1821,7 +1821,6 @@ def locate2():
             pass
 
 
-
 def fasttrack():
     O();sprint("Enter target url")
     prmpt = input(agent)
