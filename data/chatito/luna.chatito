@@ -1,0 +1,172 @@
+%[get_weather]('training': '300', 'testing': '1')
+    ~[weather] ~[at?] @[location]
+    ~[weather]
+
+%[find_info]('training': '870', 'testing': '12')
+    ~[inform_me] ~[about] @[subject]
+    ~[show_me] @[subject]
+
+%[find_more_info]('training': '610', 'testing': '12')
+    ~[more] ~[about] @[subject]
+    ~[more]
+
+%[find_related_info]('training': '270', 'testing': '10')
+    ~[occurances] ~[of] @[subject] 
+
+%[find_images]('training': '1000', 'testing': '10')
+    ~[display] ~[quantity?] ~[images] ~[of] @[subject]
+
+~[weather]
+    weather
+    whats the weather like
+    whats the weather
+    wther
+    wthr
+    weather forcast
+    tell me the weather
+    hows the weather
+
+~[occurances]
+    find me all occurances
+    occurances
+    relations
+    find me all relations
+    find me anything to do
+
+~[inform_me]
+    tell me
+    what do you know
+    tell me everything you know
+    fill me in
+    get me up to speed
+    inform me
+    fill me in
+    show me all
+    inform
+
+~[display]
+    show me
+    find me
+    find
+    show
+    display
+    seek
+
+~[images]
+    images
+    pictures
+    pics
+    imgs
+    image
+    picture
+    pic
+
+~[show_me]
+    show me your
+    show me the
+
+~[about]
+    about
+    on
+    of
+
+~[at]
+    at
+    in
+
+~[of]
+    of
+    with
+
+~[more]
+    more
+    tell me more
+    more data
+    find me more data
+    more info
+    find me more info
+    more information
+    find me more information
+    show me more
+    show me more data
+    show me more information
+
+~[quantity]
+    1
+    15
+    100
+    72
+    4
+    21
+    25
+    56
+    89
+    34
+    20
+
+@[location]
+    Johannesburg
+    Cape Town
+    Toronto
+    Butan
+    Hawaii
+    Braamfontein, Johannesburg
+    Durban
+    Brooklyn
+    Kimberly, South Africa
+    London
+    Tokyo
+    Cleveland, United States
+    Nepal
+    Somalia
+
+@[subject]
+    climate change
+    Mars
+    Tourism
+    economics
+    science
+    religion
+    corruption
+    human virtues
+    Aristotle
+    Tobacco
+    Oil spills
+    Nuclear gold codes
+    Jon Hopkins (musician)
+    the Cambrian explosion
+    technology
+    artificial stupidity
+    Marvin Minsky
+    psychology
+    Jesus Christ
+    Buddhism
+    Taoism
+    Tai Chi
+    Brakence (musician)
+    NASA
+    SpaceX
+    Faster than light speed
+    Wormholes
+    Metasploit
+    ARkStorm, a hypothetical storm by the same name that could affect California
+    Backscatter X-ray (in security scanning applications, e.g. at airports)
+    America's Great Depression by Murray Rothbard
+    Carathéodory's extension theorem
+    Eugene Green Energy Standard, founded by the WWF
+    Business continuity
+    Hyperbolic set
+    Fuzzy logic
+    Tropical cyclone effects in Europe
+    Physics Abstraction Layer (PAL)
+    List of file signatures
+    List of flying wing aircraft
+    UNESCO Intangible Cultural Heritage Lists
+    Naswar
+    Mobile wireless sensor networks
+    world heritage sites
+    Cultural Properties of Japan
+    Diffeomorphism constraint
+    Perron–Frobenius theorem
+    Climate cycle
+    Hamiltonian lattice gauge theory
