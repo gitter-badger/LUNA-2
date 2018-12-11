@@ -72,7 +72,6 @@ rec_loc = db.recent_location
 os.system('mongorestore --db in_vivo_veritas conf/configurations.bson >> logs/luna.log')
 config = db.configurations
 
-
 def character_loader(brain):
     conf = config.find_one({'name': 'luna_predicates'})
     predicates = conf['bot_predicates']
@@ -94,6 +93,18 @@ def guava():
         print("offline mode")
         rootLogger.debug("Location unobtainable.")
         return "somewhere on planet Earth"
+
+
+def save_model():
+    model_file = open('data/nlu/nlu.json', 'r')
+    data = model_file.read()
+    entry = {
+             '_id': str(uuid.uuid4()),
+             'name': 'nlu_model',
+             'payload': data
+    }
+    config.delete_one({'name': 'nlu_model'})
+    config.insert_one(entry)
 
 
 def promptLoader():
@@ -131,4 +142,3 @@ def get_coords():
     except:
         subject = rec_loc.find_one({'delta': 1})
         coords = subject['loc']
-

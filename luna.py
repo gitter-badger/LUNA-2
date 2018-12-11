@@ -142,11 +142,25 @@ Initialisation:
 rootLogger.debug('Initialising...')
 layout = Nominatim()
 num_word_transform = inflect.engine()
-try:
-    interpreter = Interpreter.load('models/luna/main_nlu')
-except:
+
+previous_model = config.find_one({'name': 'nlu_model'})
+current_model = open('data/nlu/nlu.json', 'r')
+current_model_data = current_model.read()
+if current_model_data != previous_model['payload']:
+    rootLogger.warn('New training data detected. Updating models with latest data...')
     os.system('make train-nlu')
     interpreter = Interpreter.load('models/luna/main_nlu')
+    save_model()
+try:
+    interpreter = Interpreter.load('models/luna/main_nlu')
+    rootLogger.info('Found pre-existing models. No training necessary.')
+    save_model()
+except:
+    rootLogger.warn('No previous models found. Training new model.')
+    os.system('make train-nlu')
+    interpreter = Interpreter.load('models/luna/main_nlu')
+    save_model()
+
 pool = ThreadPool(processes=1)
 # TODO:
 war_mode = False  # set to True to speed up output rate. Best for time critical operations.
@@ -220,7 +234,7 @@ def backup_manager(*cmd):
             if "notification.json" in current_files:
                 os.remove('notification.json')
 
-        for db_folder in current_files:
+        for db_folder in cules:
             if db_folder.startswith('dump_'):
                 os.system('rm -r %s' % db_folder)
             if db_folder == 'microsoft-office-windows-7.zip':
