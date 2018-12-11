@@ -1957,7 +1957,7 @@ def intent_and_entity_rerouter(text):
             else:
                 weather()
         elif intent == 'find_info':
-            evaluate_subject(entities) # if subject does not exist, right of execution is passed to controlCentre()
+            evaluate_subject(entities, text) # if subject does not exist, right of execution is passed to controlCentre()
             # TODO: consider how to make images and local lookup optional
             informant(entities[0]['value'].title(), True, 0, False) 
         elif intent == 'find_images':
@@ -1965,23 +1965,23 @@ def intent_and_entity_rerouter(text):
             H(); sprint(random.choice(imdi))
             controlCentre()
         elif intent == 'find_related_info':
-            evaluate_subject(entities)
+            evaluate_subject(entities, text)
             find_related(entities[0]['value'])
         else:
             if intent == 'find_more_info':
-                evaluate_subject(entities)
+                evaluate_subject(entities, text)
                 informant(entities[0]['value'].title(), False, 0, True)
     else:
         controlCentre(*[text])
 
 
-def evaluate_subject(entities):
+def evaluate_subject(entities, text):
     """if entities is empty the user is notified and right of execution is passed
        to controlCentre. Else right of execution is returned to the caller.
     """
     if entities == []:
-        H(); sprint('No subject specified.')
-        controlCentre()
+        logging.debug('No subject specified.')
+        controlCentre(*[text])
     else:
         return
 
