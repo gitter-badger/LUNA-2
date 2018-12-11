@@ -88,6 +88,7 @@ def launcher():
 
 launcher()
 os.system('bash install_dependencies.sh')
+os.system('make train-nlu')
 os.system('luna')
 """
 def pwd_manager():

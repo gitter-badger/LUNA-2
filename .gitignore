@@ -4,6 +4,9 @@ aiml/__pycache__/
 functions/__pycache__/
 resources/__pycache__/
 stages/__pycache__/
+resources/banners/logs_banner1.txt
+models/
+downloads/
 
 # Run time generated
 resources/banners/logs_banner1.txt

@@ -64,6 +64,7 @@ pip3 install nltk --user
 pip3 install geopy==1.11.0 --user
 pip3 install google_images_download --user
 pip3 install inflect --user
+pip3 install rasa-nlu==0.13.7
 
 
 # finally copy the nltk folder into host machines home dir

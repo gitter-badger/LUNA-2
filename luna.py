@@ -88,7 +88,6 @@ import bay
 import subprocess
 import os
 import gc
-import getpass
 import http.client
 import threading
 import poplib
@@ -113,8 +112,9 @@ import inflect
 import urllib.request
 import random,re,smtplib,requests,pymongo,uuid
 from stages.introduction import Introduction
-from Luna_personality import *
+from personality import *
 from translator import trans_to_eng
+from rasa_nlu.model import Interpreter
 from bs4 import BeautifulSoup
 from colorama import Fore
 from functions.LunaResponses import *
@@ -142,6 +142,7 @@ Initialisation:
 rootLogger.debug('Initialising...')
 layout = Nominatim()
 num_word_transform = inflect.engine()
+interpreter = Interpreter.load('models/luna/main_nlu')
 pool = ThreadPool(processes=1)
 # TODO:
 war_mode = False  # set to True to speed up output rate. Best for time critical operations.
@@ -1936,6 +1937,51 @@ def dictionaryHelper(dictionary):
         controlCentre()
 
 
+def intent_and_entity_rerouter(text):
+    THRESHOLD = 0.75
+    nlu_response = interpreter.parse(text)
+    logging.debug('nlu recieved text: %s' % text)
+    logging.debug('nlu response: %s' % nlu_response)
+    if nlu_response['intent']['confidence'] >= THRESHOLD:
+        logging.info('text has gotten through threshold')
+        intent = nlu_response['intent']['name']
+        entities = nlu_response['entities']
+        if intent == 'get_weather':
+            logging.info('text has found to be weather. running weather()')
+            if entities:
+                weather(False, False, *[entities[0]['value']])
+            else:
+                weather()
+        elif intent == 'find_info':
+            evaluate_subject(entities) # if subject does not exist, right of execution is passed to controlCentre()
+            # TODO: consider how to make images and local lookup optional
+            informant(entities[0]['value'].title(), True, 0, False) 
+        elif intent == 'find_images':
+            threading.Thread(target=imageShow, args=(entities[0]['value'], 5,)).start()
+            H(); sprint(random.choice(imdi))
+            controlCentre()
+        elif intent == 'find_related_info':
+            evaluate_subject(entities)
+            find_related(entities[0]['value'])
+        else:
+            if intent == 'find_more_info':
+                evaluate_subject(entities)
+                informant(entities[0]['value'].title(), False, 0, True)
+    else:
+        controlCentre(*[text])
+
+
+def evaluate_subject(entities):
+    """if entities is empty the user is notified and right of execution is passed
+       to controlCentre. Else right of execution is returned to the caller.
+    """
+    if entities == []:
+        H(); sprint('No subject specified.')
+        controlCentre()
+    else:
+        return
+
+
 def controlCentre(*s):
     if s:
         prompt = s[0]
@@ -1943,20 +1989,13 @@ def controlCentre(*s):
 
     else:
         prompt = input(uzer).lower()
+        intent_and_entity_rerouter(prompt)
 
     try:
         global listed_db
 
         if prompt == 'help':
             help_center()
-
-        if prompt.startswith('whats the weather like in '):
-            weather(False, False, *[prompt[26:]])
-            return
-
-        elif 'weather' in prompt:
-            weather()
-            return
 
         elif (prompt.startswith('what is the distance between ') or prompt.startswith('distance between')):
             end = prompt.find(' and ')
@@ -2029,21 +2068,6 @@ def controlCentre(*s):
         elif prompt.startswith('find the') and 'root' in prompt:
             find_root(prompt)
 
-        elif prompt.startswith('tell me about ') and prompt != 'tell me about yourself':
-            informant(prompt[14:].title(), False)
-
-        elif 'tell me everything you know about' in prompt:
-            informant(prompt[34:].title())
-
-        elif 'get me new intel on' in prompt:
-            informant(prompt[20:].title(), True, 0, False, *['force'])
-
-        elif prompt.startswith('show me your '):
-            informant(prompt[13:].title())
-
-        elif 'tell me more about ' in prompt:
-            informant(prompt[19:].title(), False, 0, True)
-
         elif prompt == 'tell me everything you know':
             confessional()
 
@@ -2054,9 +2078,6 @@ def controlCentre(*s):
 
         elif 'note' in prompt:
             port_1()
-
-        elif prompt.startswith('find me all occurances of '):
-            find_related(prompt[26:])
 
         elif prompt == 'open pandora':
             confessional(*['thefuturebelongstothosewhotakeit'])
@@ -2176,48 +2197,6 @@ def controlCentre(*s):
 
         elif 'fibonacci' in prompt:
             laFibonacci()
-
-        elif prompt.startswith("show me ") and 'images of' in prompt:
-
-            try:
-                numStart = prompt.find("me") + 2
-                numEnd = prompt.find("images")
-                num = prompt[numStart:numEnd].strip()
-                # print("Number of sought instances is ", num)
-                a = prompt.find("images of") + 9
-                entity = prompt[a:].strip()
-                # print("Sought entity is ", entity)
-                threading.Thread(target=imageShow, args=(entity, num,)).start()
-                H(); sprint(random.choice(imdi))
-                controlCentre()
-
-            except Exception as e:
-                print(e)
-                H();
-                sprint(k.respond(prompt))
-                store_session_data(prompt)
-                controlCentre()
-
-
-        elif "images of " in prompt:
-
-            try:
-                numStart = prompt.find("me")+2
-                numEnd = prompt.find("images")
-                num = prompt[numStart:numEnd].strip()
-                # print("Number of sought instances is ", num)
-                a = prompt.find("images of")+9
-                entity = prompt[a:].strip()
-                # print("Sought entity is ", entity)
-                imageFinder(entity, num)
-                controlCentre()
-
-            except Exception as e:
-                rootLogger.error(e)
-                H();sprint(k.respond(prompt))
-                store_session_data(prompt)
-                controlCentre()
-
 
         elif 'in vivo veritas' in prompt:
 
