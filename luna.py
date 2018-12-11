@@ -142,7 +142,10 @@ Initialisation:
 rootLogger.debug('Initialising...')
 layout = Nominatim()
 num_word_transform = inflect.engine()
-interpreter = Interpreter.load('models/luna/main_nlu')
+try:
+    interpreter = Interpreter.load('models/luna/main_nlu')
+except:
+    os.system('make train-nlu')
 pool = ThreadPool(processes=1)
 # TODO:
 war_mode = False  # set to True to speed up output rate. Best for time critical operations.
