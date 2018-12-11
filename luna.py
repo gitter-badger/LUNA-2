@@ -146,6 +146,7 @@ try:
     interpreter = Interpreter.load('models/luna/main_nlu')
 except:
     os.system('make train-nlu')
+    interpreter = Interpreter.load('models/luna/main_nlu')
 pool = ThreadPool(processes=1)
 # TODO:
 war_mode = False  # set to True to speed up output rate. Best for time critical operations.
