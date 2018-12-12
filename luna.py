@@ -162,9 +162,7 @@ except:
     save_model()
 
 pool = ThreadPool(processes=1)
-# TODO:
-war_mode = False  # set to True to speed up output rate. Best for time critical operations.
-###
+war_mode = False  # TODO: set to True to speed up output rate. Best for time critical operations.
 
 k = aiml.Kernel()
 spine = './brain/'

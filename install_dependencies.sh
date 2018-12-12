@@ -63,8 +63,11 @@ pip3 install colorama --user
 pip3 install nltk --user
 pip3 install geopy==1.11.0 --user
 pip3 install google_images_download --user
-pip3 install inflect --user
+pip3 install inflect --user --user
 pip3 install rasa-nlu==0.13.7
+pip3 install tensorflow --user
+pip3 install sklearn --user
+pip3 install scipy --user
 
 
 # finally copy the nltk folder into host machines home dir
