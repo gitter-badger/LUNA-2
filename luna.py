@@ -232,7 +232,7 @@ def backup_manager(*cmd):
             if "notification.json" in current_files:
                 os.remove('notification.json')
 
-        for db_folder in cules:
+        for db_folder in current_files:
             if db_folder.startswith('dump_'):
                 os.system('rm -r %s' % db_folder)
             if db_folder == 'microsoft-office-windows-7.zip':
