@@ -143,14 +143,18 @@ rootLogger.debug('Initialising...')
 layout = Nominatim()
 num_word_transform = inflect.engine()
 
-previous_model = config.find_one({'name': 'nlu_model'})
-current_model = open('data/nlu/nlu.json', 'r')
-current_model_data = current_model.read()
-if current_model_data != previous_model['payload']:
-    rootLogger.warn('New training data detected. Updating models with latest data...')
-    os.system('make train-nlu')
-    interpreter = Interpreter.load('models/luna/main_nlu')
-    save_model()
+try:
+    previous_model = config.find_one({'name': 'nlu_model'})
+    current_model = open('data/nlu/nlu.json', 'r')
+    current_model_data = current_model.read()
+    if current_model_data != previous_model['payload']:
+        rootLogger.warn('New training data detected. Updating models with latest data...')
+        os.system('make train-nlu')
+        interpreter = Interpreter.load('models/luna/main_nlu')
+        save_model()
+except:
+    pass
+
 try:
     interpreter = Interpreter.load('models/luna/main_nlu')
     rootLogger.info('Found pre-existing models. No training necessary.')
@@ -1956,14 +1960,14 @@ def dictionaryHelper(dictionary):
 def intent_and_entity_rerouter(text):
     THRESHOLD = 0.75
     nlu_response = interpreter.parse(text)
-    logging.debug('nlu recieved text: %s' % text)
-    logging.debug('nlu response: %s' % nlu_response)
+    logging.debug('NLU recieved text: %s' % text)
+    logging.debug('NLU response: %s' % nlu_response)
     if nlu_response['intent']['confidence'] >= THRESHOLD:
         logging.info('text has gotten through threshold')
         intent = nlu_response['intent']['name']
         entities = nlu_response['entities']
         if intent == 'get_weather':
-            logging.info('text has found to be weather. running weather()')
+            logging.info('Text has found to be weather. running weather()')
             if entities:
                 weather(False, False, *[entities[0]['value']])
             else:
