@@ -37,7 +37,7 @@ This will show you a few useful commands to help get you started.
 The program is feature rich and all though free text is accepted and processed accordingly, the most exciting activities are key word activated. 
 
 
-[![Alt text](screenshot.png?raw=true "Screenshot of Luna")](https://github.com/FRTNX/LUNA/blob/master/screenshot2.png)
+[![Alt text](screenshot2.png?raw=true "Screenshot of Luna")](https://github.com/FRTNX/LUNA/blob/master/screenshot2.png)
 
 
 ## Philosophy, Challenges, and Road Map
