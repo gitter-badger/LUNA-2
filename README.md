@@ -26,6 +26,10 @@ This will will create a launcher and install dependecies. After the process comp
 
 ```luna```
 
+
+[![Alt text](screenshot3.png?raw=true "Screenshot of Luna 3")](https://github.com/FRTNX/LUNA/blob/master/screenshot3.png)
+
+
 ## User guide
 
 After you have been prompted for a code name a help guide may be obtained by typing in 
