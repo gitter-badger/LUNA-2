@@ -2,7 +2,7 @@
 
 A research tool.
 
-[![Alt text](screenshot.png?raw=true "Screenshot of Luna")](https://github.com/FRTNX/LUNA/blob/master/screenshot.png)
+[![Alt text](data/media/screenshot.png?raw=true "Screenshot of Luna")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot.png)
 
 ## Installation (Linux)
 
@@ -27,7 +27,7 @@ This will will create a launcher and install dependecies. After the process comp
 ```luna```
 
 
-[![Alt text](screenshot3.png?raw=true "Screenshot of Luna 3")](https://github.com/FRTNX/LUNA/blob/master/screenshot3.png)
+[![Alt text](data/media/screenshot3.png?raw=true "Screenshot of Luna 3")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot3.png)
 
 
 ## User guide
@@ -41,7 +41,7 @@ This will show you a few useful commands to help get you started.
 The program is feature rich and all though free text is accepted and processed accordingly, the most exciting activities are key word activated. 
 
 
-[![Alt text](screenshot2.png?raw=true "Screenshot of Luna 2")](https://github.com/FRTNX/LUNA/blob/master/screenshot2.png)
+[![Alt text](data/media/screenshot4.png?raw=true "Screenshot of Luna 2")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot4.png)
 
 
 ## Philosophy, Challenges, and Road Map
@@ -57,7 +57,11 @@ Most of these objectives have already been met to some degree save for anonymity
 
 This program uses a terminal client in front of a mongodb database. The current database loaded upon install is rather heavy. To mitigate this, a batch of smaller initial databases will be released, along with some logic that will install a database best suited to the host machines resources. Improvements will continually be made to make it lighter still.
 
+
+[![Alt text](data/media/screenshot2.png?raw=true "Screenshot of Luna 2")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot2.png)
+
   
 Contributions are welcome.
 
 Please report all bugs to frtnx@protonmail.com
+
