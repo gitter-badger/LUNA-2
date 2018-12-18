@@ -4,6 +4,7 @@ import logging
 
 beam = "-------------------------------------------------------------------------------"
 semi = "                    --------------------------------------"
+solid_semi = "                    ______________________________________"
 
 logFormatter = logging.Formatter(beam+"\n[LLUONGAS] %(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
 rootLogger = logging.getLogger()
