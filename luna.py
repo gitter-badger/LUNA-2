@@ -701,7 +701,7 @@ def quote_search():
     found = False
     for file in files.find():
         if term.lower() in file['payload'][0].lower():
-            print(Fore.BLUE + semi Fore.WHITE + '\n' + file['payload'][0])
+            print(Fore.BLUE + semi + Fore.WHITE + '\n' + file['payload'][0])
             found = True
     if not found:
         sprint("Could'nt find anything related to that")
