@@ -4,7 +4,7 @@ import logging
 
 beam = "-------------------------------------------------------------------------------"
 semi = "                    --------------------------------------"
-solid_semi = "                    ______________________________________"
+solid_semi = "                    _________________L_U_N_A_________________"
 
 logFormatter = logging.Formatter(beam+"\n[LLUONGAS] %(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
 rootLogger = logging.getLogger()
@@ -28,3 +28,4 @@ climate_monitor = [
                    'Middle Shebelle',
                    'Hiran, Somalia',
                    ]
+'Ͼ μ ή Δ'
