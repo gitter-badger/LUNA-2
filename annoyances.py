@@ -28,11 +28,12 @@ climate_monitor = [
                    'Hiran, Somalia',
                    ]
 
+
 def beam_2():
     luna = ['Ͼ ', 'μ ', 'ή ', 'Δ ']
     segment_1 = ''.join(luna)
     segment_2 = ''
     for i in range(40):
     	segment_2 += random.choice(luna)
-    beam = segment_1 + segment_2
-    return beam
+    beam2 = segment_1 + segment_2
+    return semi + '\n' + beam2 + '\n' + semi
