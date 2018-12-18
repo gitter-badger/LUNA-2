@@ -1089,11 +1089,16 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
         controlCentre()
 
 
-# Bug watch. Wrote this in a hurry.
 def directive(content, title, interm, *mode):
+    """This fuction is informants helper. It can save or show more data from the 
+       data displayed by informant. If user request is neither of these two actions
+       it is sent to NLU and coordinated as necessary.
+    """
     if mode and mode[0] == 'flesh':
         flesh_fryer(content[interm:])
+
     action = input(uzer).lower()
+
     if not mode or mode[0] != 'flesh' and 'tell me more' in action:
         rootLogger.info('User has shown interest in document "%s".' % title)
         if 'displaystyle' not in content[interm:] and 'textstyle' not in content[interm:]:
@@ -1139,7 +1144,8 @@ def directive(content, title, interm, *mode):
                     return
 
                 except Exception as e:
-                    print(str(e))
+                    logging.error(str(e))
+                    H(); sprint('I ran into trouble. Check the logs.')
                     controlCentre()
                     return
             else:
@@ -1149,7 +1155,7 @@ def directive(content, title, interm, *mode):
                     return
 
     else:
-        controlCentre(*[action])
+        intent_and_entity_rerouter(action)
 
 
 def flesh_fryer(flesh):
