@@ -29,10 +29,10 @@ climate_monitor = [
                    ]
 
 def beam_2():
-    luna = ['Ͼ', 'μ', 'ή', 'Δ']
+    luna = ['Ͼ ', 'μ ', 'ή ', 'Δ ']
     segment_1 = ''.join(luna)
     segment_2 = ''
-    for i in range(80):
+    for i in range(40):
     	segment_2 += random.choice(luna)
     beam = segment_1 + segment_2
     return beam
