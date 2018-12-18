@@ -701,7 +701,7 @@ def quote_search():
     found = False
     for file in files.find():
         if term.lower() in file['payload'][0].lower():
-            print(file['payload'][0])
+            print(file['payload'][0] + '\n' + beam_2())
             found = True
     if not found:
         sprint("Could'nt find anything related to that")
@@ -1999,7 +1999,7 @@ def intent_and_entity_rerouter(text):
 
 def evaluate_subject(entities, text):
     """if entities is empty the user is notified and right of execution is passed
-       to controlCentre. Else right of execution is returned to the caller.
+       to controlCentre(). Else, right of execution is returned to the caller.
     """
     if entities == []:
         logging.debug('No subject specified.')
