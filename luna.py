@@ -364,7 +364,7 @@ def get_quotes():
 def clean_db(void=False):
     rootLogger.info('Cleaning database.')
     dirty_files = False
-    f = open('stop_words.txt', 'r')
+    f = open('data/meta/stop_words.txt', 'r')
     raw_text = f.read()
     stop_words = raw_text.split('\n')
     for file in files.find():
