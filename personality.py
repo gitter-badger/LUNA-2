@@ -107,6 +107,14 @@ def save_model():
     config.insert_one(entry)
 
 
+def get_state_bullet():
+    try:
+        requests.get('https://google.com')
+        return Fore.GREEN + u"\u25CF " + Fore.WHITE
+    except:
+        return Fore.LIGHTBLACK_EX + u"\u25CF " + Fore.WHITE
+
+
 def promptLoader():
     global h
     global header
@@ -122,6 +130,7 @@ def promptLoader():
     bullet = u"\u269B"
     gbullet = Fore.LIGHTGREEN_EX+u"\u269B"+Fore.WHITE
     return mc, h, header, agent, dr, uzer, cell, bullet, gbullet
+
 
 def get_coords():
     rootLogger.debug('Doing my thing.')
