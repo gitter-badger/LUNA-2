@@ -67,6 +67,7 @@ pip3 install inflect --user --user
 pip3 install rasa-nlu==0.13.7
 pip3 install tensorflow --user
 pip3 install sklearn --user
+pip3 install sklearn-crfsuite --user
 pip3 install scipy --user
 
 
