@@ -1099,12 +1099,14 @@ def directive(content, title, interm, *mode):
 
     action = input(uzer).lower()
 
-    if not mode or mode[0] != 'flesh' and 'tell me more' in action:
+    if (not mode or mode[0] != 'flesh') and ('tell me more' in action):
         rootLogger.info('User has shown interest in document "%s".' % title)
         if 'displaystyle' not in content[interm:] and 'textstyle' not in content[interm:]:
             H(); print(content[interm:])
+            directive(content, title, interm, *['flesh'])
         else:
             H(); output_controller(content[interm:], *['plain'])
+            directive(content, title, interm, *['flesh'])
         if not mode:
             directive(content, title, interm, *['breakrecursion'])
         else:
