@@ -28,7 +28,7 @@ Welcome to the LUNA Help Center.
   'translator'                          - activates human language translator. surround target section
                                           with "". eg. what does "in vivo veritas" mean?
   'how do i get to <DEST> from <SOURCE>'- charts a cartographic course to destination from source
-  'dictionary'; 'dict'                  - Enter dictionary mode.
+  'dictionary'; 'dict'                  - Enter dictionary mode. Enter 'exit' to close dictionary.
   'fibonacci'                           - starts a luna-vs-user finonacci sequence show down.
   'show me <NUM> images of <SUBJECT>'   - returns num pictures of subject, where num is the number of
                                           iamges you wish to see. images may be saved by passing a

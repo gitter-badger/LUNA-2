@@ -117,7 +117,7 @@ from translator import trans_to_eng
 from rasa_nlu.model import Interpreter
 from bs4 import BeautifulSoup
 from colorama import Fore
-from functions.LunaResponses import *
+from functions.responses import *
 from bs4 import BeautifulSoup
 from goo import search
 from lxml import html
@@ -814,7 +814,7 @@ def converter(string):
 
 
 def help_center():
-    f = open('commands.txt', 'r')
+    f = open('commands', 'r')
     ff = f.read()
     print(ff)
     controlCentre()

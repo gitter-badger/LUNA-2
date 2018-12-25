@@ -89,6 +89,12 @@ kUsers = [
           "It's good to hear from you again.",
           "I've missed you.",
           "I'm glad you found your way back to me.",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
          ]
 
 weatherPlus = [

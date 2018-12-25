@@ -1,6 +1,6 @@
 # human language translator
 from googletrans import Translator
-from functions.LunaResponses import *
+from functions.responses import *
 
 translator = Translator()
 
