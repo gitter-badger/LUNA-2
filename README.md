@@ -2,13 +2,17 @@
 
 A research tool.
 
+HEADS-UP: Code rewrite in progress. Some of the code is ancient, from simpler times. None of the renovations should
+break anything, but in case it does please let me know. I understand that I probably broke every PEP8 law but
+in my defense I wanted something that works first. Elegance can come with refinement (which has come at last).
+
 [![Alt text](data/media/screenshot.png?raw=true "Screenshot of Luna")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot.png)
 
 ## Installation (Linux)
 
 Please note that these instructions are for ubuntu 16.04 but should work for most other distributions. If you encounter any issues during installation please send a stack trace to the email provided at the bottom of this readme or open an issue.
 
-Choose the directory you would like to keep the code in. 
+Choose the directory you would like to keep the code in.
 Please note that after setup is complete, moving this directory will break the launcher,
 so store the code in a place you wont disturb.
 
@@ -22,7 +26,7 @@ Then
 
 ```python3 setup.py```
 
-This will will create a launcher and install dependecies. After the process completes it will automatically launch an instance of Luna. To run Luna in future simply open a terminal and enter 
+This will will create a launcher and install dependecies. After the process completes it will automatically launch an instance of Luna. To run Luna in future simply open a terminal and enter
 
 ```luna```
 
@@ -32,13 +36,13 @@ This will will create a launcher and install dependecies. After the process comp
 
 ## User guide
 
-After you have been prompted for a code name a help guide may be obtained by typing in 
+After you have been prompted for a code name a help guide may be obtained by typing in
 
 ```help```
 
 This will show you a few useful commands to help get you started.
 
-The program is feature rich and all though free text is accepted and processed accordingly, the most exciting activities are key word activated. 
+The program is feature rich and all though free text is accepted and processed accordingly, the most exciting activities are key word activated.
 
 
 [![Alt text](data/media/screenshot4.png?raw=true "Screenshot of Luna 2")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot4.png)
@@ -51,7 +55,7 @@ Luna is first and foremost a research tool. She may have conversational ability 
  - light weight
  - capable of delivering information offline or online
  - anonymous with its web interactions
- - data efficient, no cache, css, or unnecessary data. Only what you need. 
+ - data efficient, no cache, css, or unnecessary data. Only what you need.
 
 Most of these objectives have already been met to some degree save for anonymity. I have chosen to use proxychains to handle all internet interactions. Due to the unavailability of time, I have not made good on this idea. What I currently see as the biggest challenge, perhaps naively, is how to manage the proxy servers list, ensuring that all requests go through an elite node first, and mitigating the latency this may cause.
 
@@ -60,8 +64,7 @@ This program uses a terminal client in front of a mongodb database. The current 
 
 [![Alt text](data/media/screenshot2.png?raw=true "Screenshot of Luna 2")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot2.png)
 
-  
+
 Contributions are welcome.
 
 Please report all bugs to frtnx@protonmail.com
-

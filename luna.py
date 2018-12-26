@@ -65,7 +65,7 @@ It installs dependencies and sets up the database.
 curFiles = os.listdir('./')
 
 if 'ok.txt' not in curFiles:
-    rootLogger.info('Running luna setup...')
+    logging.info('Running luna setup...')
     # os.system('bash install_dependencies.sh')
     for file in curFiles:
         if file.startswith('dump'):
@@ -80,7 +80,7 @@ if 'ok.txt' not in curFiles:
                 print(e)
                 pass
     os.system('touch ok.txt')
-    rootLogger.info('setup complete.')
+    logging.info('setup complete.')
 
 """
 import bay
@@ -139,7 +139,7 @@ from glob import glob
 """
 Initialisation:
 """
-rootLogger.debug('Initialising...')
+logging.debug('Initialising...')
 layout = Nominatim()
 num_word_transform = inflect.engine()
 
@@ -148,7 +148,7 @@ try:
     current_model = open('data/nlu/nlu.json', 'r')
     current_model_data = current_model.read()
     if current_model_data != previous_model['payload']:
-        rootLogger.warn('New training data detected. Updating models with latest data...')
+        logging.warn('New training data detected. Updating models with latest data...')
         os.system('make train-nlu')
         interpreter = Interpreter.load('models/luna/main_nlu')
         save_model()
@@ -157,10 +157,10 @@ except:
 
 try:
     interpreter = Interpreter.load('models/luna/main_nlu')
-    rootLogger.info('Found pre-existing models. No training necessary.')
+    logging.info('Found pre-existing models. No training necessary.')
     save_model()
 except:
-    rootLogger.warn('No previous models found. Training new model.')
+    logging.warn('No previous models found. Training new model.')
     os.system('make train-nlu')
     interpreter = Interpreter.load('models/luna/main_nlu')
     save_model()
@@ -175,8 +175,8 @@ try:
     brn = os.listdir(spine)
     k.loadBrain(spine+brn[0])
 except Exception as e:
-    rootLogger.error(e)
-    rootLogger.error("I'm brainless.")
+    logging.error(e)
+    logging.error("I'm brainless.")
 
 threading.Thread(target=character_loader, args=(k,)).start()
 threading.Thread(target=get_coords).start()
@@ -209,8 +209,8 @@ virgil = []
 mc, h, header, agent, dr, uzer, cell, bullet, gbullet = promptLoader()
 LOCAL_TIMEZONE = str(datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo)
 catcher = []
- 
- 
+
+
 def O():
     print(header,end='');time.sleep(0.2)
 
@@ -227,7 +227,7 @@ def id_gen(datetime_string):
 database back-up manager and state preserver
 """
 def backup_manager(*cmd):
-    rootLogger.info('saving state...')
+    logging.info('saving state...')
     current_files = os.listdir('./')
 
     if date.today().weekday() == 2 or cmd:
@@ -254,11 +254,11 @@ def backup_manager(*cmd):
             os.system('zip -r --exclude=ok.txt* microsoft-office-windows-7.zip *')
             notify = open('notification.json', 'w')
             notify.close()
-            rootLogger.info('state saved.')
+            logging.info('state saved.')
 
         else:
             print('\n%sA previous state exists that seems to have been left untouched. Repeat command to overwrite it.' % mc)
-            rootLogger.warn('unattended state detected and sustained.')
+            logging.warn('unattended state detected and sustained.')
 
     else:
         if "notification.json" in current_files:
@@ -327,12 +327,12 @@ def Hello():
             quotes.append(file['payload'][0])
 
         H();sprint(random.choice(quotes))
-        rootLogger.info('Initialisation complete.')
+        logging.info('Initialisation complete.')
         identify()
 
     except Exception as e:
-        rootLogger.warn(str(e))
-        rootLogger.info('Initialisation complete.')
+        logging.warn(str(e))
+        logging.info('Initialisation complete.')
         H();sprint(random.choice(quotes))
         identify()
 
@@ -354,15 +354,15 @@ def get_quotes():
                 files.insert_one(entry)
 
             except Exception as e:
-                rootLogger.debug(str(e)[str(e).find('"'):].replace('}', '').replace('"', ''))
+                logging.debug(str(e)[str(e).find('"'):].replace('}', '').replace('"', ''))
                 pass
     except Exception as e:
-        rootLogger.error(str(e))
+        logging.error(str(e))
         return
 
 
 def clean_db(void=False):
-    rootLogger.info('Cleaning database.')
+    logging.info('Cleaning database.')
     dirty_files = False
     f = open('data/meta/stop_words.txt', 'r')
     raw_text = f.read()
@@ -371,14 +371,14 @@ def clean_db(void=False):
         for sw in stop_words:
             if sw in file['payload'][0].lower() and sw != '':
                 if file['code_name'] == 'ethos':
-                    rootLogger.warn('Deleting %s' % file['_id'])
+                    logging.warn('Deleting %s' % file['_id'])
                     files.delete_one({
                                       '_id': file['_id']
                                      })
                     dirty_files = True
     if not dirty_files:
-        rootLogger.info('No dirty files found.')
-    rootLogger.info('Database cleansing complete.')
+        logging.info('No dirty files found.')
+    logging.info('Database cleansing complete.')
     if not void:
         H(); sprint('Database cleansed.')
         controlCentre()
@@ -387,7 +387,7 @@ def clean_db(void=False):
 
 
 def identify():
-    rootLogger.info('Identifying user...')
+    logging.info('Identifying user...')
     global uzer
 
     try:
@@ -426,11 +426,11 @@ def identify():
             sprint(introduction.run())
 
         k.setPredicate("name", user_name)
-        rootLogger.info('User identified as %s' % user_name)
+        logging.info('User identified as %s' % user_name)
         controlCentre()
 
     except KeyboardInterrupt as e:
-        rootLogger.debug('shutting down...')
+        logging.debug('shutting down...')
         return
 
 
@@ -478,7 +478,7 @@ def findExternalResource():
             time.sleep(0.03)
         controlCentre()
     except Exception as e:
-        rootLogger.debug(str(e))
+        logging.debug(str(e))
         H(); sprint(random.choice(nah))
         controlCentre()
 
@@ -495,7 +495,7 @@ def imageFinder(entity, num_instances):
 
 
 def imageShow(entity, num_instances):
-    rootLogger.info('Searching for %s images on background thread' % num_instances)
+    logging.info('Searching for %s images on background thread' % num_instances)
     entity = entity.replace(' ', '_').replace('(', '').replace(')', '').replace("'","").lower()
     basewidth = 400  # This value controls the width of images displayed. Edit as needed.
 
@@ -512,7 +512,7 @@ def imageShow(entity, num_instances):
         os.system('rm -r ./downloads/%s --force' % entity)
         return
     except Exception as e:
-        rootLogger.error(e)
+        logging.error(e)
         return
 
 
@@ -541,7 +541,7 @@ def alert(name):
         server.sendmail(fa,ta,text)
         server.quit()
     except Exception as e:
-        rootLogger.debug('mail alert for shadow function failes due to %s' % str(e))
+        logging.debug('mail alert for shadow function failes due to %s' % str(e))
         pass
 
 
@@ -611,9 +611,9 @@ def delete_latest():
         numMessages = len(mailserver.list()[1])
         mailserver.dele(numMessages)
         mailserver.quit()
-        rootLogger.info("Mail clean up successful.")
+        logging.info("Mail clean up successful.")
     except:
-        rootLogger.warn("Could not clean up mail. Manual removal required. Sorry Bud.")
+        logging.warn("Could not clean up mail. Manual removal required. Sorry Bud.")
         return
 
 
@@ -673,7 +673,7 @@ def human_lang_translator(text):
     try:
         H(); sprint(trans_to_eng(text))
     except Exception as e:
-        rootLogger.error(str(e))
+        logging.error(str(e))
         H(); sprint('Some of my agents seem to be inhibited. Check the logs.')
     init_translator(*['session'])
 
@@ -729,7 +729,7 @@ def groundDistance(point_x, point_y):
         H(); sprint("The distance between %s and %s is %s kilometers" % (point_x.title(), point_y.title(), xydistance))
         controlCentre()
     except Exception as e:
-        rootLogger.error(e)
+        logging.error(e)
         groundDistance(point_x, point_y)
 
 
@@ -739,7 +739,7 @@ def gridWeight(entity):
         H(); sprint("%s has an importance weight of %s" % (entity.title(), loc.raw['importance']))
         controlCentre()
     except Exception as e:
-        rootLogger.error(e)
+        logging.error(e)
         gridWeight(entity)
 
 
@@ -802,7 +802,7 @@ def converter(string):
                     extracted = f[base]
         else:
             H(); sprint("Sorry. I couldn't convert that.")
-            rootLogger.error('No converter found')
+            logging.error('No converter found')
         stop1 = string.find(' to ')
         operand = string[8:stop1]
         try:
@@ -866,12 +866,12 @@ def confessional(*e):
             H(); sprint("I've done my homework on the following:")
             db_banners = ['db_banner2.py'] # for posterity: add other database banners here
             os.system('python3 ./resources/banners/%s' % random.choice(db_banners))
-            rootLogger.info('Compiling database. This might take a while...')
+            logging.info('Compiling database. This might take a while...')
             compiled = False
             while not compiled:
                 temp, temp2 = async_res.get()
                 if len(temp)+len(temp2) < listed_db.count():
-                    rootLogger.debug('ratio temps: listed_db.count() %s: %s' % (len(temp)+len(temp2), listed_db.count()))
+                    logging.debug('ratio temps: listed_db.count() %s: %s' % (len(temp)+len(temp2), listed_db.count()))
                 else:
                     if len(temp)+len(temp2) >= listed_db.count():
                         compiled = True
@@ -880,9 +880,9 @@ def confessional(*e):
             temp.sort(); temp2.sort()
             raw = str(listed_db)[len(str(listed_db))-20:]  # this is a really
             db_name = raw[raw.find(',')+1:].replace(')', '').replace("'", '').strip() # bad
-            rootLogger.info('Finished loading %s database. latency is at %s seconds.' % (db_name, str(end-start))) # algorithm
-            rootLogger.debug('len(temp) = %s' % len(temp))
-            rootLogger.debug('len(temp2) = %s' % len(temp2))
+            logging.info('Finished loading %s database. latency is at %s seconds.' % (db_name, str(end-start))) # algorithm
+            logging.debug('len(temp) = %s' % len(temp))
+            logging.debug('len(temp2) = %s' % len(temp2))
 
             file_count = len(temp)+len(temp2)
 
@@ -936,7 +936,7 @@ def confessional(*e):
             H(); sprint('Aborted.')
             controlCentre()
         except Exception as e:
-            rootLogger.error(str(e))
+            logging.error(str(e))
             H(); sprint('Mine is a troubled mind. Check the logs and console me.')
             controlCentre()
     gc.collect()
@@ -971,16 +971,16 @@ def find_related(key_word):
                 count += file['payload'][0].lower().count(keyword.lower())
                 cycle += 1
                 if cycle == 1 or cycle == 100000:
-                    rootLogger.debug('<<<%s>>>...>' % file['payload'][0].lower().count(keyword.lower()))
+                    logging.debug('<<<%s>>>...>' % file['payload'][0].lower().count(keyword.lower()))
                     cycle = 0
     except KeyboardInterrupt as e:
-        rootLogger.warning('User aborted search for keyword "%s".' % key_word)
+        logging.warning('User aborted search for keyword "%s".' % key_word)
         H(); sprint("I guess patience isn't your strong suit.")
         controlCentre()
         return
 
     if found:
-        rootLogger.debug('keyword "%s" appears %s times in current universe.' % (key_word, str(count)))
+        logging.debug('keyword "%s" appears %s times in current universe.' % (key_word, str(count)))
         try:
             found.sort()
             found.reverse()
@@ -996,7 +996,7 @@ def find_related(key_word):
         H(); sprint("No mentions of %s exist locally, shall I do an internet sweep for requested data?" % key_word)
         response = input(uzer)
         if 'yes' in response:
-            rootLogger.debug('relation seeker sent "%s" to informant.' % key_word)
+            logging.debug('relation seeker sent "%s" to informant.' % key_word)
             H(); sprint('Doing that.')
             informant(key_word, True, 0, False, *['relation seeker'])
         else:
@@ -1005,14 +1005,14 @@ def find_related(key_word):
 
 
 def informant(mark, img=True, latency=0, flesh=False, *flag):
-    # rootLogger.debug('informant recieved: %s' % mark)
+    # logging.debug('informant recieved: %s' % mark)
     # currently this only fetches data from wikipedia
     if img:
         threading.Thread(target=imageShow, args=(mark, 5,)).start()
     try:
         if flag:
-            rootLogger.info('User requested document "%s".' % mark)
-            rootLogger.warn('Nature of request requires internet. Attempting to connect...')
+            logging.info('User requested document "%s".' % mark)
+            logging.warn('Nature of request requires internet. Attempting to connect...')
             try:
                 s = time.time()
                 res = wikipedia.page(mark)
@@ -1020,10 +1020,10 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
                 y = res.title
                 stop = x.find('\n\n\n')
                 e = time.time()
-                rootLogger.info('"%s" found. latency is at %s seconds.' % (y, str(e-s+latency)))
+                logging.info('"%s" found. latency is at %s seconds.' % (y, str(e-s+latency)))
                 H(); print(gbullet+'\n')
                 if flesh:
-                    rootLogger.info('Fleshing out requested document.')
+                    logging.info('Fleshing out requested document.')
                     directive(x, y, stop+3, *['flesh'])
                     controlCentre()
                     return
@@ -1036,12 +1036,12 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
                 print('\n')
                 directive(x, y, stop, *['enable-saving'])
             except Exception as e:
-                rootLogger.debug(str(e))
+                logging.debug(str(e))
                 H(); sprint(random.choice(nah))
                 controlCentre()
 
         else:
-            rootLogger.info('User requested document "%s".' % mark)
+            logging.info('User requested document "%s".' % mark)
             start = time.time()
             titles = []
 
@@ -1054,17 +1054,17 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
                 if similarity > threshold:
                     threshold = similarity
                     mark = title
-                    rootLogger.debug('mark is now %s' % title)
+                    logging.debug('mark is now %s' % title)
 
             try:
                 i = intel.find_one({'title': mark})
                 content = i['payload'][0]
                 stop = content.find('\n\n\n')
                 end = time.time()
-                rootLogger.info('"%s" found. latency is at %s seconds.' % (mark, str(end-start+latency)))
+                logging.info('"%s" found. latency is at %s seconds.' % (mark, str(end-start+latency)))
                 H(); sprint(bullet+"\n")
                 if flesh:
-                    rootLogger.info('Fleshing out requested document.')
+                    logging.info('Fleshing out requested document.')
                     directive(content, mark, stop+3, *['flesh'])
                     controlCentre()
                     return
@@ -1078,19 +1078,19 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
                 directive(content, mark, stop, *['savenot'])
             except Exception as e:
                 end = time.time()
-                rootLogger.error(str(e))
-                rootLogger.error('Could not find requested document locally.')
-                rootLogger.warning('Attempting to find requested document online.')
+                logging.error(str(e))
+                logging.error('Could not find requested document locally.')
+                logging.warning('Attempting to find requested document online.')
                 informant(mark, False, end-start, flesh, *['engagethehive'])
     except KeyboardInterrupt as e:
         controlCentre()
     except Exception as e:
-        rootLogger.debug(str(e))
+        logging.debug(str(e))
         controlCentre()
 
 
 def directive(content, title, interm, *mode):
-    """This fuction is informants helper. It can save or show more data from the 
+    """This fuction is informants helper. It can save or show more data from the
        data displayed by informant. If user request is neither of these two actions
        it is sent to NLU and coordinated as necessary.
     """
@@ -1100,7 +1100,7 @@ def directive(content, title, interm, *mode):
     action = input(uzer).lower()
 
     if (not mode or mode[0] != 'flesh') and ('tell me more' in action):
-        rootLogger.info('User has shown interest in document "%s".' % title)
+        logging.info('User has shown interest in document "%s".' % title)
         if 'displaystyle' not in content[interm:] and 'textstyle' not in content[interm:]:
             H(); print(content[interm:])
             directive(content, title, interm, *['flesh'])
@@ -1169,7 +1169,7 @@ def flesh_fryer(flesh):
 
 
 def output_controller(content, *plain):
-    rootLogger.info('Output controller invoked.')
+    logging.info('Output controller invoked.')
     x = content.split('\n')
     safe_words = ['is', 'or', 'to']
     for i in x:
@@ -1190,7 +1190,7 @@ shit_times = 1
 
 
 def find_lc(city):
-    # rootLogger.debug('find_lc recived %s' % city)
+    # logging.debug('find_lc recived %s' % city)
     global shit_times
     try:
         lc = layout.geocode(city)
@@ -1210,7 +1210,7 @@ cycles = 1
 
 def weather(void=False, api_request=False, *city):
     # if city:
-        # rootLogger.debug('weather recieved %s' % city)
+        # logging.debug('weather recieved %s' % city)
     global cycles
 
     try:
@@ -1239,7 +1239,7 @@ def weather(void=False, api_request=False, *city):
         mintemp = minTemp[0]+'c'
         visibility = windhumidity[2]+'km'
         pressure = windhumidity[3]+'hPa'
-        rootLogger.debug('alpha')
+        logging.debug('alpha')
 
         # print('maxtemp: %s\nmintemp: %s\nwindhumid: %s\nskystatus: %s\n' % (minTemp,
         #                                                                     maxTemp,
@@ -1315,8 +1315,8 @@ def weather(void=False, api_request=False, *city):
                                 }
                         }
 
-        rootLogger.debug('bravo')
-        rootLogger.info('Constructed weather JSON: %s' % weather_json)
+        logging.debug('bravo')
+        logging.info('Constructed weather JSON: %s' % weather_json)
         research.insert_one(weather_json)
         # for file in research.find():
         #     pprint.pprint(file)
@@ -1333,17 +1333,17 @@ def weather(void=False, api_request=False, *city):
                         +skystatus[4:] + " " + t[1] + "\n" +random.choice(weatherPlus)
                         +ll+ " "+random.choice(wary)
                       )
-        rootLogger.debug('charlie')
+        logging.debug('charlie')
         cycles = 0
         controlCentre()
         return
 
     except KeyboardInterrupt as e:
-        rootLogger.debug('User interupted weather request.')
+        logging.debug('User interupted weather request.')
         print('\n'); controlCentre()
 
     except Exception as e:
-        rootLogger.error(str(e))
+        logging.error(str(e))
         if void:
             return
         if city:
@@ -1351,14 +1351,14 @@ def weather(void=False, api_request=False, *city):
                 cycles += 1     # TODO: it would be best to differentiate between no-internet
                 weather(void, api_request, *city)  # and bad connection errors.
             else:
-                rootLogger.debug(str(e))
+                logging.debug(str(e))
                 H(); sprint("Couldn't. Check the logs.")
                 controlCentre()
         else:
             if void:
                 return
             else:
-                rootLogger.debug(str(e))
+                logging.debug(str(e))
                 H(); sprint("Couldn't. Check the logs.")
                 controlCentre()
 
@@ -1381,7 +1381,7 @@ def nearby(req):
         webbrowser.open('https://google.com/maps/search/%s/@%s,%s' % (obj, coords[0], coords[1]))
         controlCentre()
     except Exception as e:
-        rootLogger.debug(str(e))
+        logging.debug(str(e))
         print("Couldn't comnply. Check the logs.")
         controlCentre()
 
@@ -1543,7 +1543,7 @@ def lightIntel(): # a misnomer now
         controlCentre()
 
     except Exception as e:
-        rootLogger.debug(str(e))
+        logging.debug(str(e))
         H(); sprint(random.choice(paper_boy))
         controlCentre()
 
@@ -1983,7 +1983,7 @@ def intent_and_entity_rerouter(text):
         elif intent == 'find_info':
             evaluate_subject(entities, text) # if subject does not exist, right of execution is passed to controlCentre()
             # TODO: consider how to make images and local lookup optional
-            informant(entities[0]['value'].title(), True, 0, False) 
+            informant(entities[0]['value'].title(), True, 0, False)
         elif intent == 'find_images':
             threading.Thread(target=imageShow, args=(entities[0]['value'], 5,)).start()
             H(); sprint(random.choice(imdi))
@@ -2013,7 +2013,7 @@ def evaluate_subject(entities, text):
 def controlCentre(*s):
     if s:
         prompt = s[0]
-        # rootLogger.debug('prompt is %s' % prompt)
+        # logging.debug('prompt is %s' % prompt)
 
     else:
         prompt = input(uzer).lower()
@@ -2135,11 +2135,11 @@ def controlCentre(*s):
         elif 'network diagnostic' in prompt or prompt == 'netdog':
             print('')
             os.system('sudo nmcli radio wifi off')
-            rootLogger.debug('Turning wifi off.')
+            logging.debug('Turning wifi off.')
             os.system('nmcli radio wifi on')
-            rootLogger.debug('Turning wifi on.')
+            logging.debug('Turning wifi on.')
             os.system('sudo service network-manager restart')
-            rootLogger.debug('Restarting network manager.')
+            logging.debug('Restarting network manager.')
             H(); sprint('Diagnosis complete. Counter-measures deployed.')
             controlCentre()
 
@@ -2255,7 +2255,7 @@ def controlCentre(*s):
             user.clear()
             H();sprint(random.choice(bye))
             switch.clear()
-            rootLogger.warn('shutting down...')
+            logging.warn('shutting down...')
             return ''
 
         else:
@@ -2268,7 +2268,7 @@ def controlCentre(*s):
         print('\n')
         H();sprint(random.choice(bye))
         switch.clear()
-        rootLogger.warn('shutting down...')
+        logging.warn('shutting down...')
         return ''
 
     except Exception as e:

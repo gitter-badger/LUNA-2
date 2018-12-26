@@ -65,7 +65,7 @@ import uuid
 import threading
 from colorama import Fore
 from pymongo import MongoClient
-from annoyances import rootLogger
+from annoyances import *
 
 client = MongoClient()
 db = client.in_vivo_veritas
@@ -76,11 +76,11 @@ config = db.configurations
 def character_loader(brain):
     conf = config.find_one({'name': 'luna_predicates'})
     predicates = conf['bot_predicates']
-    rootLogger.info("Setting bot predicates")
+    logging.info("Setting bot predicates")
     for i in range(len(predicates)):
         key = list(predicates[i])[0]
         brain.setBotPredicate(key, predicates[i][key])
-    rootLogger.info("Successfuly set bot predicates.")
+    logging.info("Successfuly set bot predicates.")
     #brain.setBotPredicate("friends", "%s" % str(get_known_users())) # make it as to remove users that swear to her from her friendlist
 
 
@@ -88,11 +88,11 @@ def guava():
     try:
         fruit_juice = str(geocoder.ip('me'))
         squeeze = fruit_juice[24:len(fruit_juice)-2]
-        rootLogger.info(squeeze)
+        logging.info(squeeze)
         return squeeze
     except Exception as e:
         print("offline mode")
-        rootLogger.debug("Location unobtainable.")
+        logging.debug("Location unobtainable.")
         return "somewhere on planet Earth"
 
 
@@ -134,7 +134,7 @@ def promptLoader():
 
 
 def get_coords():
-    rootLogger.debug('Doing my thing.')
+    logging.debug('Doing my thing.')
     try:
         raw_loc = geocoder.ip('me')
         coords = raw_loc.latlng
