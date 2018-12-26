@@ -3,10 +3,7 @@
 A research tool.
 
 ```diff
-- HEADS-UP: Code rewrite in progress. Some of the code is ancient, from simpler times.
-- None of the renovations should break anything, but in case it does please let me know.
-- I understand that I probably broke every PEP8 law but in my defense I wanted something that works first.
-- Elegance can come with refinement (which has come at last).
+- HEADS-UP: Code rewrite in progress. Some of the code is ancient, from simpler times. None of the renovations should break anything, but in case it does please let me know. I understand that I probably broke every PEP8 law but in my defense I wanted something that works first. Elegance can come with refinement (which has come at last).
 ```
 
 [![Alt text](data/media/screenshot.png?raw=true "Screenshot of Luna")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot.png)
