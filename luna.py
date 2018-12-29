@@ -144,6 +144,8 @@ layout = Nominatim()
 num_word_transform = inflect.engine()
 
 try:
+    # Current model data loaded at run time is compared to previous model
+    # If data has been updated a new model is trained, else load previous model
     previous_model = config.find_one({'name': 'nlu_model'})
     current_model = open('data/nlu/nlu.json', 'r')
     current_model_data = current_model.read()
@@ -227,10 +229,15 @@ def id_gen(datetime_string):
 database back-up manager and state preserver
 """
 def backup_manager(*cmd):
+    """This function backs up Luna's entire code base and stores it in a 
+       zipfile. It can be set to run automatically every specified weekday
+       or called manually by entering 'save state' in a Luna session.
+    """
     logging.info('saving state...')
     current_files = os.listdir('./')
 
-    if date.today().weekday() == 2 or cmd:
+    if date.today().weekday() == 2 or cmd: # change the integer value to toggle weekdays
+                                           # valid integers range from 1 to 7.
 
         if cmd:
             if "notification.json" in current_files:
@@ -283,9 +290,11 @@ def H(*n):
         print(n[0], end='')
     time.sleep(0.2)
 
+
 def Hplus():
-    print('\n'+h, end='');
+    print('\n' + h, end='');
     time.sleep(0.2)
+
 
 def suggested_reading():
     titles = []
@@ -308,7 +317,7 @@ def Hello():
     now = datetime.datetime.now()
     state_bullet = get_state_bullet()
     print(state_bullet + str(now))
-    banners = ['banner1.py'] # banner1 bias
+    banners = ['banner1.py']
     banner = random.choice(banners)
     os.system('python3 ./resources/banners/%s' % banner)
     time.sleep(1)
@@ -338,6 +347,9 @@ def Hello():
 
 
 def get_quotes():
+    """Gets quotes from brainyquote.com and stores them (in the presence of internet).
+       Gracefully returns if offline.
+    """ 
     try:
         page = requests.get('https://www.brainyquote.com')
         tree = html.fromstring(page.content)
@@ -362,6 +374,7 @@ def get_quotes():
 
 
 def clean_db(void=False):
+    """Cleans the database of quotes which include specified stopwords."""
     logging.info('Cleaning database.')
     dirty_files = False
     f = open('data/meta/stop_words.txt', 'r')
@@ -387,6 +400,9 @@ def clean_db(void=False):
 
 
 def identify():
+    """Identifies user and greets them accordingly. If a user is logging in for the
+       first time a full on introduction is provided. 
+    """
     logging.info('Identifying user...')
     global uzer
 
@@ -435,6 +451,7 @@ def identify():
 
 
 def get_known_users():
+    """Indentify() helper function."""
     known_users = []
     for user in users.find():
         known_users.append(user['name'].lower())
@@ -442,10 +459,12 @@ def get_known_users():
 
 
 def create_prompt(name):
+    """Creates the users prompt tag."""
     return '\n[' + Fore.LIGHTBLACK_EX + name.upper() + Fore.WHITE + '] '
 
 
 def timemaster():
+    """Evaluates current time and issues a time-correct greeting."""
     t = datetime.datetime.now()
     tstr = str(t)
     pattern = r'([0-9]+):([0-9]+):[0-9][0-9]'
@@ -461,12 +480,16 @@ def timemaster():
 
 
 def TimeOut():
+    """Logs abusive out of the system."""
     switch.clear()
     user.clear()
     stutter("\n\n***Trust is such a fickle thing.***")
 
 
 def findExternalResource():
+    """Searches for links related to a specified subject. e.g., It can be used to search for pdf
+       links that can then be curled through Luna's ghost terminal."""
+
     H(); sprint("What do you need?")
     res = input(uzer)
     try:
@@ -484,6 +507,8 @@ def findExternalResource():
 
 
 def imageFinder(entity, num_instances):
+    """Deprecated. Downloads images without displaying them. Stores them in ./LUNA/downloads.
+    """
     #print("this is beta value %s" % entity)
     try:
         os.system( 'googleimagesdownload --keywords "%s" --limit %s' % (entity, num_instances) )
@@ -495,6 +520,9 @@ def imageFinder(entity, num_instances):
 
 
 def imageShow(entity, num_instances):
+    """Downloads and displays images. Can be called directly or from a parallel thread by 
+       the informant() function.
+    """
     logging.info('Searching for %s images on background thread' % num_instances)
     entity = entity.replace(' ', '_').replace('(', '').replace(')', '').replace("'","").lower()
     basewidth = 400  # This value controls the width of images displayed. Edit as needed.
@@ -517,12 +545,18 @@ def imageShow(entity, num_instances):
 
 
 def reception():
+    """Relatively deprecated. Was used as a landing strip for when a user returned from
+       the activities of CovertControl().
+    """
     time.sleep(1)
     H();sprint(random.choice(rec1)+random.choice(rec2))
     controlCentre()
 
 
 def alert(name):
+    """Also relatively deprecated. Used to alert primary user when unauthorized user tries
+       to access CovertControl(), (Also known as the 'Shadow program')
+    """
     Name = name.title()
 
     try:
@@ -546,6 +580,10 @@ def alert(name):
 
 
 def log(detail):
+    """Inactive by default. When active, this function alerts primary user every time 
+       Luna is initialised, via email, including the IP of the machine from which she
+       is initialised (along with a mathematical quote (variety is the spice of life ;)).
+    """
     try:
         fa = os.getenv('LUNADDR')
         ta = os.getenv('MYEMAIL')
@@ -603,6 +641,9 @@ def log(detail):
 
 
 def delete_latest():
+    """Called after sending an email through Luna. Deletes the message just sent from 
+       your mailbox's Sent Items.
+    """
     numMessages = 2
     try:
         mailserver = poplib.POP3_SSL('pop.gmail.com')
@@ -618,6 +659,7 @@ def delete_latest():
 
 
 def store_session_data(text):
+    """Stores session data. Data is used for retraining and debugging."""
     new_entry = {
                   'text': text,
                   'date': str(datetime.datetime.now()),
@@ -627,6 +669,8 @@ def store_session_data(text):
 
 
 def pop_dense():
+    """Measures the population density of a specified area, given the population.
+    """
     H(); sprint("Please enter the number of people who live in this area.")
     population = input(uzer).replace(',','')
     H(); sprint("Enter the size of the area in square kilometers.")
@@ -635,20 +679,9 @@ def pop_dense():
     controlCentre()
 
 
-def base_converter(dec_number, base):
-    digits = "0123456789ABCDEF"
-    rem_stack = Stack()
-    while dec_number > 0:
-        rem = dec_number % base
-        rem_stack.push(rem)
-        dec_number = dec_number // base
-    new_string = ""
-    while not rem_stack.is_empty():
-        new_string = new_string + digits[rem_stack.pop()]
-    return new_string
-
-
 def terminal_session():
+    """Runs Luna's ghost terminal.
+    """
     cmd = input(Fore.BLUE+'\n%s@blueterm$ ' % user[0].lower() + Fore.WHITE)
     if cmd != 'exit':
         os.system(cmd)
@@ -659,6 +692,8 @@ def terminal_session():
 
 
 def init_translator(*session):
+    """Initialises and terminates translator mode.
+    """
     if not session:
         H(); sprint('translator activated.')
     raw_text = input(uzer)
@@ -670,6 +705,8 @@ def init_translator(*session):
 
 
 def human_lang_translator(text):
+    """Translates text to english.
+    """
     try:
         H(); sprint(trans_to_eng(text))
     except Exception as e:
@@ -679,6 +716,8 @@ def human_lang_translator(text):
 
 
 def code_search():
+    """Searches files in specified folder for occurances substring.
+    """
     H(); sprint('Enter phrase or code snippet')
     term = input(uzer)
     H(); sprint("Please enter the path to the folder you'd like to begin the search from.")
@@ -696,6 +735,8 @@ def code_search():
 
 
 def quote_search():
+    """Searches quote database for substring.
+    """
     H(); sprint('Enter search term')
     term = input(uzer)
     found = False
@@ -708,18 +749,10 @@ def quote_search():
     controlCentre()
 
 
-# TODO: to be implemented
-def lightSpeed():
-    lightspeed = 186000
-    H(); sprint("Enter number of days.")
-    days = input(uzer)
-    seconds = days *24 *60 *60 # convert to seconds
-    distance = lightspeed * seconds
-    H(); sprint( "In %s days light will have travelled about %s miles" % (days, distance) )
-    controlCentre()
-
-
 def groundDistance(point_x, point_y):
+    """Measures distance between one geographic location to another.
+       Example input: 'what is the distance between New York and California'.
+    """
     try:
         x_raw = layout.geocode(point_x)
         y_raw = layout.geocode(point_y)
@@ -734,6 +767,8 @@ def groundDistance(point_x, point_y):
 
 
 def gridWeight(entity):
+    """Unimplemented. Ignore for now.
+    """
     try:
         loc = layout.geocode(entity)
         H(); sprint("%s has an importance weight of %s" % (entity.title(), loc.raw['importance']))
@@ -744,6 +779,8 @@ def gridWeight(entity):
 
 
 def find_root(t):
+    """Find the square root of a specified number.
+    """
     index = float(t[t.find('the')+4:t.find('root')-1])
     radicand = float(t[t.find('of')+3:])
     root = radicand**(1/index)
@@ -752,6 +789,8 @@ def find_root(t):
 
 
 def converter(string):
+    """Converts decimal to one of several bases. Valid bases are 2,3,4,5,6,7,8,9,10,11,12,16,20 and 60.
+    """
     request = string
 
     mapper = [
@@ -776,6 +815,7 @@ def converter(string):
     for mapp in mapper:
         formats.append(list(mapp)[0])
 
+    # TODO: replace this algorithm with NLU
     if request.endswith('to decimal'):
         seg = request[:len(request)-8]
         base = ''
@@ -813,7 +853,24 @@ def converter(string):
             controlCentre()
 
 
+def base_converter(dec_number, base):
+    """converter() helper function. Does the actual conversion.
+    """
+    digits = "0123456789ABCDEF"
+    rem_stack = Stack()
+    while dec_number > 0:
+        rem = dec_number % base
+        rem_stack.push(rem)
+        dec_number = dec_number // base
+    new_string = ""
+    while not rem_stack.is_empty():
+        new_string = new_string + digits[rem_stack.pop()]
+    return new_string
+
+
 def help_center():
+    """Provides a list of valid commands and general instructions.
+    """
     f = open('commands', 'r')
     ff = f.read()
     print(ff)
@@ -821,6 +878,8 @@ def help_center():
 
 
 def directions(req):
+    """Opens default browser and maps out possible routes between two geographic points.
+    """
     try:
         s = req.find('from')
         destination = req[:s-1]
@@ -836,19 +895,9 @@ def directions(req):
         controlCentre()
 
 
-def prepare_listing():
-    temp = []
-    temp2 = []
-    for file in listed_db.find():
-        if '\n' not in file['title']:
-            if len(file['title']) < 40:
-                temp.append(file['title'].strip())
-            else:
-                temp2.append(file['title'].strip())
-    return temp, temp2
-
-
 def confessional(*e):
+    """Lists the contents of selected database. See ./LUNA/commands to see how to toggle databases.
+    """
     temp = []
     if e:
         for file in hades.find():
@@ -943,6 +992,20 @@ def confessional(*e):
     controlCentre()
 
 
+def prepare_listing():
+    """confessional() helper function. 
+    """
+    temp = []
+    temp2 = []
+    for file in listed_db.find():
+        if '\n' not in file['title']:
+            if len(file['title']) < 40:
+                temp.append(file['title'].strip())
+            else:
+                temp2.append(file['title'].strip())
+    return temp, temp2
+
+
 def ethan():
     inp = input(uzer)
     if inp.startswith('open'):
@@ -959,6 +1022,8 @@ def ethan():
 
 
 def find_related(key_word):
+    """Finds articles in main database (intel, in this case) that contain keyword.
+    """
     H(); sprint('This might take a while so please be patient.')
     try:
         keyword = key_word
@@ -1005,8 +1070,22 @@ def find_related(key_word):
 
 
 def informant(mark, img=True, latency=0, flesh=False, *flag):
+    """Looks for specified subject in local database and looks for it on wikipedia if not found.
+       Also searches for images subject.
+
+       params:
+           mark (string)  : the subject/object being sought (e.g., Physics, Barack Obama, Milk, Proximal Policy Optimisation, ...etc)
+           img  (boolean) : look for images on a parallel thread. set to False to disable.
+           latency (int)  : if no data is found locally on subject, the time spent running this process up to this
+                            point is inserted as the value here and this function is called again from within itself,
+                            this time with a flag indicating that the local database is to be ignored and an internet
+                            search to be conducted immediately if possible.
+           flesh (boolean): controls whether to display introductory article summary or article detail. Set to True when seeking
+                            article detail and False when only a summary is required.
+           *flag (args)   : if flag value is not null then the local database is ignored and the request goes straight to wikipedia.
+    """
+
     # logging.debug('informant recieved: %s' % mark)
-    # currently this only fetches data from wikipedia
     if img:
         threading.Thread(target=imageShow, args=(mark, 5,)).start()
     try:
@@ -1090,7 +1169,7 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
 
 
 def directive(content, title, interm, *mode):
-    """This fuction is informants helper. It can save or show more data from the
+    """This fuction is informants() helper. It can save or show more data from the
        data displayed by informant. If user request is neither of these two actions
        it is sent to NLU and coordinated as necessary.
     """
@@ -1161,6 +1240,10 @@ def directive(content, title, interm, *mode):
 
 
 def flesh_fryer(flesh):
+    """Seeks out custom formatted text styles such as mathematical equations within an text (here
+       refered to as 'flesh'). If custom text exists output_controller() is invoked, else it
+       is printed as is.
+    """
     if 'displaystyle' not in flesh and 'textstyle' not in flesh:
         print(flesh)
     else:
@@ -1169,6 +1252,8 @@ def flesh_fryer(flesh):
 
 
 def output_controller(content, *plain):
+    """Handles the display of mathematical equations and other specially formatted text.
+    """
     logging.info('Output controller invoked.')
     x = content.split('\n')
     safe_words = ['is', 'or', 'to']
@@ -1190,6 +1275,11 @@ shit_times = 1
 
 
 def find_lc(city):
+    """Converts city name to latitude-longitude values.
+
+           params:
+               city (string) : name of the city to be converted.
+    """
     # logging.debug('find_lc recived %s' % city)
     global shit_times
     try:
@@ -1209,6 +1299,9 @@ cycles = 1
 
 
 def weather(void=False, api_request=False, *city):
+    """Finds the weather of a specified city. Outputs either a converstional string or
+       returns JSON or runs silently and stores output in database.
+    """
     # if city:
         # logging.debug('weather recieved %s' % city)
     global cycles
@@ -1364,6 +1457,8 @@ def weather(void=False, api_request=False, *city):
 
 
 def zen():
+    """Outputs a random Koan.
+    """
     koans = []
     for file in files.find({'code_name': 'koan'}):
         koans.append(file['payload'][0])
@@ -1372,6 +1467,8 @@ def zen():
 
 
 def nearby(req):
+    """Finds places related to specified subject near users location.
+    """
     try:
         mid = req.find('near')
         obj = req[:9-1]
@@ -1387,6 +1484,8 @@ def nearby(req):
 
 
 def porter():
+    """Sends an email to a specified email address.
+    """
     uheader = '['+user[0].upper()+']'
     H(); sprint("Enter payload\n")
     lines = []
@@ -1587,6 +1686,7 @@ def usersTurn(n1=1, n2=1, depth=0):
     except KeyboardInterrupt as e:
         H(); sprint("Sequence terminated.")
         controlCentre()
+
 
 def start_over():
     H(); sprint('Would you like to start over?')
@@ -2256,7 +2356,7 @@ def controlCentre(*s):
             H();sprint(random.choice(bye))
             switch.clear()
             logging.warn('shutting down...')
-            return ''
+            exit()
 
         else:
             H();sprint(k.respond(prompt))
@@ -2269,7 +2369,7 @@ def controlCentre(*s):
         H();sprint(random.choice(bye))
         switch.clear()
         logging.warn('shutting down...')
-        return ''
+        exit()
 
     except Exception as e:
         H();print(e)
