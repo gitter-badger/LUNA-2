@@ -73,7 +73,7 @@ def banner():
     print(r"    "+Fore.GREEN+" 888           "+Fore.LIGHTBLACK_EX+"  444444444444 "+Fore.GREEN+"               "+Fore.WHITE+"           ")
     print(r"    "+Fore.GREEN+" 888      5555 "+Fore.LIGHTBLACK_EX+" 444"+Fore.GREEN+" 5555 121 "+Fore.LIGHTBLACK_EX+"4  "+Fore.GREEN+"  121 999999       "+Fore.WHITE+"      ")
     print(r"    "+Fore.GREEN+" 888      5555 "+Fore.LIGHTBLACK_EX+"4444"+Fore.GREEN+" 5555 1212 "+Fore.LIGHTBLACK_EX+"4  "+Fore.GREEN+" 121 99   99           __________________________________        "+Fore.WHITE+"    ")
-    print(r"    "+Fore.GREEN+" 888      5555 "+Fore.LIGHTBLACK_EX+"4444"+Fore.GREEN+" 5555 1 121 "+Fore.LIGHTBLACK_EX+"4 "+Fore.GREEN+" 121 99999999           "+Fore.WHITE+"  | Luna Version 0.0.1           ")
+    print(r"    "+Fore.GREEN+" 888      5555 "+Fore.LIGHTBLACK_EX+"4444"+Fore.GREEN+" 5555 1 121 "+Fore.LIGHTBLACK_EX+"4 "+Fore.GREEN+" 121 99999999           "+Fore.WHITE+"  | Luna Version 0.0.2           ")
     print(r"    "+Fore.GREEN+" 888888888 5555"+Fore.LIGHTBLACK_EX+"4444"+Fore.GREEN+" 5555 1"+Fore.LIGHTBLACK_EX+"4"+Fore.GREEN+" 121 "+Fore.LIGHTBLACK_EX+"4"+Fore.GREEN+" 121 9     999          "+Fore.WHITE+"  | Creator: FRTNX        ")
     print(r"    "+Fore.GREEN+" 888888888 5555555555 55 1"+Fore.LIGHTBLACK_EX+"44"+Fore.GREEN+" 12121212 9      999        "+Fore.WHITE+"   | Contact: frtnx@protonmail.com "+Fore.LIGHTBLACK_EX+"        ")
     print(r"               444444444444444444444444                     ")
