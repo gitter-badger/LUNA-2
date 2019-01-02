@@ -1090,7 +1090,7 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
         threading.Thread(target=imageShow, args=(mark, 5,)).start()
     try:
         if flag:
-            logging.info('User requested document "%s".' % mark)
+            logging.info('Requested document "%s".' % mark)
             logging.warn('Nature of request requires internet. Attempting to connect...')
             try:
                 s = time.time()
@@ -1120,7 +1120,7 @@ def informant(mark, img=True, latency=0, flesh=False, *flag):
                 controlCentre()
 
         else:
-            logging.info('User requested document "%s".' % mark)
+            logging.info('Requested document "%s".' % mark)
             start = time.time()
             titles = []
 
@@ -1179,7 +1179,7 @@ def directive(content, title, interm, *mode):
     action = input(uzer).lower()
 
     if (not mode or mode[0] != 'flesh') and ('tell me more' in action):
-        logging.info('User has shown interest in document "%s".' % title)
+        logging.info('Displaying the rest of document "%s".' % title)
         if 'displaystyle' not in content[interm:] and 'textstyle' not in content[interm:]:
             H(); print(content[interm:])
             directive(content, title, interm, *['flesh'])

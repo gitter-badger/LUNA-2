@@ -113,7 +113,10 @@ wary = [
 
 nah = [
        'We seem to have connection issues. Check the logs.',
-       'Yeah... about that.. Check the logs.'
+       'Yeah... about that.. Check the logs.',
+       'No can do. Check the logs.'
+       'Ran into trouble. See the logs.'
+       'Somethings not right. You should really check the logs.'
       ]
 
 paper_boy = [
@@ -244,6 +247,7 @@ def stutter(*s):
             time.sleep(0.02)
     time.sleep(dialogue_speed)
     print('\r')
+
 	
 def sprint(s):
     ss = s
@@ -260,6 +264,7 @@ def sprint(s):
 
     time.sleep(dialogue_speed)
     print('\r')
+
 
 def sprintV(ss):
     s = ss
@@ -286,7 +291,6 @@ def sprintV(ss):
     
     time.sleep(dialogue_speed)
     print('\r')
-
 
 
 def dialogue_speed_manager(action):

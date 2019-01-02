@@ -2,19 +2,20 @@
     ~[weather] ~[at?] @[location]
     ~[weather]
 
-%[find_info]('training': '870', 'testing': '12')
+%[find_info]('training': '8000', 'testing': '12')
     ~[inform_me] ~[about] @[subject]
     ~[show_me] @[subject]
+    ~[who-what] ~[a?] @[subject]
 
-%[find_more_info]('training': '610', 'testing': '12')
+%[find_more_info]('training': '3000', 'testing': '12')
     ~[more] ~[about] @[subject]
     ~[more]
 
-%[find_related_info]('training': '270', 'testing': '10')
+%[find_related_info]('training': '800', 'testing': '10')
     ~[occurances] ~[of] @[subject] 
 
-%[find_images]('training': '1000', 'testing': '10')
-    ~[display] ~[quantity?] ~[images] ~[of] @[subject]
+%[find_images]('training': '8000', 'testing': '10')
+    ~[display] ~[quantity?] ~[images] ~[of?] @[subject]
 
 ~[weather]
     weather
@@ -34,15 +35,40 @@
     find me anything to do
 
 ~[inform_me]
+    tel me
+    tll me
     tell me
+    wat do u know
+    wat do u knw
     what do you know
     tell me everything you know
+    tell me evrythng u know
+    tel me evrytng u knw
     fill me in
     get me up to speed
     inform me
     fill me in
     show me all
     inform
+    show me
+
+~[who-what]
+    who is
+    what is
+    what in gods name is
+    who the hell is
+    who the fuck is
+    what the fuck is
+    what are
+    what was
+    who was
+    what the fuck was
+    who the fuck was
+    what in gods name was
+    who in gods name was
+
+~[a]
+    a
 
 ~[display]
     show me
@@ -67,6 +93,7 @@
 
 ~[about]
     about
+    abt
     on
     of
 
@@ -110,7 +137,7 @@
     Toronto
     Butan
     Hawaii
-    Braamfontein, Johannesburg
+    Parktown, Johannesburg
     Durban
     Brooklyn
     Kimberly, South Africa
@@ -170,3 +197,47 @@
     Perron–Frobenius theorem
     Climate cycle
     Hamiltonian lattice gauge theory
+    United States presidential election, 2016 timeline
+    Russian interference in the 2016 United States elections
+    2016 United States election interference by Russia
+    Donald Trump presidential campaign, 2016
+    See the general list of legal topics regarding any legal topics outside of the area of tort law
+    Trump campaign–Russian meeting on June 9, 2016
+    Timeline of events related to Russian interference in the 2016 US presidential election
+    Presidency of Donald Trump
+    Donald Trump on social media     (22)
+    List of things named after Donald Trump
+    Russia–United States relations
+    Special Counsel investigation (2017–present)
+    Timeline of Russian interference in the 2016 United States elections
+    The Plot to Hack America, a 2016 book by Malcolm Nance about alleged Russian interference in the 2016     elections
+    Opinion polling on the Donald Trump administration
+    Republican Party presidential debates, 2016
+    Republican Party presidential debates and forums, 2016
+    2016 Republican National Convention
+    United States withdrawal from the Paris Agreement
+    United States presidential election, 2016, similar issue with Donald Trump winning by American issues over the working class
+    European countries by electricity consumption per person
+    Rhyming slang (e.g. Cockney rhyming slang)
+    Lock (computer science)
+    Nonnegative matrices
+    Systems ecology
+    Seismic risk
+    Fallacy of many questions
+    Atlantic hurricane seasons
+    Desiccation tolerance
+    Antonov An-12
+    Order of X
+    Recursion (computer science)
+    Fuzzy architectural spatial analysis
+    Land surface effects on climate
+    Scientific opinion on climate change
+    Ballistic Missile Defense Organization, an agency of the United States Department of Defense
+    Mass collaboration
+    Demographic history of the United States
+    World Heritage Site
+    Property manager
+    Black Holes
+    Pinetown
+    Pinetown (South Africa)
+    Pinetown, South Africa

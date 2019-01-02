@@ -64,7 +64,7 @@ hist = []
 consol = []
 
 for e in fff:         
-    if "user requested document " in e.lower():
+    if "equested document " in e.lower():
         hist.append(e)
 
 print('')
