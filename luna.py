@@ -882,7 +882,7 @@ def directions(destination=None, origin=None):
     """
     try:
         if not origin:
-            origin = guava()
+            origin = 'my+location'
         H();sprint('Charting a course to %s from %s.' % (destination.title(), origin.title()))
         webbrowser.open('https://www.google.com/maps/dir/%s/%s' % (origin, destination))
         controlCentre()
