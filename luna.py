@@ -2107,7 +2107,7 @@ def intent_and_entity_rerouter(text):
                     elif i['entity'] == 'destination':
                         destination = i['value']
             logging.info('Parsing direction query with destination: %s and origin: %s' % (destination, origin))
-            if destination not None:
+            if destination:
                 directions(destination, origin)
             else:
                 H(); sprint('No destination found.')
