@@ -877,21 +877,18 @@ def help_center():
     controlCentre()
 
 
-def directions(req):
+def directions(destination=None, origin=None):
     """Opens default browser and maps out possible routes between two geographic points.
     """
     try:
-        s = req.find('from')
-        destination = req[:s-1]
-        if 'from' in req:
-            source = req[s+5:]
-        else:
-            source = location_finder()
-        H();sprint('Charting a course to %s from %s.' % (destination.title(), source.title()))
-        webbrowser.open('https://www.google.com/maps/dir/%s/%s' % (source, destination))
+        if not origin:
+            origin = guava()
+        H();sprint('Charting a course to %s from %s.' % (destination.title(), origin.title()))
+        webbrowser.open('https://www.google.com/maps/dir/%s/%s' % (origin, destination))
         controlCentre()
     except Exception as e:
-        print(e)
+        logging.error(e)
+        H(); sprint(random.choice(paper_boy))
         controlCentre()
 
 
@@ -2066,6 +2063,7 @@ def dictionaryHelper(dictionary):
 
 
 def intent_and_entity_rerouter(text):
+
     THRESHOLD = 0.75
     nlu_response = interpreter.parse(text)
     logging.debug('NLU recieved text: %s' % text)
@@ -2074,23 +2072,41 @@ def intent_and_entity_rerouter(text):
         logging.info('text has gotten through threshold')
         intent = nlu_response['intent']['name']
         entities = nlu_response['entities']
+
         if intent == 'get_weather':
-            logging.info('Text has found to be weather. running weather()')
+            logging.info('Weather request acknowledged. Sending through designated path.')
             if entities:
                 weather(False, False, *[entities[0]['value']])
             else:
                 weather()
+
         elif intent == 'find_info':
             evaluate_subject(entities, text) # if subject does not exist, right of execution is passed to controlCentre()
             # TODO: consider how to make images and local lookup optional
             informant(entities[0]['value'].title(), True, 0, False)
+
         elif intent == 'find_images':
             threading.Thread(target=imageShow, args=(entities[0]['value'], 5,)).start()
             H(); sprint(random.choice(imdi))
             controlCentre()
+
         elif intent == 'find_related_info':
             evaluate_subject(entities, text)
             find_related(entities[0]['value'])
+
+        elif intent == 'a_to_b':
+            evaluate_subject(entities, text)
+            origin = None
+            destination = None
+            if len(entities) != 0:
+                for i in entities:
+                    if i['entity'] == 'source':
+                        origin = i['value']
+                    elif i['entity'] == 'destination':
+                        destination = i['value']
+            logging.info('Parsing direction query with destination: %s and origin: %s' % (destination, origin))
+            directions(destination, origin)
+
         else:
             if intent == 'find_more_info':
                 evaluate_subject(entities, text)
@@ -2286,9 +2302,6 @@ def controlCentre(*s):
 
         elif prompt == 'port':
             porter()
-
-        elif prompt.startswith('how do i get to '):
-            directions(prompt[16:])
 
         elif prompt.startswith('show me all '):
             nearby(prompt[12:])
