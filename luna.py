@@ -883,7 +883,7 @@ def directions(destination=None, origin=None):
     try:
         if not origin:
             origin = 'my+location'
-            H();sprint('Charting a course to %s.' % destination.title())
+            H(); sprint('Charting a course to %s.' % destination.title())
         else:
             H(); sprint('Charting a course to %s from %s.' % (destination.title(), origin.title()))
         os.system("gnome-terminal -e 'python -m webbrowser -t 'https://www.google.com/maps/dir/%s/%s''" % (origin, destination))
@@ -2107,7 +2107,10 @@ def intent_and_entity_rerouter(text):
                     elif i['entity'] == 'destination':
                         destination = i['value']
             logging.info('Parsing direction query with destination: %s and origin: %s' % (destination, origin))
-            directions(destination, origin)
+            if destination not None:
+                directions(destination, origin)
+            else:
+                H(); sprint('No destination found.')
 
         else:
             if intent == 'find_more_info':
