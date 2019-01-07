@@ -883,8 +883,10 @@ def directions(destination=None, origin=None):
     try:
         if not origin:
             origin = 'my+location'
-        H();sprint('Charting a course to %s from %s.' % (destination.title(), origin.title()))
-        webbrowser.open('https://www.google.com/maps/dir/%s/%s' % (origin, destination))
+            H();sprint('Charting a course to %s.' % destination.title())
+        else:
+            H(); sprint('Charting a course to %s from %s.' % (destination.title(), origin.title()))
+        os.system("gnome-terminal -e 'python -m webbrowser -t 'https://www.google.com/maps/dir/%s/%s''" % (origin, destination))
         controlCentre()
     except Exception as e:
         logging.error(e)
