@@ -2096,7 +2096,7 @@ def intent_and_entity_rerouter(text):
             evaluate_subject(entities, text)
             find_related(entities[0]['value'])
 
-        elif intent == 'a_to_b':
+        elif intent == 'directions':
             evaluate_subject(entities, text)
             origin = None
             destination = None
