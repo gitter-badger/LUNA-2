@@ -64,7 +64,7 @@ hist = []
 consol = []
 
 for e in fff:         
-    if "equested document " in e.lower():
+    if "requested document " in e.lower():
         hist.append(e)
 
 print('')
@@ -72,7 +72,7 @@ print('')
 for i in hist:                
     start = i.find('"')                        
     chronicle = i[start:].replace('.','').replace('"','').strip()
-    if chronicle not in consol:
+    if chronicle not in consol and chronicle != '':
     	del consol[:]
     	print(chronicle)
     	consol.append(chronicle)
