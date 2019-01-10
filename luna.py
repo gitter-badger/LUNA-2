@@ -1379,7 +1379,7 @@ def weather(void=False, api_request=False, *city):
 
         if city:
             a1 = "Temprature readings in %s range between " % city[0].title()
-            a2 = "c. Currently this position is at a "
+            a2 = ". Currently this position is at a "
 
         else:
             a1 = "Todays temperatures range between "
