@@ -879,6 +879,9 @@ def help_center():
 
 def directions(destination=None, origin=None):
     """Opens default browser and maps out possible routes between two geographic points.
+       params:
+           destination -> string; route destination
+           origin      -> string; route origin
     """
     try:
         if not origin:
@@ -890,6 +893,19 @@ def directions(destination=None, origin=None):
         controlCentre()
     except Exception as e:
         logging.error(e)
+        H(); sprint(random.choice(paper_boy))
+        controlCentre()
+
+
+def find_location(location_name):
+    """Plots the location of a specified place within google maps in default browser.
+       params:
+           location_name -> string; name of place whose location is sought.
+    """
+    try:
+        os.system("gnome-terminal -e 'python -m webbrowser -t 'https://www.google.com/maps/place/%s''" % location_name)
+        controlCentre()
+    except Exception as e:
         H(); sprint(random.choice(paper_boy))
         controlCentre()
 
@@ -2083,7 +2099,7 @@ def intent_and_entity_rerouter(text):
                 weather()
 
         elif intent == 'find_info':
-            evaluate_subject(entities, text) # if subject does not exist, right of execution is passed to controlCentre()
+            evaluate_entities(entities, text) # if subject does not exist, right of execution is passed to controlCentre()
             # TODO: consider how to make images and local lookup optional
             informant(entities[0]['value'].title(), True, 0, False)
 
@@ -2093,11 +2109,11 @@ def intent_and_entity_rerouter(text):
             controlCentre()
 
         elif intent == 'find_related_info':
-            evaluate_subject(entities, text)
+            evaluate_entities(entities, text)
             find_related(entities[0]['value'])
 
         elif intent == 'directions':
-            evaluate_subject(entities, text)
+            evaluate_entities(entities, text)
             origin = None
             destination = None
             if len(entities) != 0:
@@ -2112,15 +2128,19 @@ def intent_and_entity_rerouter(text):
             else:
                 H(); sprint('No destination found.')
 
+        elif intent == 'find_location':
+            evaluate_entities(entities, text)
+            find_location(entities[0]['value'])
+
         else:
             if intent == 'find_more_info':
-                evaluate_subject(entities, text)
+                evaluate_entities(entities, text)
                 informant(entities[0]['value'].title(), False, 0, True)
     else:
         controlCentre(*[text])
 
 
-def evaluate_subject(entities, text):
+def evaluate_entities(entities, text):
     """if entities is empty the user is notified and right of execution is passed
        to controlCentre(). Else, right of execution is returned to the caller.
     """
