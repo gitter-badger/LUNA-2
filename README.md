@@ -62,7 +62,7 @@ Most of these objectives have already been met to some degree save for anonymity
 This program uses a terminal client in front of a mongodb database. The current database loaded upon install is rather heavy. To mitigate this, a batch of smaller initial databases will be released, along with some logic that will install a database best suited to the host machines resources. Improvements will continually be made to make it lighter still.
 
 
-[![Alt text](data/media/screenshot2.png?raw=true "Screenshot of Luna 2")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot2.png)
+[![Alt text](data/media/screenshot2.png?raw=true "Screenshot of Luna 2")](https://github.com/FRTNX/LUNA/blob/master/data/media/screenshot2.png) [![Join the chat at https://gitter.im/LUNA-research-tool/community](https://badges.gitter.im/LUNA-research-tool/community.svg)](https://gitter.im/LUNA-research-tool/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 Contributions are welcome.
